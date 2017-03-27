@@ -109,6 +109,8 @@ def getAddr_from_standard_nodes():
     # Add nodes left to bootstrap_node_list_recieved_no_dups
 
     print 'node_list_recieved_getAddr len ', len(node_list_recieved_getAddr)
+    #TODO do this in one function
+    #Compares 3 lists and only if they are not currently in the list are they saved and used later on in this function
     storage = [item for item in node_list_recieved_getAddr if item not in live_node_list]
     storage2 = [item for item in storage if item not in dead_node_list]
     storage3 = [item for item in storage2 if item not in bootstrap_node_list_recieved_no_dups]
@@ -117,7 +119,6 @@ def getAddr_from_standard_nodes():
     ##Can use this for timing how long to find the whole network etc
     if len(storage3) == 0 :
         print 'No new nodes discovered from getAddr !!!'
-
 
     ##TODO Add logging of how many duplicate nodes was seen etc
 
@@ -130,8 +131,7 @@ def getAddr_from_standard_nodes():
     assert len(storage3) == 0
     assert len(bootstrap_node_list_recieved_no_dups) == len_before_merge # Make sure all values been added correctly
 
-
-    del node_list_recieved_getAddr[:] #Empty the recieved node list
+    del node_list_recieved_getAddr[:] #Empty the recieved node list (Not needed but make things more efficent)
     assert len(node_list_recieved_getAddr) == 0 #Make sure the array containing the nodes recieved is empty (should be in other arrays)
 
 
@@ -143,6 +143,14 @@ def get_Addr_response_time():
     response_time = int(min_node_respsonse_time_getAddr + (max_node_respsonse_time_getAddr - min_node_respsonse_time_getAddr) * pow(random(), 2)) # Set min and max in variables
     print 'response_time is ', response_time , ' milliseconds'
     return response_time
+
+
+
+
+def blockchain_download():
+    print 'in blockchain_download'
+    #TODO - Logic (Take the blockchain length, randomly select a value from 1 to x (each valye represent a block), TODO add malicious blocks, add to simulation time how long it would take to download the block thus the whole blockchain)
+    # Seperate this into multiple functions ( How many simulationous downloads etc (duplicate blocks etc))
 
 
 ######
