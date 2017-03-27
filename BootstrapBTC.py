@@ -51,7 +51,7 @@ DNS_server_timeout = 3000 # 30 seconds
 network_ip_node_size = 5000 # Number of IP addresses / nodes that have been seen on the network in the past 2 weeks
 blockchain_size = 100 # Number of confirmed blocks in the blockchain
 dns_average_response = 10000 # Average respsonse from a DNS query (Use real network data here)
-live_node_list_number_bootstrap = 1000 # Number of nodes a node must connect to and verify is online before downloading the blockchain
+live_node_list_number_bootstrap = 10 # Number of nodes a node must connect to and verify is online before downloading the blockchain
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
 
 min_node_respsonse_time_getAddr = 100 #100 milliseconds, quickest repsonse time seen during collection of data
@@ -63,7 +63,7 @@ live_node_list = [] #Array list of all live nodes
 dead_node_list = []  #Array list of all dead nodes
 bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 bootstrap_node_list_recieved_no_dups = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
-
+node_list_recieved_getAddr = [] # List of nodes recieved from a getAddr message (Not during the DNS stage), should always be empty before its called (Logic of getAddr_from_standard_nodes())
 
 #Move into calculations.py when ready
 #Number of nodes recieved (Bootstrap)
@@ -91,6 +91,51 @@ def number_of_duplicates_in_list():
     # print 'bootstrap_node_list_recieved AFTER removing duplicates', bootstrap_node_list_recieved_no_dups
     print (number_recieved - len(bootstrap_node_list_recieved_no_dups)), 'duplicate nodes recieved during bootstrapping (Can be multiples of the same node)' # TODO Log this data?
 
+
+#### TODO logic for getAddr from other nodes
+def getAddr_from_standard_nodes():
+    storage = []
+    storage2 = []
+    storage3 = []
+    # print 'getAddr_from_standard_nodes'
+    # print 'bootstrap_node_list_recieved before doing any logic (NOT DNS STAGE)' , bootstrap_node_list_recieved
+
+    #Generate a bunch of random (BUT VALID / SEEN) node addresses (assuming each indivual number is a unique node)
+    for i in range (average_getAdrr_no_node_response):
+        node_list_recieved_getAddr.append(rand.randrange(1,network_ip_node_size,1))
+
+    ## Now have a list full of nodes, need to compare them to the live / dead list and put them into the bootstrap_node_list_recieved_no_dups list
+    # Remove all nodes which appear in live_node_list, dead_node_list and bootstrap_node_list_recieved_no_dups
+    # Add nodes left to bootstrap_node_list_recieved_no_dups
+
+    print 'node_list_recieved_getAddr len ', len(node_list_recieved_getAddr)
+    storage = [item for item in node_list_recieved_getAddr if item not in live_node_list]
+    storage2 = [item for item in storage if item not in dead_node_list]
+    storage3 = [item for item in storage2 if item not in bootstrap_node_list_recieved_no_dups]
+
+    # TODO
+    ##Can use this for timing how long to find the whole network etc
+    if len(storage3) == 0 :
+        print 'No new nodes discovered from getAddr !!!'
+
+
+    ##TODO Add logging of how many duplicate nodes was seen etc
+
+    len_before_merge = len(bootstrap_node_list_recieved_no_dups) + len(storage3)
+
+    #Removes from list of recieved nodes to a list for bootstrap_node_list_recieved_no_dups nodes
+    while len(storage3) != 0:
+        bootstrap_node_list_recieved_no_dups.append((storage3.pop(0)))
+
+    assert len(storage3) == 0
+    assert len(bootstrap_node_list_recieved_no_dups) == len_before_merge # Make sure all values been added correctly
+
+
+    del node_list_recieved_getAddr[:] #Empty the recieved node list
+    assert len(node_list_recieved_getAddr) == 0 #Make sure the array containing the nodes recieved is empty (should be in other arrays)
+
+
+
 #Use this to calculate a repsonse time (Average ? - Live network data use here)
 def get_Addr_response_time():
     # print 'in get_Addr_response_time'
@@ -116,8 +161,11 @@ class Bootstrap(object):
         print 'bootstrap_node_list_recieved_no_dups',bootstrap_node_list_recieved_no_dups
     	no_live_connections = simpy.Store(env, capacity=client_connections) ## Number of live simulationous connections
         prod = env.process(connecting_to_nodes(env, no_live_connections, self))
-    	# clients = [env.process(client(i, env, no_live_connections, self)) for i in range(client_connections)]
 
+def blockchain_download_start(env, self):
+    print 'blockchain_download_start'
+    no_live_connections_bc = simpy.Store(env, capacity=client_connections) ## Number of live simulationous connections
+    bc_dl = env.process(blockchain_download(env, no_live_connections_bc, self))
 
 ### TODO - add in logging this data into a file of some sort
 def query_dns_servers(env, self):
@@ -162,8 +210,9 @@ def connecting_to_nodes(env, store, self):
     # sys.exit()
 
     while len(bootstrap_node_list_recieved_no_dups) > 0:
-        if len(live_node_list) == live_node_list_number_bootstrap: ## Causing a generation error not sure why atm
-            break
+        if len(live_node_list) == live_node_list_number_bootstrap:
+            blockchain_download_start(env,self)
+            # break
         print ('Number of live nodes connected to', len(live_node_list))
         print ('Number of nodes still to query', len(bootstrap_node_list_recieved_no_dups))
 
@@ -187,12 +236,23 @@ def connecting_to_nodes(env, store, self):
                 #Removes from list of recieved nodes to a list for LIVE nodes
                 live_node_list.append((bootstrap_node_list_recieved_no_dups.pop(0)))
 
+                getAddr_from_standard_nodes()
+
                 #TODO - add a way on generating more nodes recieved from the getAddr
 
-####################################################################
-####################################################################
+
+# #### Here the bootstrap process will attempt to connect to x many nodes using x simulationous connections and download the blockchain
+def blockchain_download(env, store, self):
+    print ('Attempting to download the bc at :', env.now)
+    # print 'Number of live nodes', len(live_node_list)
+    sys.exit()
 
 
+####################################################################
+####################################################################
+#
+# z = 0
+# for z in range(100)
 # Setup and start the simulation
 print('Starting bootstrap simulator')
 # print(random, type(random))
