@@ -1,35 +1,3 @@
-#### Bootstrap simulator to simulate the bootstrapping of nodes onto the BTC
-#### network - done following the bitcoin protocol and documentation
-####
-#### BTC chosen for the base bootstrap model due to all blockchain based
-#### networks currently using this bootstrap model
-####
-
-#### Variables - (Will add more when they are thought of)
-####    Blockchain Size
-####    Block size ? (Not sure yet if needed?)
-####    Number of nodes on the networks
-####    Number of DNS seeds
-####    Percentage of malicious nodes
-####    Network age
-####    Average block Size
-####    Average number of IP addresses recieved from getAddr
-####    Number / Percentage of non repsonding / dead nodes
-####    Bandwidth
-####    Number of new nodes joining (1, 100 etc)
-####    If node is new or previously been on the networks
-####    Number of nodes to be compromised to sybil attack bootstrap
-####    Amount of resources each node has (RAM, Bandwidth etc)
-
-#### Will store all data into a folder, and then each run will generate a new
-#### file (txt or tsv?) containing the measurements
-#### Measurements - (Will add more when they are thought of)
-####    Time taken (Download blockchain, find nodes etc)
-####    Resources used
-####    Log everything !
-
-#### The default request timeout is 30s
-#### Assuming time is in milliseconds
 
 import simpy
 import math
@@ -42,9 +10,7 @@ from math import *
 
 from Calculations import *
 
-
 ####    Variables   ####
-RANDOM_SEED = 42
 Number_DNS_Seeds = 3    # No. of DNS seed nodes
 client_connections = 8 # Max number of connections to live clients
 network_size = 3000 # Number of live nodes on the network
@@ -156,7 +122,7 @@ def get_Addr_response_time():
 ##############################################################################################################################################################################
 ##############################################################################################################################################################################
 ##############################################################################################################################################################################
-class Bootstrap(object):
+class blockchain_dl(object):
 
     def __init__(self, env):
         self.env = env
@@ -166,11 +132,8 @@ class Bootstrap(object):
 
     	yield self.env.process(query_dns_servers(env, self))
         number_of_duplicates_in_list()
-        print 'bootstrap_node_list_recieved_no_dups',bootstrap_node_list_recieved_no_dups
-
-        ##TODO - REWRITE THIS SO IT USES MORE THAN A SINGLE THREAD / CONNECTION (CURRENTLY NOT WORKING CORRECTLY)
     	no_live_connections = simpy.Store(env, capacity=client_connections) ## Number of live simulationous connections
-        prod = env.process(connecting_to_nodes(env, no_live_connections, self))
+        prod = env.process(blockchain_download(env, no_live_connections, self))
 
 
 ### TODO - add in logging this data into a file of some sort
@@ -182,11 +145,6 @@ def query_dns_servers(env, self):
 	    print('CheckIpDns servers left to query %d' % (int(Number_DNS_Seeds) - int(i)))
         #probability the DNS server is online
 	    DnsUp = DnsUpProbability()
-
-#### If DNS server is alive, add repsonse time for a getAddr request to the sim time,
-#### store a number of addresses recieved from the getAddr message, move onto the next DNS server
-#### When to stop ? - when x nodes are recieved or at a set time ? (60 seconds bootstrap time on BTC) ***Do this on the call not on the function?
-
     	    if DnsUp == 1: #DNS server alive
     	        	# print ('1')
                 yield self.env.timeout(dns_average_response) # Appends the dns server reponse (Avg) to the simulation time
@@ -203,66 +161,56 @@ def query_dns_servers(env, self):
     	      	yield env.timeout(DNS_server_timeout)
                 i = i + 1
 
+def blockchain_download(env, store, self):
+    print 'in blockchain_download'
 
-#### Here the bootstrap process will attempt to connect to x many nodes using x simulationous connections untill x live nodes are in the database
-def connecting_to_nodes(env, store, self):
-    print ('Connecting to nodes at simulation time :', env.now)
-    # print bootstrap_node_list_recieved_no_dups
-    print 'Number of nodes in list', len(bootstrap_node_list_recieved_no_dups)
-    print 'System time is ', env.now
+    print ('Attempting to download the bc at :', env.now)
+    #TODO - Logic (Take the blockchain length, randomly select a value from 1 to x (each valye represent a block), TODO add malicious blocks, add to simulation time how long it would take to download the block thus the whole blockchain)
 
-    # assert len(bootstrap_node_list_recieved_no_dups) > 0 #Make sures there nodes in the list else fails (Mostly for testing purposes)
+
+    # Create a random number from 1 - no of blocks
+    # Assume all are valid (for now)
+    # Random time (Based on real results) as to how long to download the block
+    # (Store into the array of downloaded blocks) - Sort out duplicates here
+    # Repeat untill number of blocks in the array = total blocks in the b/c
+
+    #Random generation of nodes (number represents a single node), from 1 to x for an average amount of nodes
+    block_number = rand.randrange(1,blockchain_size,1)
+
+    print 'block recieved no', block_number
+    #
+    # # Prevents duplication
+    if block_number not in blocks_recieved:
+        blocks_recieved.append(block_number)
+    #
+
+    print 'blocks_recieved', blocks_recieved
+    # block_response_time = get_block_response_time()
+    yield env.timeout(100)
+    #
+    #
+    # if len(blocks_recieved) == blockchain_size:
+    #     sys.exit()
+    #
+
+
+
+    # print 'Number of live nodes', len(live_node_list)
     # sys.exit()
 
-    while  len(live_node_list) != live_node_list_number_bootstrap:
-        # if len(live_node_list) == live_node_list_number_bootstrap:
-        #     sys.exit()
-        #     # break
-        print ('Number of live nodes connected to', len(live_node_list))
-        print ('Number of nodes still to query', len(bootstrap_node_list_recieved_no_dups))
 
-        live_dead = node_live_probability()
-        print ('Node is 1 up, 0 down :',live_dead)
-        # IF NOT ONLINE
-        if live_dead == 0:
-            yield env.timeout(query_connection_timeout) # How long to wait untill assume the server is offline
-            # write_to_text(('Node not online / responding'))
-            print ('Node not online / responding')
-
-            #Removes from list of recieved nodes to a list for dead nodes
-            dead_node_list.append((bootstrap_node_list_recieved_no_dups.pop(0)))
-
-        else:
-                #ONLINE / REPSONDING
-                print ('Node online')
-                response_time = get_Addr_response_time()
-                yield env.timeout(response_time)
-
-                #Removes from list of recieved nodes to a list for LIVE nodes
-                live_node_list.append((bootstrap_node_list_recieved_no_dups.pop(0)))
-
-                getAddr_from_standard_nodes()
-
-                #TODO - add a way on generating more nodes recieved from the getAddr
-
-####################################################################
-####################################################################
 #
 # z = 0
 # for z in range(100)
-
-random.seed(RANDOM_SEED)  # This helps reproducing the results
-
 # Setup and start the simulation
-print('Starting bootstrap simulator')
+print('Starting blockchain download simulator')
 # print(random, type(random))
 # print(random.__file__)
 # help(random)
 
 env = simpy.Environment()
-bootstrap = Bootstrap(env)
+blockchain_dl = blockchain_dl(env)
 
 env.run()
 print ("\n\n\n")
-print 'Dead node list', dead_node_list
 print ('Total simulation time : %d' %  env.now   + ' milliseconds')

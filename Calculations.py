@@ -29,12 +29,12 @@ network_ip_node_size = 5000 # Number of IP addresses / nodes that have been seen
 def DnsUpProbability():
     #print ('In DnsUpProbability')
     up = (0 if random() > Prob_DNS_UP else 1)
-    print up
+    # print up
     return up
 
 
 def node_live_probability():
     #print ('In node_live_probability')
     up = (0 if random() > Prob_DNS_UP else 1)
-    print up
+    # print up
     return up
