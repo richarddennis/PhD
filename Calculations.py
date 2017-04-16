@@ -31,11 +31,13 @@ bootstrap_node_list_recieved_no_dups = [] #List of all nodes addresses recieved 
 
 #Move into calculations.py when ready
 #Number of nodes recieved (Bootstrap)
-def bootstrap_node_getAddr():
+def bootstrap_node_getAddr(text_file):
     #Random generation of nodes (number represents a single node), from 1 to x for an average amount of nodes
     for i in range (average_getAdrr_no_node_response):
         bootstrap_node_list_recieved.append(rand.randrange(1,network_ip_node_size,1))
     print "bootstrap_node_list_recieved", len(bootstrap_node_list_recieved)
+    text_file.write("\nbootstrap_node_list_recieved " + str(len(bootstrap_node_list_recieved)))
+
 
 """Removes all the duplicates contained from the recieved list, so the recieved
 list is empty, the main list contains unique identities and it stores how many

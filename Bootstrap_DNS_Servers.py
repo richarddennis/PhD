@@ -10,9 +10,11 @@ Comparision ?
 """
 import simpy
 import math
+import time
 # from random import *
 import random
 import random as rand
+import os
 
 import sys, traceback
 from math import *
@@ -24,7 +26,7 @@ from Calculations import *
 # RANDOM_SEED = 42
 millseconds = 1000
 
-query_connection_timeout = 5000 # Timeout when checking a node is alive (milliseconds)
+query_connection_timeout = (30 * millseconds ) # Timeout when checking a node is alive (milliseconds)
 
 min_node_respsonse_time_getAddr = 100 #100 milliseconds, quickest repsonse time seen during collection of data
 max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
@@ -40,6 +42,26 @@ average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a no
 min_node_respsonse_time_getAddr = 100 #100 milliseconds, quickest repsonse time seen during collection of data
 max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
 
+text_file = open("DNS_Bootstrap_Results.txt", "a+")
+
+#Var
+def text_file_writing_variables(text_file, env):
+    text_file.write("\n\n\n##############################################################")
+    text_file.write("\n\nSimulation started at " + time.strftime("%c"))
+    text_file.write("\nSimulation start time " + str(env.now))
+    text_file.write("\nVariables used in this expirement\n")
+    text_file.write("\nquery_connection_timeout " + str(query_connection_timeout))
+    text_file.write("\nmin_node_respsonse_time_getAddr " + str(min_node_respsonse_time_getAddr))
+    text_file.write("\nmax_node_respsonse_time_getAddr " + str(max_node_respsonse_time_getAddr))
+    text_file.write("\nNumber_DNS_Seeds (Starts at 0) "+ str(Number_DNS_Seeds))
+    text_file.write("\nclient_connections " + str( client_connections))
+    text_file.write("\nquery_connection_timeout " + str(query_connection_timeout))
+    text_file.write("\nDNS_server_timeout " + str(DNS_server_timeout))
+    text_file.write("\ndns_average_response " + str(dns_average_response))
+    text_file.write("\naverage_getAdrr_no_node_response " + str(average_getAdrr_no_node_response))
+    text_file.write("\nmin_node_respsonse_time_getAddr " + str(min_node_respsonse_time_getAddr))
+    text_file.write("\nmax_node_respsonse_time_getAddr " + str(max_node_respsonse_time_getAddr))
+
 
 def get_Addr_response_time():
     "non linear distribution where values close to min are more frequent"
@@ -49,7 +71,7 @@ def get_Addr_response_time():
 #Calls logic from Calculations.py
 def getAddr_logic():
     # Server responded with X number of nodes
-    bootstrap_node_getAddr()
+    bootstrap_node_getAddr(text_file)
     number_of_duplicates_in_list()
 
 
@@ -72,6 +94,7 @@ class Bootstrap_DNS(object):
     def dns_node_timeout(self, DNS):
         "Timeout if the DNS node is offine"
         print "DNS node offline"
+        text_file.write("\nDNS node offline")
         yield self.env.timeout(DNS_server_timeout)
 
 def connection_request(env, name, cw):
@@ -81,20 +104,22 @@ def connection_request(env, name, cw):
     and waits for it to finish, once complete the proccess is terminated and never re started
     """
 
-
     "probability the DNS server is online"
     DnsUp = DnsUpProbability()
     print('%s is started at %.2f.' % (name, env.now))
+    text_file.write("\n%s is started at %.2f." % (name, env.now))
     ## 1 online, 0 offline
     if DnsUp == 0:
         with cw.machine.request() as request:
             print 'DNS DOWN %s' % (name)
+            text_file.write("\nDNS DOWN %s" % (name))
             yield request
             before = env.now
             # print('%s is DOWN and starts the proccess at %.2f.' % (name, env.now))
             yield env.process(cw.dns_node_timeout(name))
             after = env.now
             assert (after - before) == DNS_server_timeout  # Make sure the DNS time out has been accurately added
+            text_file.write("\n%s is DOWN and completes and terminates at %.2f." % (name, env.now))
             print('%s is DOWN and completes and terminates at %.2f.' % (name, env.now))
     else:
         with cw.machine.request() as request:
@@ -102,6 +127,7 @@ def connection_request(env, name, cw):
             getAddr_logic() # Function which contains all the logic for the GetAddr
             # print('connection number %s opens a connection at %.2f.' % (name, env.now))
             yield env.process(cw.get_Addr(name))
+            text_file.write("\n%s completes and terminates at %.2f." % (name, env.now))
             print('%s completes and terminates at %.2f.' % (name, env.now))
 
 
@@ -117,7 +143,9 @@ def setup(env, client_connections):
 #Else create the max simulationous connections and create a connection every x milliseconds untill number of connections == number of servers
 
     if Number_DNS_Seeds <= int(client_connections):
-        print "Les seeds than needed connections"
+        print "Less seeds than needed connections"
+        text_file.write("\n\nLess seeds than needed connections")
+
         for i in range(Number_DNS_Seeds):
             env.process(connection_request(env, '%d' % i, bootsrap_dns))
     else:
@@ -130,29 +158,19 @@ def setup(env, client_connections):
             env.process(connection_request(env, '%d' % i, bootsrap_dns))
 
 # Setup and start the simulation
+now = time.strftime("%c")
+
 print('Starting bootstrap DNS simulator')
-print ("\n\n\n")
-print "Variables used in this expirement"
 print ("\n")
-print "query_connection_timeout" , query_connection_timeout
-print "min_node_respsonse_time_getAddr", min_node_respsonse_time_getAddr
-print "max_node_respsonse_time_getAddr", max_node_respsonse_time_getAddr
-print "Number_DNS_Seeds (Starts at 0)", Number_DNS_Seeds
-print "client_connections", client_connections
-print "query_connection_timeout", query_connection_timeout
-print "DNS_server_timeout", DNS_server_timeout
-print "dns_average_response",dns_average_response
-print "average_getAdrr_no_node_response", average_getAdrr_no_node_response
-print "min_node_respsonse_time_getAddr", min_node_respsonse_time_getAddr
-print "max_node_respsonse_time_getAddr", max_node_respsonse_time_getAddr
-print ("\n\n")
 
 # Create an environment and start the setup process
 env = simpy.Environment()
 env.process(setup(env, client_connections))
 
+text_file_writing_variables(text_file, env)
+
 # Execute!
 env.run()
-print ("\n\n\n")
-print ('Total simulation time : %d' %  env.now   + ' milliseconds')
-# env.run(until=SIM_TIME) #Run untill simulation end time - NEED TO CHANGE THIS / REMOVE as simulation end depends on the network
+print ("\n")
+print('Total simulation time : %d' %  env.now   + ' milliseconds')
+text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
