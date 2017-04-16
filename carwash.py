@@ -15,6 +15,11 @@ What is the DNS bootstrap proccess?
     TODO
 
     Stop when X nodes are recieved ? - or wait untill all nodes have been attempted to be queried
+    What if X nodes is not recieved ? - Query more DNS nodes etc - could do some modifications here
+
+    Add in correct data into the Variables
+    Start logging this data
+    Comparision ?
 
 """
 import simpy
@@ -30,16 +35,12 @@ from Calculations import *
 
 
 # RANDOM_SEED = 42
-
-SIM_TIME = 2000    # Simulation time in minutes
-
 query_connection_timeout = 5000 # Timeout when checking a node is alive (milliseconds)
 
 min_node_respsonse_time_getAddr = 100 #100 milliseconds, quickest repsonse time seen during collection of data
 max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
 
-
-Number_DNS_Seeds = 3    # No. of DNS seed nodes
+Number_DNS_Seeds = 20    # No. of DNS seed nodes  ##REMEMBER COUNT STARTS FROM 0 !! SO 2 IS REALLY 3
 client_connections = 8 # Max number of connections to live clients
 
 query_connection_timeout = 500 # Timeout when checking a node is alive (milliseconds)
@@ -50,47 +51,13 @@ average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a no
 min_node_respsonse_time_getAddr = 100 #100 milliseconds, quickest repsonse time seen during collection of data
 max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
 
-####    Storage Variables    ####
-
-bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
-bootstrap_node_list_recieved_no_dups = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
-
 
 def get_Addr_response_time():
     "non linear distribution where values close to min are more frequent"
     response_time = int(min_node_respsonse_time_getAddr + (max_node_respsonse_time_getAddr - min_node_respsonse_time_getAddr) * pow(rand.random(), 2)) # Set min and max in variables
     return response_time
 
-#Move into calculations.py when ready
-#Number of nodes recieved (Bootstrap)
-def bootstrap_node_getAddr():
-    #Random generation of nodes (number represents a single node), from 1 to x for an average amount of nodes
-    for i in range (average_getAdrr_no_node_response):
-        bootstrap_node_list_recieved.append(rand.randrange(1,network_ip_node_size,1))
-
-"""Removes all the duplicates contained from the recieved list, so the recieved
-list is empty, the main list contains unique identities and it stores how many
-duplicates were there, this is run every getAddr message"""
-def number_of_duplicates_in_list():
-    # print 'len bootstrap_node_list_recieved BEFORE removing duplicates', len(bootstrap_node_list_recieved)
-    # print 'bootstrap_node_list_recieved BEFORE removing duplicates', bootstrap_node_list_recieved
-    number_recieved = len(bootstrap_node_list_recieved)
-    bootstrap_node_list_recieved_before = len(bootstrap_node_list_recieved_no_dups)
-    i = dict.fromkeys(bootstrap_node_list_recieved).keys()
-    #Removes all the values from i to the bootstrap_node_list_recieved_no_dups variable
-    x = 0
-    while x < len(i):
-        bootstrap_node_list_recieved_no_dups.append(i.pop(0))
-        x = x + 1
-    # print 'len bootstrap_node_list_recieved AFTER removing duplicates', len(bootstrap_node_list_recieved_no_dups)
-    assert len(bootstrap_node_list_recieved_no_dups) >= bootstrap_node_list_recieved_before
-    # print 'bootstrap_node_list_recieved AFTER removing duplicates', bootstrap_node_list_recieved_no_dups
-    # print (number_recieved - len(bootstrap_node_list_recieved_no_dups)), 'duplicate nodes recieved during bootstrapping (Can be multiples of the same node)' # TODO Log this data?
-
-
-
-##TODO add logic here for dealing with the recieved nodes from the getAddr
-##TODO add logic to deal with duplicates nodes in the list etc
+#Calls logic from Calculations.py
 def getAddr_logic():
     # Server responded with X number of nodes
     bootstrap_node_getAddr()
@@ -124,12 +91,9 @@ def connection_request(env, name, cw):
     It then starts the connection to a node and requests a get_addr
     and waits for it to finish, once complete the proccess is terminated and never re started
     """
-    print name
-    # if int(name) > Number_DNS_Seeds: #Makes sure only the DNS nodes are quired even if there are more live connections ready
-    #     print "Completed querying all DNS nodes"
-    #     sys.exit()
-    # else:
-    #probability the DNS server is online
+
+
+    "probability the DNS server is online"
     DnsUp = DnsUpProbability()
     print('%s is started at %.2f.' % (name, env.now))
     ## 1 online, 0 offline
@@ -146,7 +110,7 @@ def connection_request(env, name, cw):
     else:
         with cw.machine.request() as request:
             yield request
-            getAddr_logic() # FUnction which contains all the logic for the GetAddr
+            getAddr_logic() # Function which contains all the logic for the GetAddr
             # print('connection number %s opens a connection at %.2f.' % (name, env.now))
             yield env.process(cw.get_Addr(name))
             print('%s completes and terminates at %.2f.' % (name, env.now))
@@ -159,26 +123,61 @@ def setup(env, client_connections):
 
     # Create the DNS bootsrap
     bootsrap_dns = Bootstrap_DNS(env, client_connections)
-    # Create x initial connections to DNS servers
 
-    #TODO Create a connection one at a time rather than all at once, will prevent 8 connections for 3 DNS servers for example -- i think
-    for i in range(client_connections):
-        if i > Number_DNS_Seeds:
-            break
-        else:
+##If the number of servers is less than the number of simulationous connections, only create that many connections and do not spool anymore
+#Else create the max simulationous connections and create a connection every x milliseconds untill number of connections == number of servers
+
+    if Number_DNS_Seeds <= int(client_connections):
+        print "Les seeds than needed connections"
+        for i in range(Number_DNS_Seeds):
+            env.process(connection_request(env, '%d' % i, bootsrap_dns))
+    else:
+        for i in range(client_connections):
+            env.process(connection_request(env, '%d' % i, bootsrap_dns))
+        while i < Number_DNS_Seeds:
+            yield env.timeout(min_node_respsonse_time_getAddr)
+            i += 1
+            print "Creating / readying a new connection", i
             env.process(connection_request(env, '%d' % i, bootsrap_dns))
 
-#After every min timeout it will get ready another connection to be used, unless the number of connections is more than the DNS seeds as in which case this will not be needed
-    while True:
-        yield env.timeout(min_node_respsonse_time_getAddr)
-        i += 1
-        if i < Number_DNS_Seeds:
-            # print "Creating / readying a new connection", i
-            env.process(connection_request(env, '%d' % i, bootsrap_dns))
+
+
+
+    #
+    # # Create x initial connections to DNS servers
+    # for i in range(client_connections):
+    #     if i > Number_DNS_Seeds:
+    #         break
+    #     else:
+    #         env.process(connection_request(env, '%d' % i, bootsrap_dns))
+#
+# #After every min timeout it will get ready another connection to be used, unless the number of connections is more than the DNS seeds as in which case this will not be needed
+# #Need to replace the while true loop to stop the simulation running
+#     while True:
+#         yield env.timeout(min_node_respsonse_time_getAddr)
+#         i += 1
+#         if i < Number_DNS_Seeds:
+#         # print "Creating / readying a new connection", i
+#             env.process(connection_request(env, '%d' % i, bootsrap_dns))
 
 
 # Setup and start the simulation
-# rand.seed(RANDOM_SEED)  # This helps reproducing the results
+print('Starting bootstrap DNS simulator')
+print ("\n\n\n")
+print "Variables used in this expirement"
+print ("\n")
+print "query_connection_timeout" , query_connection_timeout
+print "min_node_respsonse_time_getAddr", min_node_respsonse_time_getAddr
+print "max_node_respsonse_time_getAddr", max_node_respsonse_time_getAddr
+print "Number_DNS_Seeds (Starts at 0)", Number_DNS_Seeds
+print "client_connections", client_connections
+print "query_connection_timeout", query_connection_timeout
+print "DNS_server_timeout", DNS_server_timeout
+print "dns_average_response",dns_average_response
+print "average_getAdrr_no_node_response", average_getAdrr_no_node_response
+print "min_node_respsonse_time_getAddr", min_node_respsonse_time_getAddr
+print "max_node_respsonse_time_getAddr", max_node_respsonse_time_getAddr
+print ("\n\n")
 
 # Create an environment and start the setup process
 env = simpy.Environment()
@@ -186,4 +185,6 @@ env.process(setup(env, client_connections))
 
 # Execute!
 env.run()
+print ("\n\n\n")
+print ('Total simulation time : %d' %  env.now   + ' milliseconds')
 # env.run(until=SIM_TIME) #Run untill simulation end time - NEED TO CHANGE THIS / REMOVE as simulation end depends on the network
