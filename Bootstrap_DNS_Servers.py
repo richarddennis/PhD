@@ -36,7 +36,6 @@ client_connections = 8 # Max number of connections to live clients
 
 query_connection_timeout = 500 # Timeout when checking a node is alive (milliseconds)
 DNS_server_timeout = (30 * millseconds ) # 30 seconds
-dns_average_response = 10000 # Average respsonse from a DNS query (Use real network data here)
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
 
 min_node_respsonse_time_getAddr = 100 #100 milliseconds, quickest repsonse time seen during collection of data
@@ -57,7 +56,6 @@ def text_file_writing_variables(text_file, env):
     text_file.write("\nclient_connections " + str( client_connections))
     text_file.write("\nquery_connection_timeout " + str(query_connection_timeout))
     text_file.write("\nDNS_server_timeout " + str(DNS_server_timeout))
-    text_file.write("\ndns_average_response " + str(dns_average_response))
     text_file.write("\naverage_getAdrr_no_node_response " + str(average_getAdrr_no_node_response))
     text_file.write("\nmin_node_respsonse_time_getAddr " + str(min_node_respsonse_time_getAddr))
     text_file.write("\nmax_node_respsonse_time_getAddr " + str(max_node_respsonse_time_getAddr))
@@ -131,6 +129,8 @@ def connection_request(env, name, cw):
             print('%s completes and terminates at %.2f.' % (name, env.now))
 
 
+
+
 def setup(env, client_connections):
     """Create the intial connections, then keep creating a connection every x
     millisecond (Connection not live but spooled ready to be used *Does not
@@ -173,4 +173,8 @@ text_file_writing_variables(text_file, env)
 env.run()
 print ("\n")
 print('Total simulation time : %d' %  env.now   + ' milliseconds')
+text_file.write('\n\nbootstrap_node_list_recieved ' + str(len(bootstrap_node_list_recieved)))
+text_file.write('\nbootstrap_node_list_recieved_no_dups ' + str(len(bootstrap_node_list_recieved_no_dups)))
+
+
 text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')

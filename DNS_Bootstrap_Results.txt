@@ -1,0 +1,36 @@
+
+
+
+##############################################################
+
+Simulation started at Sun Apr 16 21:27:35 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 500
+min_node_respsonse_time_getAddr 100
+max_node_respsonse_time_getAddr 499
+Number_DNS_Seeds (Starts at 0) 3
+client_connections 8
+query_connection_timeout 500
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 100
+max_node_respsonse_time_getAddr 499
+
+Less seeds than needed connections
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+0 completes and terminates at 111.00.
+1 completes and terminates at 262.00.
+2 completes and terminates at 490.00.
+
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved_no_dups 289
+
+
+Total simulation time : 490 milliseconds

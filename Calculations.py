@@ -28,6 +28,7 @@ network_ip_node_size = 5000 # Number of IP addresses / nodes that have been seen
 bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 bootstrap_node_list_recieved_no_dups = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 
+min_nodes_recieved_before_dns_boot_quit = 500 # Lowest number of NON duplicate nodes to be recieved untill the DNS bootstrap proccess can finish
 
 #Move into calculations.py when ready
 #Number of nodes recieved (Bootstrap)
