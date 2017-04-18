@@ -53,8 +53,11 @@ def text_file_writing_variables(text_file, env):
     text_file.write("\n\nSimulation started at " + time.strftime("%c"))
     text_file.write("\nSimulation start time " + str(env.now))
     text_file.write("\nVariables used in this expirement\n")
-
-
+    text_file.write("\nquery_connection_timeout " + str(query_connection_timeout))
+    text_file.write("\nmin_node_respsonse_time_getAddr " + str(min_node_respsonse_time_getAddr))
+    text_file.write("\nmax_node_respsonse_time_getAddr " + str(max_node_respsonse_time_getAddr))
+    text_file.write("\nclient_connections " + str( client_connections))
+    text_file.write("\naverage_getAdrr_no_node_response " + str(average_getAdrr_no_node_response))
 
 
 class Bootstrap_DNS(object):

@@ -46,11 +46,9 @@ def text_file_writing_variables(text_file, env):
     text_file.write("\nmax_node_respsonse_time_getAddr " + str(max_node_respsonse_time_getAddr))
     text_file.write("\nNumber_DNS_Seeds (Starts at 0) "+ str(Number_DNS_Seeds))
     text_file.write("\nclient_connections " + str( client_connections))
-    text_file.write("\nquery_connection_timeout " + str(query_connection_timeout))
     text_file.write("\nDNS_server_timeout " + str(DNS_server_timeout))
     text_file.write("\naverage_getAdrr_no_node_response " + str(average_getAdrr_no_node_response))
-    text_file.write("\nmin_node_respsonse_time_getAddr " + str(min_node_respsonse_time_getAddr))
-    text_file.write("\nmax_node_respsonse_time_getAddr " + str(max_node_respsonse_time_getAddr))
+
 
 
 def get_Addr_response_time():
