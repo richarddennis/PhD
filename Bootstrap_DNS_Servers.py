@@ -1,10 +1,40 @@
 """
-TODO
 
 Stop when X nodes are recieved ? - or wait untill all nodes have been attempted to be queried
 What if X nodes is not recieved ? - Query more DNS nodes etc - could do some modifications here
 
 """
+"""
+
+*When is the boostrappng proccess really done ? - need to define this
+                            - after a set peroid of time
+                            - After x nodes has been recieved
+                            - After x node queried
+        Technincally only a single node online needs to be contactable for this system to work
+
+Code read for expirements to run (Do them now or as more code is done?)
+
+Expirements to do
+
+    Standard Bitcoin model 3 DNS servers
+        Variables to change
+            Probability of DNS servers being up (simulate a DDOS attack against the DNS (Work out the cost of such an attack))
+            Number of DNS servers ? (Don't go crazy, but varry this from 1 - x?)
+            Number of nodes recieved back (average) (Could vary this a lot so sometimes get 10 others get 500 etc) - Resource impact (Bandwidth etc)
+            Number of connections (Max) - no good until DNS server > 8 (Resource impact again)
+            Malicious DNS ? - how to sim this? (Number of duplicate / fake nodes?)
+
+    Our model - No set DNS servers
+        Try to code the pool idea ! - how to simulate this ? TODO
+        Variables to change
+            Number of DNS servers
+            Connections at one time
+            Probability they are up
+            Nodes recieved
+            malicious nodes - how they can effect it
+"""
+
+
 import simpy
 import math
 import time

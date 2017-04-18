@@ -6,6 +6,36 @@ during the bootstrapping proccess if they are online or not
 
 """
 
+
+
+"""
+Expirements :
+
+Time taken to query the entire network for all live nodes
+Time take to find x live nodes
+Average online / offline nodes
+Impact more / less DNS nodes has on the bootstrap time
+Percentage of duplicate nodes recieved
+Number of simulationous connections effect it
+Low resource users
+
+
+TODO ------ How malicious nodes could attack this process
+                How to code it basically
+                    How to determine malicious nodes
+            How to do turnover of nodes?
+
+How many nodes are needed to contact before the whole network is discovered
+Does network diversity matter? - can we simulate this some how (timings etc)
+
+
+How is our model different from Bitcoin
+Smaller messages = lower time ? - test this assumption
+
+What is the point of this bit ? - do we do anything different
+
+"""
+
 import simpy
 import math
 import time
@@ -71,6 +101,20 @@ class Bootstrap_DNS(object):
 
 
 
+def setup(env, client_connections):
+    """Create the intial connections, then keep creating a connection every x
+    millisecond (Connection not live but spooled ready to be used *Does not
+    effect the timing etc) """
+
+    # Create the DNS bootsrap
+    bootsrap_dns = Bootstrap_DNS(env, client_connections)
+
+"""
+Create x (client_connections),
+create new connections every x millisecond (Can create as many as possible as its just getting them ready (doesn't effect simulation time))
+When/how to stop ? - do it untill every node is queired ?
+"""
+
 
 
 def Bootstrap_node_online_test_simulation():
@@ -86,17 +130,12 @@ def Bootstrap_node_online_test_simulation():
     env.process(setup(env, client_connections))
 
     text_file_writing_variables(text_file, env)
-    #
-    #     # Execute!
-    #     env.run()
-    #     print ("\n")
-    #     print('Total simulation time : %d' %  env.now   + ' milliseconds')
-    #     print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
-    #
-    #     print ('len(bootstrap_node_list_recieved_no_dups)', len(bootstrap_node_list_recieved_no_dups))
-    #
-    #     text_file.write('\n\nbootstrap_node_list_recieved ' + str(len(bootstrap_node_list_recieved)))
-    #     text_file.write('\nbootstrap_node_list_recieved_no_dups ' + str(len(bootstrap_node_list_recieved_no_dups)))
-    #     text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
-    #     text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
-    #     return env.now
+    # Execute!
+    env.run()
+    print ("\n")
+    print('Total simulation time : %d' %  env.now   + ' milliseconds')
+    print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+
+    text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
+    text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+    return env.now
