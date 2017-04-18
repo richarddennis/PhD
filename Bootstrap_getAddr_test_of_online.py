@@ -18,12 +18,22 @@ import sys, traceback
 from math import *
 
 from Calculations import *
-from Bootstrap_DNS_Servers import *
-
-"1 SECOND IS 1000 MILLISECONDS"
 
 ### TODO - WHAT VARIABLES DO I NEED TO COLLECT?
 
+"1 SECOND IS 1000 MILLISECONDS"
+# RANDOM_SEED = 42
+milliseconds = 1000
+
+query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
+
+min_node_respsonse_time_getAddr = 500 #500 milliseconds, quickest repsonse time seen during collection of data
+max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
+
+client_connections = 8 # Max number of connections to live clients
+
+DNS_server_timeout = (30 * milliseconds ) # 30 seconds
+average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
 
 ####    Storage Variables    ####
 live_node_list = [] #Array list of all live nodes
@@ -34,10 +44,33 @@ dead_node_list = []  #Array list of all dead nodes
 Start at new simulation time or carry on ? - could do either set up would be the same
 
 """
+text_file = open("Bootstrap_getAddr_test_of_online.txt", "a+")
+
+
+#Var
+def text_file_writing_variables(text_file, env):
+    text_file.write("\n\n\n##############################################################")
+    text_file.write("\n\nSimulation started at " + time.strftime("%c"))
+    text_file.write("\nSimulation start time " + str(env.now))
+    text_file.write("\nVariables used in this expirement\n")
 
 
 
-def Bootstrap_node_online_test_simulation(sim_time_start):
+
+class Bootstrap_DNS(object):
+    """Number of parallel connections , client_connections - LIMITED !
+    """
+    def __init__(self, env, client_connections):
+        self.env = env
+        self.machine = simpy.Resource(env, client_connections)
+        # self.rand_delay = rand_delay
+
+
+
+
+
+
+def Bootstrap_node_online_test_simulation():
     # Setup and start the simulation
     now = time.strftime("%c")
 
@@ -45,12 +78,11 @@ def Bootstrap_node_online_test_simulation(sim_time_start):
     print('Starting the simulator to test if nodes are online')
     print ("\n")
 
-    # Create an environment and start the setup process
+    # # Create an environment and start the setup process
     env = simpy.Environment()
+    env.process(setup(env, client_connections))
 
-    # env.process(setup(env, client_connections))
-    #
-    #     text_file_writing_variables(text_file, env)
+    text_file_writing_variables(text_file, env)
     #
     #     # Execute!
     #     env.run()

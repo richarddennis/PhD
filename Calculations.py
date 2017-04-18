@@ -50,7 +50,7 @@ def bootstrap_node_getAddr(text_file):
 list is empty, the main list contains unique identities and it stores how many
 duplicates were there, this is run every getAddr message"""
 
-def number_of_duplicates_in_list():
+def number_of_duplicates_in_list(text_file):
     global flag
 
     number_recieved = len(bootstrap_node_list_recieved)
@@ -62,6 +62,10 @@ def number_of_duplicates_in_list():
             bootstrap_node_list_recieved_no_dups.append(i)
     assert len(bootstrap_node_list_recieved_no_dups) >= bootstrap_node_list_recieved_before
     if  len(bootstrap_node_list_recieved_no_dups) >= min_node_to_complete_boot_strap  and flag is False:
+        text_file.write("\n\n\n")
+        text_file.write("recieved required nodes")
+        text_file.write("\n\n\n")
+
         print "\n\n\n"
         print "recieved required nodes"
         print "\n\n\n"

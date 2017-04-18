@@ -30,7 +30,6 @@ max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of t
 Number_DNS_Seeds = 30    # No. of DNS seed nodes  ##REMEMBER COUNT STARTS FROM 0 !! SO 2 IS REALLY 3
 client_connections = 8 # Max number of connections to live clients
 
-query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
 DNS_server_timeout = (30 * milliseconds ) # 30 seconds
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
 
@@ -64,7 +63,7 @@ def get_Addr_response_time():
 def getAddr_logic():
     # Server responded with X number of nodes
     bootstrap_node_getAddr(text_file)
-    number_of_duplicates_in_list()
+    number_of_duplicates_in_list(text_file)
 
 
 class Bootstrap_DNS(object):
