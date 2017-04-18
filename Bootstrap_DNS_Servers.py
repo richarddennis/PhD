@@ -3,9 +3,6 @@ TODO
 
 Stop when X nodes are recieved ? - or wait untill all nodes have been attempted to be queried
 What if X nodes is not recieved ? - Query more DNS nodes etc - could do some modifications here
-Add in correct data into the Variables
-Start logging this data
-Comparision ?
 
 """
 import simpy
@@ -22,24 +19,20 @@ from math import *
 from Calculations import *
 
 "1 SECOND IS 1000 MILLISECONDS"
-
 # RANDOM_SEED = 42
-millseconds = 1000
+milliseconds = 1000
 
-query_connection_timeout = (30 * millseconds ) # Timeout when checking a node is alive (milliseconds)
+query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
 
-min_node_respsonse_time_getAddr = 100 #100 milliseconds, quickest repsonse time seen during collection of data
+min_node_respsonse_time_getAddr = 500 #500 milliseconds, quickest repsonse time seen during collection of data
 max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
 
-Number_DNS_Seeds = 3    # No. of DNS seed nodes  ##REMEMBER COUNT STARTS FROM 0 !! SO 2 IS REALLY 3
+Number_DNS_Seeds = 30    # No. of DNS seed nodes  ##REMEMBER COUNT STARTS FROM 0 !! SO 2 IS REALLY 3
 client_connections = 8 # Max number of connections to live clients
 
-query_connection_timeout = 500 # Timeout when checking a node is alive (milliseconds)
-DNS_server_timeout = (30 * millseconds ) # 30 seconds
+query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
+DNS_server_timeout = (30 * milliseconds ) # 30 seconds
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
-
-min_node_respsonse_time_getAddr = 100 #100 milliseconds, quickest repsonse time seen during collection of data
-max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
 
 text_file = open("DNS_Bootstrap_Results.txt", "a+")
 
@@ -64,6 +57,7 @@ def text_file_writing_variables(text_file, env):
 def get_Addr_response_time():
     "non linear distribution where values close to min are more frequent"
     response_time = int(min_node_respsonse_time_getAddr + (max_node_respsonse_time_getAddr - min_node_respsonse_time_getAddr) * pow(rand.random(), 2)) # Set min and max in variables
+    assert response_time >= min_node_respsonse_time_getAddr
     return response_time
 
 #Calls logic from Calculations.py
@@ -157,24 +151,29 @@ def setup(env, client_connections):
             print "Creating / readying a new connection", i
             env.process(connection_request(env, '%d' % i, bootsrap_dns))
 
-# Setup and start the simulation
-now = time.strftime("%c")
+def Bootstrap_DNS_Servers_simulation_call():
+    # Setup and start the simulation
+    now = time.strftime("%c")
 
-print('Starting bootstrap DNS simulator')
-print ("\n")
+    print('Starting bootstrap DNS simulator')
+    print ("\n")
 
-# Create an environment and start the setup process
-env = simpy.Environment()
-env.process(setup(env, client_connections))
+    # Create an environment and start the setup process
+    env = simpy.Environment()
+    env.process(setup(env, client_connections))
 
-text_file_writing_variables(text_file, env)
+    text_file_writing_variables(text_file, env)
 
-# Execute!
-env.run()
-print ("\n")
-print('Total simulation time : %d' %  env.now   + ' milliseconds')
-text_file.write('\n\nbootstrap_node_list_recieved ' + str(len(bootstrap_node_list_recieved)))
-text_file.write('\nbootstrap_node_list_recieved_no_dups ' + str(len(bootstrap_node_list_recieved_no_dups)))
+    # Execute!
+    env.run()
+    print ("\n")
+    print('Total simulation time : %d' %  env.now   + ' milliseconds')
+    print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
 
+    print ('len(bootstrap_node_list_recieved_no_dups)', len(bootstrap_node_list_recieved_no_dups))
 
-text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
+    text_file.write('\n\nbootstrap_node_list_recieved ' + str(len(bootstrap_node_list_recieved)))
+    text_file.write('\nbootstrap_node_list_recieved_no_dups ' + str(len(bootstrap_node_list_recieved_no_dups)))
+    text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
+    text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+    return env.now

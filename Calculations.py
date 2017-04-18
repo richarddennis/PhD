@@ -54,6 +54,9 @@ def number_of_duplicates_in_list():
             bootstrap_node_list_recieved_no_dups.append(i)
     assert len(bootstrap_node_list_recieved_no_dups) >= bootstrap_node_list_recieved_before
 
+#How many nodes (No duplicates) should be recived untill the simulation terminates ?
+#Way to stop the simualtion once x unique nodes have been recieved
+def node_list_amount_received():
 
 
 def DnsUpProbability():
