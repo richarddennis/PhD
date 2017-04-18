@@ -3,789 +3,2403 @@
 
 ##############################################################
 
-Simulation started at Sun Apr 16 21:27:35 2017
+Simulation started at Tue Apr 18 14:09:08 2017
 Simulation start time 0
 Variables used in this expirement
 
-query_connection_timeout 500
-min_node_respsonse_time_getAddr 100
-max_node_respsonse_time_getAddr 499
-Number_DNS_Seeds (Starts at 0) 3
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
 client_connections 8
-query_connection_timeout 500
+query_connection_timeout 30000
 DNS_server_timeout 30000
 average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 100
-max_node_respsonse_time_getAddr 499
-
-Less seeds than needed connections
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
 0 is started at 0.00.
 1 is started at 0.00.
 2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
 bootstrap_node_list_recieved 100
 bootstrap_node_list_recieved 200
 bootstrap_node_list_recieved 300
-0 completes and terminates at 111.00.
-1 completes and terminates at 262.00.
-2 completes and terminates at 490.00.
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+bootstrap_node_list_recieved 800
+8 is started at 500.00.
+9 is started at 1000.00.
+10 is started at 1500.00.
+DNS DOWN 10
+11 is started at 2000.00.
+6 completes and terminates at 2413.00.
+bootstrap_node_list_recieved 900
+12 is started at 2500.00.
+0 completes and terminates at 2790.00.
+bootstrap_node_list_recieved 1000
+13 is started at 3000.00.
+8 completes and terminates at 3440.00.
+DNS node offline
+14 is started at 3500.00.
+DNS DOWN 14
+15 is started at 4000.00.
+DNS DOWN 15
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+19 is started at 6000.00.
+20 is started at 6500.00.
+DNS DOWN 20
+21 is started at 7000.00.
+22 is started at 7500.00.
+DNS DOWN 22
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+DNS DOWN 28
+29 is started at 11000.00.
+9 completes and terminates at 11341.00.
+bootstrap_node_list_recieved 1100
+30 is started at 11500.00.
+2 completes and terminates at 13335.00.
+bootstrap_node_list_recieved 1200
+5 completes and terminates at 15137.00.
+bootstrap_node_list_recieved 1300
+11 completes and terminates at 17569.00.
+DNS node offline
+1 completes and terminates at 19377.00.
+DNS node offline
+13 completes and terminates at 19636.00.
+bootstrap_node_list_recieved 1400
+3 completes and terminates at 22329.00.
+bootstrap_node_list_recieved 1500
+16 completes and terminates at 25834.00.
+bootstrap_node_list_recieved 1600
+7 completes and terminates at 26937.00.
+bootstrap_node_list_recieved 1700
+18 completes and terminates at 28067.00.
+DNS node offline
+4 completes and terminates at 29100.00.
+bootstrap_node_list_recieved 1800
+19 completes and terminates at 32220.00.
+DNS node offline
+10 is DOWN and completes and terminates at 33440.00.
+bootstrap_node_list_recieved 1900
+23 completes and terminates at 34459.00.
+bootstrap_node_list_recieved 2000
+12 completes and terminates at 38586.00.
+bootstrap_node_list_recieved 2100
+25 completes and terminates at 39546.00.
+bootstrap_node_list_recieved 2200
+21 completes and terminates at 39979.00.
+bootstrap_node_list_recieved 2300
+17 completes and terminates at 45070.00.
+DNS node offline
+27 completes and terminates at 45831.00.
+bootstrap_node_list_recieved 2400
+14 is DOWN and completes and terminates at 47569.00.
+bootstrap_node_list_recieved 2500
+30 completes and terminates at 48088.00.
+15 is DOWN and completes and terminates at 49377.00.
+26 completes and terminates at 49396.00.
+20 is DOWN and completes and terminates at 58067.00.
+29 completes and terminates at 60496.00.
+22 is DOWN and completes and terminates at 62220.00.
+24 completes and terminates at 62524.00.
+28 is DOWN and completes and terminates at 75070.00.
 
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 289
+bootstrap_node_list_recieved 2500
+bootstrap_node_list_recieved_no_dups 1981
 
 
-Total simulation time : 490 milliseconds
+Total simulation time : 75070 milliseconds
+
+
+Total simulation time : 75 seconds
 
 
 ##############################################################
 
-Simulation started at Sun Apr 16 21:28:56 2017
+Simulation started at Tue Apr 18 14:09:10 2017
 Simulation start time 0
 Variables used in this expirement
 
-query_connection_timeout 500
+query_connection_timeout 30000
 min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 499
-Number_DNS_Seeds (Starts at 0) 3
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
 client_connections 8
-query_connection_timeout 500
+query_connection_timeout 30000
 DNS_server_timeout 30000
 average_getAdrr_no_node_response 100
 min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 499
-
-Less seeds than needed connections
+max_node_respsonse_time_getAddr 29999
 0 is started at 0.00.
 DNS DOWN 0
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+DNS DOWN 4
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+DNS DOWN 7
+DNS node offline
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+DNS node offline
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+DNS node offline
+8 is started at 500.00.
+DNS DOWN 8
+9 is started at 1000.00.
+DNS DOWN 9
+1 completes and terminates at 1024.00.
+DNS node offline
+10 is started at 1500.00.
+2 completes and terminates at 1513.00.
+DNS node offline
+11 is started at 2000.00.
+5 completes and terminates at 2283.00.
+bootstrap_node_list_recieved 600
+12 is started at 2500.00.
+6 completes and terminates at 2666.00.
+bootstrap_node_list_recieved 700
+13 is started at 3000.00.
+14 is started at 3500.00.
+11 completes and terminates at 3592.00.
+bootstrap_node_list_recieved 800
+3 completes and terminates at 3676.00.
+bootstrap_node_list_recieved 900
+15 is started at 4000.00.
+13 completes and terminates at 4176.00.
+bootstrap_node_list_recieved 1000
+16 is started at 4500.00.
+12 completes and terminates at 4782.00.
+bootstrap_node_list_recieved 1100
+17 is started at 5000.00.
+15 completes and terminates at 5374.00.
+bootstrap_node_list_recieved 1200
+18 is started at 5500.00.
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+DNS DOWN 21
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+16 completes and terminates at 8969.00.
+bootstrap_node_list_recieved 1300
+25 is started at 9000.00.
+26 is started at 9500.00.
+DNS DOWN 26
+27 is started at 10000.00.
+28 is started at 10500.00.
+29 is started at 11000.00.
+30 is started at 11500.00.
+14 completes and terminates at 11855.00.
+bootstrap_node_list_recieved 1400
+10 completes and terminates at 18815.00.
+bootstrap_node_list_recieved 1500
+19 completes and terminates at 19377.00.
+bootstrap_node_list_recieved 1600
+20 completes and terminates at 19880.00.
+DNS node offline
+17 completes and terminates at 27197.00.
+bootstrap_node_list_recieved 1700
+22 completes and terminates at 28261.00.
+bootstrap_node_list_recieved 1800
+23 completes and terminates at 29074.00.
+bootstrap_node_list_recieved 1900
+0 is DOWN and completes and terminates at 30000.00.
+4 is DOWN and completes and terminates at 30000.00.
+7 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 2000
+DNS node offline
+bootstrap_node_list_recieved 2100
+8 is DOWN and completes and terminates at 31024.00.
+bootstrap_node_list_recieved 2200
+9 is DOWN and completes and terminates at 31513.00.
+bootstrap_node_list_recieved 2300
+28 completes and terminates at 31635.00.
+bootstrap_node_list_recieved 2400
+18 completes and terminates at 40320.00.
+29 completes and terminates at 40782.00.
+25 completes and terminates at 42060.00.
+24 completes and terminates at 47153.00.
+21 is DOWN and completes and terminates at 49880.00.
+27 completes and terminates at 52980.00.
+30 completes and terminates at 59697.00.
+26 is DOWN and completes and terminates at 60000.00.
+
+bootstrap_node_list_recieved 2400
+bootstrap_node_list_recieved_no_dups 1882
+
+
+Total simulation time : 60000 milliseconds
+
+
+Total simulation time : 60 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 14:09:11 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+DNS DOWN 0
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+DNS node offline
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+8 is started at 500.00.
+9 is started at 1000.00.
+10 is started at 1500.00.
+11 is started at 2000.00.
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+3 completes and terminates at 4118.00.
+bootstrap_node_list_recieved 800
+16 is started at 4500.00.
+17 is started at 5000.00.
+DNS DOWN 17
+18 is started at 5500.00.
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+DNS DOWN 22
+23 is started at 8000.00.
+DNS DOWN 23
+24 is started at 8500.00.
+25 is started at 9000.00.
+DNS DOWN 25
+26 is started at 9500.00.
+27 is started at 10000.00.
+1 completes and terminates at 10009.00.
+bootstrap_node_list_recieved 900
+28 is started at 10500.00.
+6 completes and terminates at 10591.00.
+bootstrap_node_list_recieved 1000
+9 completes and terminates at 10603.00.
+bootstrap_node_list_recieved 1100
+29 is started at 11000.00.
+30 is started at 11500.00.
+10 completes and terminates at 12181.00.
+bootstrap_node_list_recieved 1200
+5 completes and terminates at 12436.00.
+bootstrap_node_list_recieved 1300
+12 completes and terminates at 13869.00.
+bootstrap_node_list_recieved 1400
+13 completes and terminates at 14513.00.
+bootstrap_node_list_recieved 1500
+7 completes and terminates at 15484.00.
+bootstrap_node_list_recieved 1600
+14 completes and terminates at 16218.00.
+DNS node offline
+2 completes and terminates at 18849.00.
+bootstrap_node_list_recieved 1700
+18 completes and terminates at 19363.00.
+bootstrap_node_list_recieved 1800
+8 completes and terminates at 19557.00.
+bootstrap_node_list_recieved 1900
+4 completes and terminates at 26022.00.
+bootstrap_node_list_recieved 2000
+21 completes and terminates at 27920.00.
+DNS node offline
+11 completes and terminates at 29120.00.
+DNS node offline
+0 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 2100
+24 completes and terminates at 31336.00.
+DNS node offline
+19 completes and terminates at 31741.00.
+bootstrap_node_list_recieved 2200
+26 completes and terminates at 33060.00.
+bootstrap_node_list_recieved 2300
+15 completes and terminates at 34056.00.
+bootstrap_node_list_recieved 2400
+16 completes and terminates at 34633.00.
+bootstrap_node_list_recieved 2500
+29 completes and terminates at 35939.00.
+bootstrap_node_list_recieved 2600
+27 completes and terminates at 36753.00.
+17 is DOWN and completes and terminates at 46218.00.
+20 completes and terminates at 47563.00.
+28 completes and terminates at 48257.00.
+30 completes and terminates at 48878.00.
+22 is DOWN and completes and terminates at 57920.00.
+23 is DOWN and completes and terminates at 59120.00.
+25 is DOWN and completes and terminates at 61336.00.
+
+bootstrap_node_list_recieved 2600
+bootstrap_node_list_recieved_no_dups 2007
+
+
+Total simulation time : 61336 milliseconds
+
+
+Total simulation time : 61 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 14:09:12 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+bootstrap_node_list_recieved 800
+8 is started at 500.00.
+4 completes and terminates at 580.00.
+bootstrap_node_list_recieved 900
+7 completes and terminates at 660.00.
+9 is started at 1000.00.
+bootstrap_node_list_recieved 1000
+1 completes and terminates at 1362.00.
+10 is started at 1500.00.
+bootstrap_node_list_recieved 1100
+11 is started at 2000.00.
+12 is started at 2500.00.
+13 is started at 3000.00.
+DNS DOWN 13
+14 is started at 3500.00.
+DNS DOWN 14
+9 completes and terminates at 3649.00.
+bootstrap_node_list_recieved 1200
+15 is started at 4000.00.
+11 completes and terminates at 4172.00.
+bootstrap_node_list_recieved 1300
+16 is started at 4500.00.
+2 completes and terminates at 4878.00.
+DNS node offline
+17 is started at 5000.00.
+18 is started at 5500.00.
+DNS DOWN 18
+19 is started at 6000.00.
+20 is started at 6500.00.
+0 completes and terminates at 6689.00.
+DNS node offline
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+DNS DOWN 23
+24 is started at 8500.00.
+25 is started at 9000.00.
+DNS DOWN 25
+26 is started at 9500.00.
+5 completes and terminates at 9629.00.
+bootstrap_node_list_recieved 1400
+27 is started at 10000.00.
+28 is started at 10500.00.
+DNS DOWN 28
+29 is started at 11000.00.
+30 is started at 11500.00.
+8 completes and terminates at 13588.00.
+bootstrap_node_list_recieved 1500
+16 completes and terminates at 16460.00.
+bootstrap_node_list_recieved 1600
+6 completes and terminates at 17375.00.
+DNS node offline
+17 completes and terminates at 25357.00.
+bootstrap_node_list_recieved 1700
+10 completes and terminates at 28002.00.
+15 completes and terminates at 28002.00.
+bootstrap_node_list_recieved 1800
+bootstrap_node_list_recieved 1900
+3 completes and terminates at 28764.00.
+bootstrap_node_list_recieved 2000
+21 completes and terminates at 30061.00.
+DNS node offline
+12 completes and terminates at 30900.00.
+bootstrap_node_list_recieved 2100
+19 completes and terminates at 31490.00.
+DNS node offline
+22 completes and terminates at 34179.00.
+bootstrap_node_list_recieved 2200
+13 is DOWN and completes and terminates at 34878.00.
+bootstrap_node_list_recieved 2300
+14 is DOWN and completes and terminates at 36689.00.
+DNS node offline
+24 completes and terminates at 37327.00.
+bootstrap_node_list_recieved 2400
+26 completes and terminates at 39089.00.
+bootstrap_node_list_recieved 2500
+27 completes and terminates at 39552.00.
+18 is DOWN and completes and terminates at 47375.00.
+29 completes and terminates at 47526.00.
+20 completes and terminates at 49946.00.
+30 completes and terminates at 52213.00.
+23 is DOWN and completes and terminates at 60061.00.
+25 is DOWN and completes and terminates at 61490.00.
+28 is DOWN and completes and terminates at 66689.00.
+
+bootstrap_node_list_recieved 2500
+bootstrap_node_list_recieved_no_dups 1967
+
+
+Total simulation time : 66689 milliseconds
+
+
+Total simulation time : 66 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 14:09:13 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+DNS DOWN 3
+4 is started at 0.00.
+5 is started at 0.00.
+DNS DOWN 5
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+DNS node offline
+bootstrap_node_list_recieved 400
+DNS node offline
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+8 is started at 500.00.
+DNS DOWN 8
+4 completes and terminates at 503.00.
+DNS node offline
+9 is started at 1000.00.
+10 is started at 1500.00.
+DNS DOWN 10
+11 is started at 2000.00.
+7 completes and terminates at 2448.00.
+bootstrap_node_list_recieved 700
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+DNS DOWN 14
+15 is started at 4000.00.
+DNS DOWN 15
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+1 completes and terminates at 5980.00.
+DNS node offline
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+DNS DOWN 23
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+29 is started at 11000.00.
+30 is started at 11500.00.
+DNS DOWN 30
+2 completes and terminates at 15523.00.
+bootstrap_node_list_recieved 800
+0 completes and terminates at 16548.00.
+bootstrap_node_list_recieved 900
+9 completes and terminates at 22648.00.
+bootstrap_node_list_recieved 1000
+13 completes and terminates at 25325.00.
+DNS node offline
+6 completes and terminates at 29157.00.
+DNS node offline
+3 is DOWN and completes and terminates at 30000.00.
+5 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 1100
+bootstrap_node_list_recieved 1200
+8 is DOWN and completes and terminates at 30503.00.
+bootstrap_node_list_recieved 1300
+16 completes and terminates at 33646.00.
+bootstrap_node_list_recieved 1400
+10 is DOWN and completes and terminates at 35980.00.
+bootstrap_node_list_recieved 1500
+19 completes and terminates at 36068.00.
+bootstrap_node_list_recieved 1600
+17 completes and terminates at 37132.00.
+bootstrap_node_list_recieved 1700
+18 completes and terminates at 39441.00.
+DNS node offline
+11 completes and terminates at 40772.00.
+bootstrap_node_list_recieved 1800
+12 completes and terminates at 40866.00.
+bootstrap_node_list_recieved 1900
+20 completes and terminates at 41513.00.
+bootstrap_node_list_recieved 2000
+21 completes and terminates at 43694.00.
+bootstrap_node_list_recieved 2100
+26 completes and terminates at 47500.00.
+bootstrap_node_list_recieved 2200
+27 completes and terminates at 47570.00.
+bootstrap_node_list_recieved 2300
+24 completes and terminates at 49721.00.
+DNS node offline
+25 completes and terminates at 51293.00.
+14 is DOWN and completes and terminates at 55325.00.
+28 completes and terminates at 57586.00.
+15 is DOWN and completes and terminates at 59157.00.
+29 completes and terminates at 61251.00.
+22 completes and terminates at 64571.00.
+23 is DOWN and completes and terminates at 69441.00.
+30 is DOWN and completes and terminates at 79721.00.
+
+bootstrap_node_list_recieved 2300
+bootstrap_node_list_recieved_no_dups 1818
+
+
+Total simulation time : 79721 milliseconds
+
+
+Total simulation time : 79 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:39:48 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+bootstrap_node_list_recieved 800
+8 is started at 500.00.
+9 is started at 1000.00.
+7 completes and terminates at 1181.00.
+bootstrap_node_list_recieved 900
+10 is started at 1500.00.
+8 completes and terminates at 1681.00.
+bootstrap_node_list_recieved 1000
+11 is started at 2000.00.
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+DNS DOWN 15
+2 completes and terminates at 4277.00.
+bootstrap_node_list_recieved 1100
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+19 is started at 6000.00.
+DNS DOWN 19
+5 completes and terminates at 6331.00.
+bootstrap_node_list_recieved 1200
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:40:48 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+bootstrap_node_list_recieved 800
+8 is started at 500.00.
+DNS DOWN 8
+4 completes and terminates at 530.00.
+DNS node offline
+9 is started at 1000.00.
+10 is started at 1500.00.
+11 is started at 2000.00.
+12 is started at 2500.00.
+DNS DOWN 12
+5 completes and terminates at 2656.00.
+bootstrap_node_list_recieved 900
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+DNS DOWN 15
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+6 completes and terminates at 5926.00.
+bootstrap_node_list_recieved 1000
+3 completes and terminates at 5945.00.
+bootstrap_node_list_recieved 1100
+19 is started at 6000.00.
+DNS DOWN 19
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+DNS DOWN 22
+7 completes and terminates at 7542.00.
+DNS node offline
+9 completes and terminates at 7650.00.
+bootstrap_node_list_recieved 1200
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:41:24 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+DNS DOWN 1
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+DNS DOWN 5
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+DNS node offline
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+DNS node offline
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+8 is started at 500.00.
+4 completes and terminates at 806.00.
+bootstrap_node_list_recieved 700
+9 is started at 1000.00.
+DNS DOWN 9
+0 completes and terminates at 1270.00.
+DNS node offline
+10 is started at 1500.00.
+11 is started at 2000.00.
+8 completes and terminates at 2184.00.
+bootstrap_node_list_recieved 800
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+19 is started at 6000.00.
+DNS DOWN 19
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+2 completes and terminates at 10078.00.
+bootstrap_node_list_recieved 900
+28 is started at 10500.00.
+29 is started at 11000.00.
+DNS DOWN 29
+11 completes and terminates at 11319.00.
+bootstrap_node_list_recieved 1000
+30 is started at 11500.00.
+6 completes and terminates at 11980.00.
+bootstrap_node_list_recieved 1100
+3 completes and terminates at 12066.00.
+bootstrap_node_list_recieved 1200
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:41:29 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+DNS DOWN 0
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+DNS DOWN 4
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+DNS node offline
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+DNS node offline
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+8 is started at 500.00.
+3 completes and terminates at 939.00.
+bootstrap_node_list_recieved 700
+9 is started at 1000.00.
+10 is started at 1500.00.
+11 is started at 2000.00.
+12 is started at 2500.00.
+DNS DOWN 12
+13 is started at 3000.00.
+2 completes and terminates at 3290.00.
+bootstrap_node_list_recieved 800
+14 is started at 3500.00.
+15 is started at 4000.00.
+16 is started at 4500.00.
+DNS DOWN 16
+17 is started at 5000.00.
+18 is started at 5500.00.
+7 completes and terminates at 5800.00.
+bootstrap_node_list_recieved 900
+19 is started at 6000.00.
+DNS DOWN 19
+10 completes and terminates at 6307.00.
+bootstrap_node_list_recieved 1000
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+DNS DOWN 23
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+8 completes and terminates at 10467.00.
+DNS node offline
+28 is started at 10500.00.
+6 completes and terminates at 10817.00.
+bootstrap_node_list_recieved 1100
+29 is started at 11000.00.
+5 completes and terminates at 11186.00.
+bootstrap_node_list_recieved 1200
+30 is started at 11500.00.
+14 completes and terminates at 11774.00.
+bootstrap_node_list_recieved 1300
+13 completes and terminates at 13023.00.
+DNS node offline
+15 completes and terminates at 14547.00.
+bootstrap_node_list_recieved 1400
+9 completes and terminates at 17028.00.
+bootstrap_node_list_recieved 1500
+18 completes and terminates at 19490.00.
+DNS node offline
+1 completes and terminates at 29829.00.
+bootstrap_node_list_recieved 1600
+0 is DOWN and completes and terminates at 30000.00.
+4 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 1700
+bootstrap_node_list_recieved 1800
+21 completes and terminates at 30793.00.
+DNS node offline
+17 completes and terminates at 31647.00.
+bootstrap_node_list_recieved 1900
+11 completes and terminates at 34646.00.
+bootstrap_node_list_recieved 2000
+12 is DOWN and completes and terminates at 40467.00.
+bootstrap_node_list_recieved 2100
+16 is DOWN and completes and terminates at 43023.00.
+bootstrap_node_list_recieved 2200
+22 completes and terminates at 46507.00.
+bootstrap_node_list_recieved 2300
+25 completes and terminates at 47571.00.
+bootstrap_node_list_recieved 2400
+19 is DOWN and completes and terminates at 49490.00.
+bootstrap_node_list_recieved 2500
+27 completes and terminates at 50277.00.
+29 completes and terminates at 50529.00.
+30 completes and terminates at 53841.00.
+28 completes and terminates at 55378.00.
+20 completes and terminates at 57802.00.
+24 completes and terminates at 58165.00.
+26 completes and terminates at 58404.00.
+23 is DOWN and completes and terminates at 60793.00.
+
+bootstrap_node_list_recieved 2500
+bootstrap_node_list_recieved_no_dups 1961
+
+
+Total simulation time : 60793 milliseconds
+
+
+Total simulation time : 60 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:42:15 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+DNS DOWN 3
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+DNS node offline
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+8 is started at 500.00.
+2 completes and terminates at 598.00.
+bootstrap_node_list_recieved 800
+9 is started at 1000.00.
+DNS DOWN 9
+10 is started at 1500.00.
+DNS DOWN 10
+11 is started at 2000.00.
+12 is started at 2500.00.
+DNS DOWN 12
+0 completes and terminates at 2863.00.
+DNS node offline
+13 is started at 3000.00.
+DNS DOWN 13
+14 is started at 3500.00.
+15 is started at 4000.00.
+16 is started at 4500.00.
+DNS DOWN 16
+7 completes and terminates at 4650.00.
+DNS node offline
+4 completes and terminates at 4711.00.
+bootstrap_node_list_recieved 900
+17 is started at 5000.00.
+6 completes and terminates at 5135.00.
+DNS node offline
+18 is started at 5500.00.
+1 completes and terminates at 5892.00.
+DNS node offline
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+DNS DOWN 21
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+DNS DOWN 25
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+DNS DOWN 28
+29 is started at 11000.00.
+30 is started at 11500.00.
+DNS DOWN 30
+8 completes and terminates at 13255.00.
+bootstrap_node_list_recieved 1000
+14 completes and terminates at 14189.00.
+bootstrap_node_list_recieved 1100
+5 completes and terminates at 15584.00.
+DNS node offline
+15 completes and terminates at 17673.00.
+bootstrap_node_list_recieved 1200
+17 completes and terminates at 19672.00.
+bootstrap_node_list_recieved 1300
+18 completes and terminates at 21393.00.
+bootstrap_node_list_recieved 1400
+19 completes and terminates at 26838.00.
+bootstrap_node_list_recieved 1500
+20 completes and terminates at 27495.00.
+DNS node offline
+3 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 1600
+11 completes and terminates at 30839.00.
+bootstrap_node_list_recieved 1700
+9 is DOWN and completes and terminates at 32863.00.
+bootstrap_node_list_recieved 1800
+24 completes and terminates at 33694.00.
+DNS node offline
+10 is DOWN and completes and terminates at 34650.00.
+bootstrap_node_list_recieved 1900
+12 is DOWN and completes and terminates at 35135.00.
+bootstrap_node_list_recieved 2000
+13 is DOWN and completes and terminates at 35892.00.
+DNS node offline
+22 completes and terminates at 39240.00.
+bootstrap_node_list_recieved 2100
+29 completes and terminates at 40025.00.
+DNS node offline
+27 completes and terminates at 44545.00.
+16 is DOWN and completes and terminates at 45584.00.
+23 completes and terminates at 52903.00.
+21 is DOWN and completes and terminates at 57495.00.
+26 completes and terminates at 61344.00.
+25 is DOWN and completes and terminates at 63694.00.
+28 is DOWN and completes and terminates at 65892.00.
+30 is DOWN and completes and terminates at 70025.00.
+
+bootstrap_node_list_recieved 2100
+bootstrap_node_list_recieved_no_dups 1720
+
+
+Total simulation time : 70025 milliseconds
+
+
+Total simulation time : 70 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:42:33 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+DNS DOWN 1
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+DNS node offline
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+8 is started at 500.00.
+7 completes and terminates at 502.00.
+bootstrap_node_list_recieved 800
+5 completes and terminates at 733.00.
+9 is started at 1000.00.
+bootstrap_node_list_recieved 900
+10 is started at 1500.00.
+11 is started at 2000.00.
+12 is started at 2500.00.
+3 completes and terminates at 2687.00.
+bootstrap_node_list_recieved 1000
+13 is started at 3000.00.
+9 completes and terminates at 3360.00.
+bootstrap_node_list_recieved 1100
+14 is started at 3500.00.
+DNS DOWN 14
+15 is started at 4000.00.
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+10 completes and terminates at 5655.00.
+bootstrap_node_list_recieved 1200
+19 is started at 6000.00.
+20 is started at 6500.00.
+DNS DOWN 20
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+DNS DOWN 25
+26 is started at 9500.00.
+27 is started at 10000.00.
+2 completes and terminates at 10447.00.
+bootstrap_node_list_recieved 1300
+28 is started at 10500.00.
+29 is started at 11000.00.
+DNS DOWN 29
+13 completes and terminates at 11249.00.
+DNS node offline
+30 is started at 11500.00.
+8 completes and terminates at 12664.00.
+bootstrap_node_list_recieved 1400
+0 completes and terminates at 13056.00.
+bootstrap_node_list_recieved 1500
+16 completes and terminates at 13584.00.
+bootstrap_node_list_recieved 1600
+11 completes and terminates at 20802.00.
+bootstrap_node_list_recieved 1700
+12 completes and terminates at 21068.00.
+bootstrap_node_list_recieved 1800
+6 completes and terminates at 23668.00.
+DNS node offline
+19 completes and terminates at 26652.00.
+bootstrap_node_list_recieved 1900
+4 completes and terminates at 28435.00.
+bootstrap_node_list_recieved 2000
+21 completes and terminates at 29302.00.
+bootstrap_node_list_recieved 2100
+1 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 2200
+17 completes and terminates at 30374.00.
+DNS node offline
+18 completes and terminates at 32601.00.
+bootstrap_node_list_recieved 2300
+22 completes and terminates at 34050.00.
+bootstrap_node_list_recieved 2400
+15 completes and terminates at 35153.00.
+bootstrap_node_list_recieved 2500
+24 completes and terminates at 36030.00.
+DNS node offline
+26 completes and terminates at 39628.00.
+bootstrap_node_list_recieved 2600
+14 is DOWN and completes and terminates at 41249.00.
+27 completes and terminates at 41373.00.
+28 completes and terminates at 41829.00.
+23 completes and terminates at 48610.00.
+20 is DOWN and completes and terminates at 53668.00.
+30 completes and terminates at 55659.00.
+25 is DOWN and completes and terminates at 60374.00.
+29 is DOWN and completes and terminates at 66030.00.
+
+bootstrap_node_list_recieved 2600
+bootstrap_node_list_recieved_no_dups 2044
+
+
+Total simulation time : 66030 milliseconds
+
+
+Total simulation time : 66 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:42:46 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+DNS DOWN 6
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+DNS node offline
+bootstrap_node_list_recieved 700
+8 is started at 500.00.
+4 completes and terminates at 780.00.
+bootstrap_node_list_recieved 800
+9 is started at 1000.00.
+10 is started at 1500.00.
+11 is started at 2000.00.
+3 completes and terminates at 2350.00.
+bootstrap_node_list_recieved 900
+12 is started at 2500.00.
+13 is started at 3000.00.
+5 completes and terminates at 3068.00.
+bootstrap_node_list_recieved 1000
+14 is started at 3500.00.
+15 is started at 4000.00.
+10 completes and terminates at 4359.00.
+bootstrap_node_list_recieved 1100
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+19 is started at 6000.00.
+DNS DOWN 19
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+0 completes and terminates at 7535.00.
+bootstrap_node_list_recieved 1200
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+11 completes and terminates at 9452.00.
+bootstrap_node_list_recieved 1300
+26 is started at 9500.00.
+DNS DOWN 26
+27 is started at 10000.00.
+DNS DOWN 27
+28 is started at 10500.00.
+29 is started at 11000.00.
+30 is started at 11500.00.
+DNS DOWN 30
+7 completes and terminates at 12046.00.
+bootstrap_node_list_recieved 1400
+9 completes and terminates at 12966.00.
+bootstrap_node_list_recieved 1500
+2 completes and terminates at 16629.00.
+bootstrap_node_list_recieved 1600
+15 completes and terminates at 20498.00.
+bootstrap_node_list_recieved 1700
+8 completes and terminates at 21227.00.
+bootstrap_node_list_recieved 1800
+18 completes and terminates at 22054.00.
+DNS node offline
+12 completes and terminates at 22427.00.
+bootstrap_node_list_recieved 1900
+1 completes and terminates at 25051.00.
+bootstrap_node_list_recieved 2000
+21 completes and terminates at 25842.00.
+bootstrap_node_list_recieved 2100
+20 completes and terminates at 26569.00.
+bootstrap_node_list_recieved 2200
+16 completes and terminates at 29834.00.
+bootstrap_node_list_recieved 2300
+6 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 2400
+23 completes and terminates at 30303.00.
+DNS node offline
+14 completes and terminates at 33391.00.
+DNS node offline
+13 completes and terminates at 37636.00.
+bootstrap_node_list_recieved 2500
+25 completes and terminates at 43291.00.
+bootstrap_node_list_recieved 2600
+24 completes and terminates at 45385.00.
+DNS node offline
+29 completes and terminates at 45604.00.
+17 completes and terminates at 49425.00.
+22 completes and terminates at 50689.00.
+19 is DOWN and completes and terminates at 52054.00.
+28 completes and terminates at 58205.00.
+26 is DOWN and completes and terminates at 60303.00.
+27 is DOWN and completes and terminates at 63391.00.
+30 is DOWN and completes and terminates at 75385.00.
+
+bootstrap_node_list_recieved 2600
+bootstrap_node_list_recieved_no_dups 2033
+
+
+Total simulation time : 75385 milliseconds
+
+
+Total simulation time : 75 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:43:00 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+DNS DOWN 1
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+DNS DOWN 4
+5 is started at 0.00.
+6 is started at 0.00.
+DNS DOWN 6
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+DNS node offline
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+DNS node offline
+bootstrap_node_list_recieved 400
+DNS node offline
+bootstrap_node_list_recieved 500
+8 is started at 500.00.
+9 is started at 1000.00.
+10 is started at 1500.00.
+11 is started at 2000.00.
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+3 completes and terminates at 3749.00.
+bootstrap_node_list_recieved 600
+15 is started at 4000.00.
+DNS DOWN 15
+16 is started at 4500.00.
+17 is started at 5000.00.
+DNS DOWN 17
+18 is started at 5500.00.
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+DNS DOWN 22
+23 is started at 8000.00.
+DNS DOWN 23
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+7 completes and terminates at 10180.00.
+bootstrap_node_list_recieved 700
+28 is started at 10500.00.
+29 is started at 11000.00.
+30 is started at 11500.00.
+2 completes and terminates at 11530.00.
+bootstrap_node_list_recieved 800
+0 completes and terminates at 13871.00.
+bootstrap_node_list_recieved 900
+8 completes and terminates at 14029.00.
+bootstrap_node_list_recieved 1000
+11 completes and terminates at 14571.00.
+bootstrap_node_list_recieved 1100
+5 completes and terminates at 17599.00.
+bootstrap_node_list_recieved 1200
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:43:14 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+bootstrap_node_list_recieved 800
+8 is started at 500.00.
+3 completes and terminates at 513.00.
+bootstrap_node_list_recieved 900
+9 is started at 1000.00.
+10 is started at 1500.00.
+11 is started at 2000.00.
+4 completes and terminates at 2264.00.
+bootstrap_node_list_recieved 1000
+12 is started at 2500.00.
+0 completes and terminates at 2809.00.
+bootstrap_node_list_recieved 1100
+13 is started at 3000.00.
+14 is started at 3500.00.
+DNS DOWN 14
+15 is started at 4000.00.
+16 is started at 4500.00.
+9 completes and terminates at 4975.00.
+bootstrap_node_list_recieved 1200
+17 is started at 5000.00.
+18 is started at 5500.00.
+1 completes and terminates at 5603.00.
+bootstrap_node_list_recieved 1300
+2 completes and terminates at 5857.00.
+bootstrap_node_list_recieved 1400
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+13 completes and terminates at 7119.00.
+DNS node offline
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+7 completes and terminates at 8780.00.
+bootstrap_node_list_recieved 1500
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+10 completes and terminates at 10897.00.
+bootstrap_node_list_recieved 1600
+29 is started at 11000.00.
+30 is started at 11500.00.
+16 completes and terminates at 15872.00.
+bootstrap_node_list_recieved 1700
+17 completes and terminates at 16960.00.
+bootstrap_node_list_recieved 1800
+6 completes and terminates at 17027.00.
+bootstrap_node_list_recieved 1900
+5 completes and terminates at 20439.00.
+bootstrap_node_list_recieved 2000
+15 completes and terminates at 22693.00.
+bootstrap_node_list_recieved 2100
+21 completes and terminates at 23399.00.
+bootstrap_node_list_recieved 2200
+8 completes and terminates at 24532.00.
+bootstrap_node_list_recieved 2300
+18 completes and terminates at 24719.00.
+bootstrap_node_list_recieved 2400
+22 completes and terminates at 25449.00.
+bootstrap_node_list_recieved 2500
+11 completes and terminates at 28543.00.
+bootstrap_node_list_recieved 2600
+26 completes and terminates at 30838.00.
+bootstrap_node_list_recieved 2700
+12 completes and terminates at 32192.00.
+bootstrap_node_list_recieved 2800
+19 completes and terminates at 33954.00.
+bootstrap_node_list_recieved 2900
+28 completes and terminates at 34380.00.
+bootstrap_node_list_recieved 3000
+23 completes and terminates at 35425.00.
+30 completes and terminates at 35700.00.
+27 completes and terminates at 35944.00.
+14 is DOWN and completes and terminates at 37119.00.
+25 completes and terminates at 39465.00.
+20 completes and terminates at 43609.00.
+24 completes and terminates at 53009.00.
+29 completes and terminates at 59729.00.
+
+bootstrap_node_list_recieved 3000
+bootstrap_node_list_recieved_no_dups 2251
+
+
+Total simulation time : 59729 milliseconds
+
+
+Total simulation time : 59 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:44:10 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+DNS DOWN 5
+6 is started at 0.00.
+7 is started at 0.00.
+DNS DOWN 7
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+DNS node offline
+bootstrap_node_list_recieved 600
+DNS node offline
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:44:28 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+DNS DOWN 0
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+DNS DOWN 6
+7 is started at 0.00.
+DNS DOWN 7
+DNS node offline
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+DNS node offline
+DNS node offline
+8 is started at 500.00.
+2 completes and terminates at 891.00.
+bootstrap_node_list_recieved 600
+9 is started at 1000.00.
+DNS DOWN 9
+10 is started at 1500.00.
+11 is started at 2000.00.
+8 completes and terminates at 2183.00.
+DNS node offline
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+DNS DOWN 21
+22 is started at 7500.00.
+23 is started at 8000.00.
+DNS DOWN 23
+24 is started at 8500.00.
+4 completes and terminates at 8717.00.
+bootstrap_node_list_recieved 700
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+29 is started at 11000.00.
+10 completes and terminates at 11117.00.
+bootstrap_node_list_recieved 800
+30 is started at 11500.00.
+11 completes and terminates at 12621.00.
+bootstrap_node_list_recieved 900
+3 completes and terminates at 15788.00.
+bootstrap_node_list_recieved 1000
+13 completes and terminates at 27511.00.
+bootstrap_node_list_recieved 1100
+1 completes and terminates at 28808.00.
+bootstrap_node_list_recieved 1200
+5 completes and terminates at 29529.00.
+bootstrap_node_list_recieved 1300
+0 is DOWN and completes and terminates at 30000.00.
+6 is DOWN and completes and terminates at 30000.00.
+7 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 1400
+bootstrap_node_list_recieved 1500
+bootstrap_node_list_recieved 1600
+16 completes and terminates at 30136.00.
+bootstrap_node_list_recieved 1700
+18 completes and terminates at 30512.00.
+DNS node offline
+9 is DOWN and completes and terminates at 32183.00.
+bootstrap_node_list_recieved 1800
+20 completes and terminates at 32507.00.
+DNS node offline
+14 completes and terminates at 32811.00.
+bootstrap_node_list_recieved 1900
+17 completes and terminates at 33159.00.
+bootstrap_node_list_recieved 2000
+25 completes and terminates at 33745.00.
+bootstrap_node_list_recieved 2100
+24 completes and terminates at 36404.00.
+bootstrap_node_list_recieved 2200
+22 completes and terminates at 36656.00.
+bootstrap_node_list_recieved 2300
+28 completes and terminates at 39067.00.
+bootstrap_node_list_recieved 2400
+12 completes and terminates at 39676.00.
+bootstrap_node_list_recieved 2500
+19 completes and terminates at 46053.00.
+30 completes and terminates at 47579.00.
+26 completes and terminates at 47815.00.
+27 completes and terminates at 47981.00.
+15 completes and terminates at 53842.00.
+21 is DOWN and completes and terminates at 60512.00.
+23 is DOWN and completes and terminates at 62507.00.
+29 completes and terminates at 67662.00.
+
+bootstrap_node_list_recieved 2500
+bootstrap_node_list_recieved_no_dups 1956
+
+
+Total simulation time : 67662 milliseconds
+
+
+Total simulation time : 67 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:44:45 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+DNS DOWN 5
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+DNS node offline
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+8 is started at 500.00.
+2 completes and terminates at 550.00.
+bootstrap_node_list_recieved 800
+9 is started at 1000.00.
+DNS DOWN 9
+10 is started at 1500.00.
+11 is started at 2000.00.
+1 completes and terminates at 2385.00.
+DNS node offline
+12 is started at 2500.00.
+DNS DOWN 12
+8 completes and terminates at 2924.00.
+bootstrap_node_list_recieved 900
+13 is started at 3000.00.
+14 is started at 3500.00.
+7 completes and terminates at 3639.00.
+bootstrap_node_list_recieved 1000
+15 is started at 4000.00.
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+0 completes and terminates at 8075.00.
+DNS node offline
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+29 is started at 11000.00.
+30 is started at 11500.00.
+3 completes and terminates at 18741.00.
+bootstrap_node_list_recieved 1100
+11 completes and terminates at 19644.00.
+bootstrap_node_list_recieved 1200
+14 completes and terminates at 22848.00.
+bootstrap_node_list_recieved 1300
+10 completes and terminates at 23273.00.
+bootstrap_node_list_recieved 1400
+6 completes and terminates at 26024.00.
+bootstrap_node_list_recieved 1500
+15 completes and terminates at 26109.00.
+bootstrap_node_list_recieved 1600
+4 completes and terminates at 28564.00.
+bootstrap_node_list_recieved 1700
+5 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 1800
+18 completes and terminates at 30487.00.
+bootstrap_node_list_recieved 1900
+19 completes and terminates at 31831.00.
+bootstrap_node_list_recieved 2000
+9 is DOWN and completes and terminates at 32385.00.
+bootstrap_node_list_recieved 2100
+22 completes and terminates at 35934.00.
+bootstrap_node_list_recieved 2200
+12 is DOWN and completes and terminates at 38075.00.
+bootstrap_node_list_recieved 2300
+20 completes and terminates at 39793.00.
+bootstrap_node_list_recieved 2400
+16 completes and terminates at 43896.00.
+bootstrap_node_list_recieved 2500
+21 completes and terminates at 45060.00.
+bootstrap_node_list_recieved 2600
+28 completes and terminates at 45578.00.
+bootstrap_node_list_recieved 2700
+13 completes and terminates at 46518.00.
+bootstrap_node_list_recieved 2800
+26 completes and terminates at 46672.00.
+24 completes and terminates at 47281.00.
+27 completes and terminates at 48641.00.
+23 completes and terminates at 52894.00.
+17 completes and terminates at 55108.00.
+30 completes and terminates at 62594.00.
+25 completes and terminates at 62945.00.
+29 completes and terminates at 72895.00.
+
+bootstrap_node_list_recieved 2800
+bootstrap_node_list_recieved_no_dups 2132
+
+
+Total simulation time : 72895 milliseconds
+
+
+Total simulation time : 72 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:45:03 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+DNS DOWN 3
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+DNS node offline
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:45:20 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+bootstrap_node_list_recieved 800
+8 is started at 500.00.
+DNS DOWN 8
+5 completes and terminates at 699.00.
+DNS node offline
+9 is started at 1000.00.
+3 completes and terminates at 1228.00.
+bootstrap_node_list_recieved 900
+10 is started at 1500.00.
+11 is started at 2000.00.
+12 is started at 2500.00.
+7 completes and terminates at 2554.00.
+bootstrap_node_list_recieved 1000
+0 completes and terminates at 2945.00.
+bootstrap_node_list_recieved 1100
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+16 is started at 4500.00.
+9 completes and terminates at 4759.00.
+bootstrap_node_list_recieved 1200
+17 is started at 5000.00.
+18 is started at 5500.00.
+12 completes and terminates at 5772.00.
+bootstrap_node_list_recieved 1300
+6 completes and terminates at 5836.00.
+bootstrap_node_list_recieved 1400
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+DNS DOWN 23
+14 completes and terminates at 8447.00.
+bootstrap_node_list_recieved 1500
+24 is started at 8500.00.
+25 is started at 9000.00.
+DNS DOWN 25
+26 is started at 9500.00.
+DNS DOWN 26
+27 is started at 10000.00.
+13 completes and terminates at 10386.00.
+bootstrap_node_list_recieved 1600
+28 is started at 10500.00.
+29 is started at 11000.00.
+30 is started at 11500.00.
+11 completes and terminates at 12113.00.
+bootstrap_node_list_recieved 1700
+2 completes and terminates at 18112.00.
+bootstrap_node_list_recieved 1800
+4 completes and terminates at 22146.00.
+bootstrap_node_list_recieved 1900
+1 completes and terminates at 23373.00.
+bootstrap_node_list_recieved 2000
+10 completes and terminates at 26087.00.
+bootstrap_node_list_recieved 2100
+18 completes and terminates at 27020.00.
+bootstrap_node_list_recieved 2200
+8 is DOWN and completes and terminates at 30699.00.
+DNS node offline
+22 completes and terminates at 33262.00.
+bootstrap_node_list_recieved 2300
+15 completes and terminates at 34509.00.
+DNS node offline
+20 completes and terminates at 37104.00.
+DNS node offline
+17 completes and terminates at 37405.00.
+bootstrap_node_list_recieved 2400
+16 completes and terminates at 38509.00.
+bootstrap_node_list_recieved 2500
+27 completes and terminates at 40379.00.
+bootstrap_node_list_recieved 2600
+29 completes and terminates at 40880.00.
+bootstrap_node_list_recieved 2700
+30 completes and terminates at 41601.00.
+24 completes and terminates at 41641.00.
+19 completes and terminates at 45661.00.
+21 completes and terminates at 49544.00.
+23 is DOWN and completes and terminates at 60699.00.
+25 is DOWN and completes and terminates at 64509.00.
+26 is DOWN and completes and terminates at 67104.00.
+28 completes and terminates at 68271.00.
+
+bootstrap_node_list_recieved 2700
+bootstrap_node_list_recieved_no_dups 2100
+
+
+Total simulation time : 68271 milliseconds
+
+
+Total simulation time : 68 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:46:40 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+DNS DOWN 1
+2 is started at 0.00.
+3 is started at 0.00.
+DNS DOWN 3
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+DNS node offline
+bootstrap_node_list_recieved 200
+DNS node offline
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+8 is started at 500.00.
+9 is started at 1000.00.
+10 is started at 1500.00.
+DNS DOWN 10
+11 is started at 2000.00.
+DNS DOWN 11
+7 completes and terminates at 2348.00.
+bootstrap_node_list_recieved 700
+12 is started at 2500.00.
+13 is started at 3000.00.
+DNS DOWN 13
+14 is started at 3500.00.
+DNS DOWN 14
+15 is started at 4000.00.
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+19 is started at 6000.00.
+20 is started at 6500.00.
+0 completes and terminates at 6518.00.
+bootstrap_node_list_recieved 800
+21 is started at 7000.00.
+22 is started at 7500.00.
+DNS DOWN 22
+23 is started at 8000.00.
+DNS DOWN 23
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+29 is started at 11000.00.
+9 completes and terminates at 11074.00.
+DNS node offline
+30 is started at 11500.00.
+DNS DOWN 30
+5 completes and terminates at 15070.00.
+DNS node offline
+4 completes and terminates at 16238.00.
+bootstrap_node_list_recieved 900
+6 completes and terminates at 16924.00.
+DNS node offline
+2 completes and terminates at 22604.00.
+DNS node offline
+12 completes and terminates at 25067.00.
+bootstrap_node_list_recieved 1000
+8 completes and terminates at 29713.00.
+bootstrap_node_list_recieved 1100
+1 is DOWN and completes and terminates at 30000.00.
+3 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 1200
+bootstrap_node_list_recieved 1300
+15 completes and terminates at 35068.00.
+bootstrap_node_list_recieved 1400
+19 completes and terminates at 35596.00.
+bootstrap_node_list_recieved 1500
+17 completes and terminates at 36588.00.
+bootstrap_node_list_recieved 1600
+10 is DOWN and completes and terminates at 41074.00.
+DNS node offline
+21 completes and terminates at 43313.00.
+DNS node offline
+11 is DOWN and completes and terminates at 45070.00.
+bootstrap_node_list_recieved 1700
+16 completes and terminates at 46707.00.
+bootstrap_node_list_recieved 1800
+13 is DOWN and completes and terminates at 46924.00.
+bootstrap_node_list_recieved 1900
+25 completes and terminates at 47522.00.
+bootstrap_node_list_recieved 2000
+14 is DOWN and completes and terminates at 52604.00.
+bootstrap_node_list_recieved 2100
+27 completes and terminates at 53336.00.
+bootstrap_node_list_recieved 2200
+18 completes and terminates at 55562.00.
+DNS node offline
+29 completes and terminates at 55875.00.
+26 completes and terminates at 56207.00.
+20 completes and terminates at 58775.00.
+28 completes and terminates at 68479.00.
+24 completes and terminates at 70582.00.
+22 is DOWN and completes and terminates at 71074.00.
+23 is DOWN and completes and terminates at 73313.00.
+30 is DOWN and completes and terminates at 85562.00.
+
+bootstrap_node_list_recieved 2200
+bootstrap_node_list_recieved_no_dups 1794
+
+
+Total simulation time : 85562 milliseconds
+
+
+Total simulation time : 85 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:47:03 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+DNS DOWN 5
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+DNS node offline
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+8 is started at 500.00.
+DNS DOWN 8
+9 is started at 1000.00.
+10 is started at 1500.00.
+11 is started at 2000.00.
+12 is started at 2500.00.
+DNS DOWN 12
+4 completes and terminates at 2663.00.
+DNS node offline
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+DNS DOWN 15
+16 is started at 4500.00.
+17 is started at 5000.00.
+3 completes and terminates at 5336.00.
+bootstrap_node_list_recieved 800
+18 is started at 5500.00.
+DNS DOWN 18
+19 is started at 6000.00.
+20 is started at 6500.00.
+DNS DOWN 20
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+9 completes and terminates at 10955.00.
+bootstrap_node_list_recieved 900
+29 is started at 11000.00.
+30 is started at 11500.00.
+10 completes and terminates at 12590.00.
+bootstrap_node_list_recieved 1000
+2 completes and terminates at 12928.00.
+DNS node offline
+1 completes and terminates at 17956.00.
+bootstrap_node_list_recieved 1100
+7 completes and terminates at 24151.00.
+bootstrap_node_list_recieved 1200
+0 completes and terminates at 25516.00.
+DNS node offline
+11 completes and terminates at 26880.00.
+bootstrap_node_list_recieved 1300
+6 completes and terminates at 29018.00.
+bootstrap_node_list_recieved 1400
+5 is DOWN and completes and terminates at 30000.00.
+DNS node offline
+8 is DOWN and completes and terminates at 32663.00.
+bootstrap_node_list_recieved 1500
+14 completes and terminates at 33703.00.
+DNS node offline
+13 completes and terminates at 41974.00.
+bootstrap_node_list_recieved 1600
+16 completes and terminates at 42505.00.
+bootstrap_node_list_recieved 1700
+12 is DOWN and completes and terminates at 42928.00.
+bootstrap_node_list_recieved 1800
+21 completes and terminates at 43150.00.
+bootstrap_node_list_recieved 1900
+17 completes and terminates at 46896.00.
+bootstrap_node_list_recieved 2000
+22 completes and terminates at 48322.00.
+bootstrap_node_list_recieved 2100
+25 completes and terminates at 49248.00.
+bootstrap_node_list_recieved 2200
+27 completes and terminates at 49792.00.
+bootstrap_node_list_recieved 2300
+28 completes and terminates at 50559.00.
+bootstrap_node_list_recieved 2400
+26 completes and terminates at 50928.00.
+bootstrap_node_list_recieved 2500
+30 completes and terminates at 51736.00.
+29 completes and terminates at 52793.00.
+19 completes and terminates at 53277.00.
+15 is DOWN and completes and terminates at 55516.00.
+18 is DOWN and completes and terminates at 60000.00.
+24 completes and terminates at 60166.00.
+20 is DOWN and completes and terminates at 63703.00.
+23 completes and terminates at 64561.00.
+
+bootstrap_node_list_recieved 2500
+bootstrap_node_list_recieved_no_dups 1952
+
+
+Total simulation time : 64561 milliseconds
+
+
+Total simulation time : 64 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:47:20 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+DNS DOWN 4
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+DNS node offline
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+8 is started at 500.00.
+2 completes and terminates at 525.00.
+bootstrap_node_list_recieved 800
+3 completes and terminates at 697.00.
+5 completes and terminates at 876.00.
+9 is started at 1000.00.
+bootstrap_node_list_recieved 900
+10 is started at 1500.00.
+bootstrap_node_list_recieved 1000
+1 completes and terminates at 1655.00.
+11 is started at 2000.00.
+DNS DOWN 11
+DNS node offline
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+16 is started at 4500.00.
+17 is started at 5000.00.
+DNS DOWN 17
+18 is started at 5500.00.
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+0 completes and terminates at 9475.00.
+bootstrap_node_list_recieved 1100
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+DNS DOWN 28
+29 is started at 11000.00.
+30 is started at 11500.00.
+10 completes and terminates at 11686.00.
+bootstrap_node_list_recieved 1200
+7 completes and terminates at 11824.00.
+bootstrap_node_list_recieved 1300
+6 completes and terminates at 12376.00.
+bootstrap_node_list_recieved 1400
+14 completes and terminates at 12524.00.
+bootstrap_node_list_recieved 1500
+13 completes and terminates at 12686.00.
+DNS node offline
+15 completes and terminates at 23955.00.
+bootstrap_node_list_recieved 1600
+18 completes and terminates at 26417.00.
+bootstrap_node_list_recieved 1700
+9 completes and terminates at 26479.00.
+bootstrap_node_list_recieved 1800
+8 completes and terminates at 29988.00.
+bootstrap_node_list_recieved 1900
+4 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 2000
+11 is DOWN and completes and terminates at 32000.00.
+bootstrap_node_list_recieved 2100
+16 completes and terminates at 34370.00.
+bootstrap_node_list_recieved 2200
+24 completes and terminates at 34956.00.
+bootstrap_node_list_recieved 2300
+21 completes and terminates at 35987.00.
+bootstrap_node_list_recieved 2400
+12 completes and terminates at 36564.00.
+bootstrap_node_list_recieved 2500
+19 completes and terminates at 36732.00.
+DNS node offline
+25 completes and terminates at 37117.00.
+bootstrap_node_list_recieved 2600
+27 completes and terminates at 37339.00.
+bootstrap_node_list_recieved 2700
+26 completes and terminates at 37701.00.
+20 completes and terminates at 42392.00.
+17 is DOWN and completes and terminates at 42686.00.
+29 completes and terminates at 42795.00.
+23 completes and terminates at 49977.00.
+22 completes and terminates at 51003.00.
+30 completes and terminates at 56066.00.
+28 is DOWN and completes and terminates at 66732.00.
+
+bootstrap_node_list_recieved 2700
+bootstrap_node_list_recieved_no_dups 2079
+
+
+Total simulation time : 66732 milliseconds
+
+
+Total simulation time : 66 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 15:47:37 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
 1 is started at 0.00.
 2 is started at 0.00.
 DNS DOWN 2
-DNS node offline
-bootstrap_node_list_recieved 100
-DNS node offline
-1 completes and terminates at 499.00.
-0 is DOWN and completes and terminates at 30000.00.
-2 is DOWN and completes and terminates at 30000.00.
-
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved_no_dups 100
-
-
-Total simulation time : 30000 milliseconds
-
-
-##############################################################
-
-Simulation started at Sun Apr 16 21:42:44 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 500
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 499
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 500
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 499
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-0 completes and terminates at 499.00.
-1 completes and terminates at 499.00.
-2 completes and terminates at 499.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 287
-
-
-Total simulation time : 499 milliseconds
-
-
-##############################################################
-
-Simulation started at Sun Apr 16 21:45:20 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 500
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 499
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 500
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 499
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-0 completes and terminates at 499.00.
-1 completes and terminates at 499.00.
-2 completes and terminates at 499.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 290
-
-
-Total simulation time : 499 milliseconds
-
-
-##############################################################
-
-Simulation started at Sun Apr 16 21:46:05 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 500
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 499
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 500
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 499
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-0 completes and terminates at 499.00.
-1 completes and terminates at 499.00.
-2 completes and terminates at 499.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 291
-
-
-Total simulation time : 499 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:02:42 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-0 completes and terminates at 1803.00.
-2 completes and terminates at 18989.00.
-1 completes and terminates at 27044.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 290
-
-
-Total simulation time : 27044 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:03:33 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-2 completes and terminates at 517.00.
-0 completes and terminates at 2461.00.
-1 completes and terminates at 5052.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 288
-
-
-Total simulation time : 5052 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:14 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-1 completes and terminates at 3496.00.
-0 completes and terminates at 15564.00.
-2 completes and terminates at 25469.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 296
-
-
-Total simulation time : 25469 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:19 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-1 completes and terminates at 1061.00.
-0 completes and terminates at 2596.00.
-2 completes and terminates at 17705.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 286
-
-
-Total simulation time : 17705 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:21 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-DNS DOWN 0
-1 is started at 0.00.
-2 is started at 0.00.
-DNS node offline
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-2 completes and terminates at 4375.00.
-1 completes and terminates at 8361.00.
-0 is DOWN and completes and terminates at 30000.00.
-
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved_no_dups 190
-
-
-Total simulation time : 30000 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:28 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-DNS DOWN 2
+3 is started at 0.00.
+DNS DOWN 3
+4 is started at 0.00.
+DNS DOWN 4
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+DNS DOWN 7
 bootstrap_node_list_recieved 100
 bootstrap_node_list_recieved 200
 DNS node offline
-1 completes and terminates at 503.00.
-0 completes and terminates at 15631.00.
-2 is DOWN and completes and terminates at 30000.00.
-
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved_no_dups 196
-
-
-Total simulation time : 30000 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:30 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-2 completes and terminates at 851.00.
-0 completes and terminates at 4600.00.
-1 completes and terminates at 15417.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 294
-
-
-Total simulation time : 15417 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:31 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-1 completes and terminates at 5208.00.
-0 completes and terminates at 8065.00.
-2 completes and terminates at 12049.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 288
-
-
-Total simulation time : 12049 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:32 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-DNS DOWN 0
-1 is started at 0.00.
-2 is started at 0.00.
 DNS node offline
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-2 completes and terminates at 2191.00.
-1 completes and terminates at 22383.00.
-0 is DOWN and completes and terminates at 30000.00.
-
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved_no_dups 196
-
-
-Total simulation time : 30000 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:32 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-DNS DOWN 0
-1 is started at 0.00.
-2 is started at 0.00.
 DNS node offline
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-2 completes and terminates at 1447.00.
-1 completes and terminates at 9681.00.
-0 is DOWN and completes and terminates at 30000.00.
-
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved_no_dups 196
-
-
-Total simulation time : 30000 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:33 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-DNS DOWN 0
-1 is started at 0.00.
-2 is started at 0.00.
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
 DNS node offline
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-2 completes and terminates at 3574.00.
-1 completes and terminates at 17761.00.
-0 is DOWN and completes and terminates at 30000.00.
-
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved_no_dups 195
-
-
-Total simulation time : 30000 milliseconds
 
 
 ##############################################################
 
-Simulation started at Tue Apr 18 13:16:33 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-2 completes and terminates at 540.00.
-1 completes and terminates at 6197.00.
-0 completes and terminates at 14025.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 290
-
-
-Total simulation time : 14025 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:34 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-1 completes and terminates at 5202.00.
-2 completes and terminates at 17482.00.
-0 completes and terminates at 23217.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 291
-
-
-Total simulation time : 23217 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:35 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-2 completes and terminates at 6420.00.
-1 completes and terminates at 24815.00.
-0 completes and terminates at 25659.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 293
-
-
-Total simulation time : 25659 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:16:41 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-1 completes and terminates at 13955.00.
-0 completes and terminates at 14296.00.
-2 completes and terminates at 20285.00.
-
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved_no_dups 294
-
-
-Total simulation time : 20285 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:17:24 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-DNS DOWN 0
-1 is started at 0.00.
-2 is started at 0.00.
-DNS node offline
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-2 completes and terminates at 1305.00.
-1 completes and terminates at 1951.00.
-0 is DOWN and completes and terminates at 30000.00.
-
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved_no_dups 198
-
-
-Total simulation time : 30000 milliseconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:18:04 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 3
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-
-Less seeds than needed connections
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-DNS DOWN 2
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-DNS node offline
-1 completes and terminates at 1391.00.
-0 completes and terminates at 2720.00.
-2 is DOWN and completes and terminates at 30000.00.
-
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved_no_dups 198
-
-
-Total simulation time : 30000 milliseconds
-
-
-Total simulation time : 30 seconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:18:23 2017
+Simulation started at Tue Apr 18 15:47:48 2017
 Simulation start time 0
 Variables used in this expirement
 
@@ -816,98 +2430,11 @@ bootstrap_node_list_recieved 500
 bootstrap_node_list_recieved 600
 bootstrap_node_list_recieved 700
 DNS node offline
-8 is started at 500.00.
-9 is started at 1000.00.
-10 is started at 1500.00.
-11 is started at 2000.00.
-DNS DOWN 11
-12 is started at 2500.00.
-13 is started at 3000.00.
-14 is started at 3500.00.
-15 is started at 4000.00.
-3 completes and terminates at 4424.00.
-bootstrap_node_list_recieved 800
-16 is started at 4500.00.
-17 is started at 5000.00.
-18 is started at 5500.00.
-0 completes and terminates at 5961.00.
-bootstrap_node_list_recieved 900
-19 is started at 6000.00.
-20 is started at 6500.00.
-5 completes and terminates at 6689.00.
-bootstrap_node_list_recieved 1000
-21 is started at 7000.00.
-22 is started at 7500.00.
-23 is started at 8000.00.
-9 completes and terminates at 8116.00.
-DNS node offline
-24 is started at 8500.00.
-25 is started at 9000.00.
-26 is started at 9500.00.
-27 is started at 10000.00.
-28 is started at 10500.00.
-29 is started at 11000.00.
-30 is started at 11500.00.
-4 completes and terminates at 13616.00.
-bootstrap_node_list_recieved 1100
-10 completes and terminates at 18889.00.
-bootstrap_node_list_recieved 1200
-2 completes and terminates at 19859.00.
-bootstrap_node_list_recieved 1300
-14 completes and terminates at 22224.00.
-bootstrap_node_list_recieved 1400
-12 completes and terminates at 22597.00.
-bootstrap_node_list_recieved 1500
-1 completes and terminates at 23496.00.
-bootstrap_node_list_recieved 1600
-6 completes and terminates at 25359.00.
-bootstrap_node_list_recieved 1700
-7 is DOWN and completes and terminates at 30000.00.
-bootstrap_node_list_recieved 1800
-13 completes and terminates at 32276.00.
-bootstrap_node_list_recieved 1900
-8 completes and terminates at 34140.00.
-bootstrap_node_list_recieved 2000
-15 completes and terminates at 34601.00.
-bootstrap_node_list_recieved 2100
-11 is DOWN and completes and terminates at 38116.00.
-bootstrap_node_list_recieved 2200
-23 completes and terminates at 40258.00.
-bootstrap_node_list_recieved 2300
-16 completes and terminates at 41179.00.
-bootstrap_node_list_recieved 2400
-24 completes and terminates at 41251.00.
-bootstrap_node_list_recieved 2500
-21 completes and terminates at 42592.00.
-bootstrap_node_list_recieved 2600
-22 completes and terminates at 48804.00.
-bootstrap_node_list_recieved 2700
-17 completes and terminates at 49495.00.
-bootstrap_node_list_recieved 2800
-19 completes and terminates at 49752.00.
-bootstrap_node_list_recieved 2900
-30 completes and terminates at 50804.00.
-18 completes and terminates at 54451.00.
-29 completes and terminates at 55294.00.
-20 completes and terminates at 61218.00.
-25 completes and terminates at 61625.00.
-27 completes and terminates at 62993.00.
-26 completes and terminates at 66198.00.
-28 completes and terminates at 77144.00.
-
-bootstrap_node_list_recieved 2900
-bootstrap_node_list_recieved_no_dups 2243
-
-
-Total simulation time : 77144 milliseconds
-
-
-Total simulation time : 77 seconds
 
 
 ##############################################################
 
-Simulation started at Tue Apr 18 13:20:52 2017
+Simulation started at Tue Apr 18 15:49:35 2017
 Simulation start time 0
 Variables used in this expirement
 
@@ -922,233 +2449,474 @@ average_getAdrr_no_node_response 100
 min_node_respsonse_time_getAddr 500
 max_node_respsonse_time_getAddr 29999
 0 is started at 0.00.
-DNS DOWN 0
 1 is started at 0.00.
 2 is started at 0.00.
 3 is started at 0.00.
-DNS DOWN 3
 4 is started at 0.00.
 5 is started at 0.00.
 6 is started at 0.00.
 7 is started at 0.00.
-DNS node offline
 bootstrap_node_list_recieved 100
 bootstrap_node_list_recieved 200
-DNS node offline
 bootstrap_node_list_recieved 300
 bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+bootstrap_node_list_recieved 800
+8 is started at 500.00.
+6 completes and terminates at 591.00.
+bootstrap_node_list_recieved 900
+9 is started at 1000.00.
+1 completes and terminates at 1351.00.
+bootstrap_node_list_recieved 1000
+10 is started at 1500.00.
+11 is started at 2000.00.
+8 completes and terminates at 2056.00.
+bootstrap_node_list_recieved 1100
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 16:02:20 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+DNS DOWN 1
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+DNS node offline
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+bootstrap_node_list_recieved 600
+bootstrap_node_list_recieved 700
+8 is started at 500.00.
+9 is started at 1000.00.
+10 is started at 1500.00.
+5 completes and terminates at 1594.00.
+bootstrap_node_list_recieved 800
+11 is started at 2000.00.
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+DNS DOWN 14
+15 is started at 4000.00.
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+3 completes and terminates at 5691.00.
+bootstrap_node_list_recieved 900
+4 completes and terminates at 5898.00.
+bootstrap_node_list_recieved 1000
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+7 completes and terminates at 8467.00.
+bootstrap_node_list_recieved 1100
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+29 is started at 11000.00.
+30 is started at 11500.00.
+9 completes and terminates at 11867.00.
+bootstrap_node_list_recieved 1200
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 16:12:05 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+DNS DOWN 1
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+DNS DOWN 6
+7 is started at 0.00.
+DNS DOWN 7
+bootstrap_node_list_recieved 100
+DNS node offline
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+DNS node offline
+DNS node offline
+8 is started at 500.00.
+9 is started at 1000.00.
+10 is started at 1500.00.
+DNS DOWN 10
+11 is started at 2000.00.
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+2 completes and terminates at 4106.00.
+bootstrap_node_list_recieved 600
+4 completes and terminates at 4317.00.
+bootstrap_node_list_recieved 700
+16 is started at 4500.00.
+17 is started at 5000.00.
+18 is started at 5500.00.
+19 is started at 6000.00.
+5 completes and terminates at 6229.00.
+DNS node offline
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+28 is started at 10500.00.
+29 is started at 11000.00.
+9 completes and terminates at 11095.00.
+bootstrap_node_list_recieved 800
+30 is started at 11500.00.
+11 completes and terminates at 12190.00.
+bootstrap_node_list_recieved 900
+12 completes and terminates at 13147.00.
+bootstrap_node_list_recieved 1000
+0 completes and terminates at 16156.00.
+bootstrap_node_list_recieved 1100
+8 completes and terminates at 25479.00.
+bootstrap_node_list_recieved 1200
+14 completes and terminates at 25693.00.
+bootstrap_node_list_recieved 1300
+3 completes and terminates at 29573.00.
+bootstrap_node_list_recieved 1400
+1 is DOWN and completes and terminates at 30000.00.
+6 is DOWN and completes and terminates at 30000.00.
+7 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 1500
+bootstrap_node_list_recieved 1600
+bootstrap_node_list_recieved 1700
+16 completes and terminates at 30421.00.
+bootstrap_node_list_recieved 1800
+17 completes and terminates at 32169.00.
+bootstrap_node_list_recieved 1900
+21 completes and terminates at 33675.00.
+bootstrap_node_list_recieved 2000
+18 completes and terminates at 34671.00.
+bootstrap_node_list_recieved 2100
+13 completes and terminates at 35165.00.
+bootstrap_node_list_recieved 2200
+10 is DOWN and completes and terminates at 36229.00.
+bootstrap_node_list_recieved 2300
+22 completes and terminates at 38366.00.
+bootstrap_node_list_recieved 2400
+20 completes and terminates at 41874.00.
+bootstrap_node_list_recieved 2500
+26 completes and terminates at 42970.00.
+bootstrap_node_list_recieved 2600
+19 completes and terminates at 43713.00.
+bootstrap_node_list_recieved 2700
+15 completes and terminates at 43775.00.
+30 completes and terminates at 45773.00.
+24 completes and terminates at 48101.00.
+27 completes and terminates at 48821.00.
+25 completes and terminates at 49313.00.
+23 completes and terminates at 50760.00.
+28 completes and terminates at 68085.00.
+29 completes and terminates at 71177.00.
+
+bootstrap_node_list_recieved 2700
+bootstrap_node_list_recieved_no_dups 2118
+
+
+Total simulation time : 71177 milliseconds
+
+
+Total simulation time : 71 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 16:13:19 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+DNS DOWN 1
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+DNS DOWN 4
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+DNS DOWN 7
+bootstrap_node_list_recieved 100
+DNS node offline
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+DNS node offline
+bootstrap_node_list_recieved 400
+bootstrap_node_list_recieved 500
+DNS node offline
+8 is started at 500.00.
+5 completes and terminates at 741.00.
+bootstrap_node_list_recieved 600
+0 completes and terminates at 786.00.
+9 is started at 1000.00.
+DNS DOWN 9
+DNS node offline
+10 is started at 1500.00.
+11 is started at 2000.00.
+12 is started at 2500.00.
+13 is started at 3000.00.
+14 is started at 3500.00.
+15 is started at 4000.00.
+16 is started at 4500.00.
+17 is started at 5000.00.
+6 completes and terminates at 5419.00.
+bootstrap_node_list_recieved 700
+18 is started at 5500.00.
+DNS DOWN 18
+19 is started at 6000.00.
+20 is started at 6500.00.
+21 is started at 7000.00.
+22 is started at 7500.00.
+23 is started at 8000.00.
+24 is started at 8500.00.
+25 is started at 9000.00.
+26 is started at 9500.00.
+27 is started at 10000.00.
+DNS DOWN 27
+28 is started at 10500.00.
+29 is started at 11000.00.
+DNS DOWN 29
+30 is started at 11500.00.
+10 completes and terminates at 11528.00.
+bootstrap_node_list_recieved 800
+11 completes and terminates at 13592.00.
+bootstrap_node_list_recieved 900
+12 completes and terminates at 14741.00.
+bootstrap_node_list_recieved 1000
+8 completes and terminates at 19840.00.
+bootstrap_node_list_recieved 1100
+3 completes and terminates at 20119.00.
+bootstrap_node_list_recieved 1200
+15 completes and terminates at 21213.00.
+bootstrap_node_list_recieved 1300
+13 completes and terminates at 21864.00.
+bootstrap_node_list_recieved 1400
+14 completes and terminates at 25273.00.
+DNS node offline
+2 completes and terminates at 26562.00.
+bootstrap_node_list_recieved 1500
+1 is DOWN and completes and terminates at 30000.00.
+4 is DOWN and completes and terminates at 30000.00.
+7 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 1600
+bootstrap_node_list_recieved 1700
+bootstrap_node_list_recieved 1800
+9 is DOWN and completes and terminates at 31000.00.
+bootstrap_node_list_recieved 1900
+17 completes and terminates at 32013.00.
+bootstrap_node_list_recieved 2000
+23 completes and terminates at 32106.00.
+bootstrap_node_list_recieved 2100
+24 completes and terminates at 32748.00.
+bootstrap_node_list_recieved 2200
+22 completes and terminates at 35728.00.
+DNS node offline
+25 completes and terminates at 37972.00.
+bootstrap_node_list_recieved 2300
+21 completes and terminates at 42337.00.
+DNS node offline
+28 completes and terminates at 42811.00.
+bootstrap_node_list_recieved 2400
+26 completes and terminates at 49089.00.
+19 completes and terminates at 49293.00.
+16 completes and terminates at 50669.00.
+30 completes and terminates at 52085.00.
+20 completes and terminates at 53865.00.
+18 is DOWN and completes and terminates at 55273.00.
+27 is DOWN and completes and terminates at 65728.00.
+29 is DOWN and completes and terminates at 72337.00.
+
+bootstrap_node_list_recieved 2400
+bootstrap_node_list_recieved_no_dups 1901
+
+
+Total simulation time : 72337 milliseconds
+
+
+Total simulation time : 72 seconds
+
+
+##############################################################
+
+Simulation started at Tue Apr 18 16:13:37 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+Number_DNS_Seeds (Starts at 0) 30
+client_connections 8
+query_connection_timeout 30000
+DNS_server_timeout 30000
+average_getAdrr_no_node_response 100
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+0 is started at 0.00.
+1 is started at 0.00.
+DNS DOWN 1
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+DNS DOWN 5
+6 is started at 0.00.
+7 is started at 0.00.
+bootstrap_node_list_recieved 100
+DNS node offline
+bootstrap_node_list_recieved 200
+bootstrap_node_list_recieved 300
+bootstrap_node_list_recieved 400
+DNS node offline
 bootstrap_node_list_recieved 500
 bootstrap_node_list_recieved 600
 8 is started at 500.00.
 DNS DOWN 8
-9 is started at 1000.00.
-2 completes and terminates at 1338.00.
+0 completes and terminates at 535.00.
 DNS node offline
+3 completes and terminates at 919.00.
+9 is started at 1000.00.
+DNS DOWN 9
+DNS node offline
+2 completes and terminates at 1011.00.
 10 is started at 1500.00.
+bootstrap_node_list_recieved 700
 11 is started at 2000.00.
-DNS DOWN 11
 12 is started at 2500.00.
 13 is started at 3000.00.
-7 completes and terminates at 3017.00.
-bootstrap_node_list_recieved 700
 14 is started at 3500.00.
-9 completes and terminates at 3565.00.
+4 completes and terminates at 3544.00.
 bootstrap_node_list_recieved 800
 15 is started at 4000.00.
 16 is started at 4500.00.
-6 completes and terminates at 4848.00.
-DNS node offline
+11 completes and terminates at 4536.00.
+bootstrap_node_list_recieved 900
 17 is started at 5000.00.
 18 is started at 5500.00.
 19 is started at 6000.00.
-1 completes and terminates at 6482.00.
-bootstrap_node_list_recieved 900
 20 is started at 6500.00.
-4 completes and terminates at 6556.00.
-bootstrap_node_list_recieved 1000
 21 is started at 7000.00.
-13 completes and terminates at 7073.00.
-bootstrap_node_list_recieved 1100
 22 is started at 7500.00.
 23 is started at 8000.00.
+DNS DOWN 23
 24 is started at 8500.00.
-10 completes and terminates at 8791.00.
-bootstrap_node_list_recieved 1200
+7 completes and terminates at 8796.00.
+bootstrap_node_list_recieved 1000
 25 is started at 9000.00.
+6 completes and terminates at 9351.00.
+bootstrap_node_list_recieved 1100
 26 is started at 9500.00.
-DNS DOWN 26
 27 is started at 10000.00.
 28 is started at 10500.00.
 29 is started at 11000.00.
 30 is started at 11500.00.
-12 completes and terminates at 16978.00.
+DNS DOWN 30
+13 completes and terminates at 13963.00.
+bootstrap_node_list_recieved 1200
+12 completes and terminates at 14089.00.
 bootstrap_node_list_recieved 1300
-15 completes and terminates at 17511.00.
+16 completes and terminates at 15246.00.
 bootstrap_node_list_recieved 1400
-16 completes and terminates at 21910.00.
+15 completes and terminates at 16219.00.
 bootstrap_node_list_recieved 1500
-5 completes and terminates at 27344.00.
+17 completes and terminates at 19017.00.
 bootstrap_node_list_recieved 1600
-14 completes and terminates at 29331.00.
+18 completes and terminates at 19278.00.
 bootstrap_node_list_recieved 1700
-0 is DOWN and completes and terminates at 30000.00.
-3 is DOWN and completes and terminates at 30000.00.
+19 completes and terminates at 23463.00.
 bootstrap_node_list_recieved 1800
+10 completes and terminates at 23887.00.
 bootstrap_node_list_recieved 1900
-22 completes and terminates at 30508.00.
-bootstrap_node_list_recieved 2000
-8 is DOWN and completes and terminates at 31338.00.
-bootstrap_node_list_recieved 2100
-20 completes and terminates at 31362.00.
-bootstrap_node_list_recieved 2200
-17 completes and terminates at 33045.00.
+21 completes and terminates at 29610.00.
 DNS node offline
-19 completes and terminates at 33093.00.
+1 is DOWN and completes and terminates at 30000.00.
+5 is DOWN and completes and terminates at 30000.00.
+bootstrap_node_list_recieved 2000
+bootstrap_node_list_recieved 2100
+8 is DOWN and completes and terminates at 30535.00.
+bootstrap_node_list_recieved 2200
+9 is DOWN and completes and terminates at 31000.00.
 bootstrap_node_list_recieved 2300
-21 completes and terminates at 33356.00.
+26 completes and terminates at 31075.00.
 bootstrap_node_list_recieved 2400
-24 completes and terminates at 34461.00.
+14 completes and terminates at 31497.00.
 bootstrap_node_list_recieved 2500
-11 is DOWN and completes and terminates at 34848.00.
-bootstrap_node_list_recieved 2600
-27 completes and terminates at 37039.00.
-23 completes and terminates at 40519.00.
-28 completes and terminates at 43445.00.
-18 completes and terminates at 44884.00.
-25 completes and terminates at 45556.00.
-30 completes and terminates at 46846.00.
-29 completes and terminates at 48680.00.
-26 is DOWN and completes and terminates at 63045.00.
+25 completes and terminates at 33907.00.
+DNS node offline
+20 completes and terminates at 43497.00.
+22 completes and terminates at 44863.00.
+27 completes and terminates at 48739.00.
+24 completes and terminates at 51624.00.
+29 completes and terminates at 55166.00.
+23 is DOWN and completes and terminates at 59610.00.
+28 completes and terminates at 59833.00.
+30 is DOWN and completes and terminates at 63907.00.
 
-bootstrap_node_list_recieved 2600
-bootstrap_node_list_recieved_no_dups 2032
+bootstrap_node_list_recieved 2500
+bootstrap_node_list_recieved_no_dups 1994
 
 
-Total simulation time : 63045 milliseconds
+Total simulation time : 63907 milliseconds
 
 
 Total simulation time : 63 seconds
-
-
-##############################################################
-
-Simulation started at Tue Apr 18 13:21:15 2017
-Simulation start time 0
-Variables used in this expirement
-
-query_connection_timeout 30000
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-Number_DNS_Seeds (Starts at 0) 30
-client_connections 8
-query_connection_timeout 30000
-DNS_server_timeout 30000
-average_getAdrr_no_node_response 100
-min_node_respsonse_time_getAddr 500
-max_node_respsonse_time_getAddr 29999
-0 is started at 0.00.
-1 is started at 0.00.
-2 is started at 0.00.
-3 is started at 0.00.
-4 is started at 0.00.
-5 is started at 0.00.
-6 is started at 0.00.
-7 is started at 0.00.
-bootstrap_node_list_recieved 100
-bootstrap_node_list_recieved 200
-bootstrap_node_list_recieved 300
-bootstrap_node_list_recieved 400
-bootstrap_node_list_recieved 500
-bootstrap_node_list_recieved 600
-bootstrap_node_list_recieved 700
-bootstrap_node_list_recieved 800
-8 is started at 500.00.
-1 completes and terminates at 500.00.
-bootstrap_node_list_recieved 900
-6 completes and terminates at 640.00.
-9 is started at 1000.00.
-bootstrap_node_list_recieved 1000
-3 completes and terminates at 1400.00.
-10 is started at 1500.00.
-bootstrap_node_list_recieved 1100
-8 completes and terminates at 1692.00.
-11 is started at 2000.00.
-DNS DOWN 11
-DNS node offline
-12 is started at 2500.00.
-4 completes and terminates at 2543.00.
-bootstrap_node_list_recieved 1200
-0 completes and terminates at 2875.00.
-13 is started at 3000.00.
-bootstrap_node_list_recieved 1300
-10 completes and terminates at 3257.00.
-14 is started at 3500.00.
-bootstrap_node_list_recieved 1400
-12 completes and terminates at 3755.00.
-15 is started at 4000.00.
-DNS DOWN 15
-DNS node offline
-2 completes and terminates at 4232.00.
-16 is started at 4500.00.
-bootstrap_node_list_recieved 1500
-13 completes and terminates at 4550.00.
-17 is started at 5000.00.
-bootstrap_node_list_recieved 1600
-18 is started at 5500.00.
-19 is started at 6000.00.
-DNS DOWN 19
-20 is started at 6500.00.
-21 is started at 7000.00.
-22 is started at 7500.00.
-23 is started at 8000.00.
-24 is started at 8500.00.
-25 is started at 9000.00.
-DNS DOWN 25
-26 is started at 9500.00.
-27 is started at 10000.00.
-28 is started at 10500.00.
-17 completes and terminates at 10651.00.
-bootstrap_node_list_recieved 1700
-29 is started at 11000.00.
-30 is started at 11500.00.
-5 completes and terminates at 14335.00.
-DNS node offline
-14 completes and terminates at 16060.00.
-bootstrap_node_list_recieved 1800
-9 completes and terminates at 16250.00.
-bootstrap_node_list_recieved 1900
-21 completes and terminates at 16807.00.
-bootstrap_node_list_recieved 2000
-22 completes and terminates at 18082.00.
-bootstrap_node_list_recieved 2100
-23 completes and terminates at 19530.00.
-bootstrap_node_list_recieved 2200
-24 completes and terminates at 23043.00.
-DNS node offline
-7 completes and terminates at 23246.00.
-bootstrap_node_list_recieved 2300
-16 completes and terminates at 23591.00.
-bootstrap_node_list_recieved 2400
-18 completes and terminates at 28833.00.
-bootstrap_node_list_recieved 2500
-26 completes and terminates at 29200.00.
-bootstrap_node_list_recieved 2600
-28 completes and terminates at 29488.00.
-bootstrap_node_list_recieved 2700
-30 completes and terminates at 30683.00.
-11 is DOWN and completes and terminates at 32000.00.
-15 is DOWN and completes and terminates at 34000.00.
-29 completes and terminates at 37064.00.
-20 completes and terminates at 38393.00.
-19 is DOWN and completes and terminates at 44335.00.
-27 completes and terminates at 50497.00.
-25 is DOWN and completes and terminates at 53043.00.
-
-bootstrap_node_list_recieved 2700
-bootstrap_node_list_recieved_no_dups 2090
-
-
-Total simulation time : 53043 milliseconds
-
-
-Total simulation time : 53 seconds

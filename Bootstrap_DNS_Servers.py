@@ -115,6 +115,7 @@ def connection_request(env, name, cw):
             print('%s is DOWN and completes and terminates at %.2f.' % (name, env.now))
     else:
         with cw.machine.request() as request:
+
             yield request
             getAddr_logic() # Function which contains all the logic for the GetAddr
             # print('connection number %s opens a connection at %.2f.' % (name, env.now))

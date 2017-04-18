@@ -24,15 +24,44 @@ from Bootstrap_DNS_Servers import *
 
 ### TODO - WHAT VARIABLES DO I NEED TO COLLECT?
 
-"""
-Take the list of recived nodes and connect to each one to see if they are online
-If they are - add a random value to the simulation time
-Else add a timeout to the simulation time
-Do this untill every node is queried OR a fix value is reached?
-
-Will need to store a list of live nodes and dead nodes
-"""
 
 ####    Storage Variables    ####
 live_node_list = [] #Array list of all live nodes
 dead_node_list = []  #Array list of all dead nodes
+
+
+"""
+Start at new simulation time or carry on ? - could do either set up would be the same
+
+"""
+
+
+
+def Bootstrap_node_online_test_simulation(sim_time_start):
+    # Setup and start the simulation
+    now = time.strftime("%c")
+
+
+    print('Starting the simulator to test if nodes are online')
+    print ("\n")
+
+    # Create an environment and start the setup process
+    env = simpy.Environment()
+
+    # env.process(setup(env, client_connections))
+    #
+    #     text_file_writing_variables(text_file, env)
+    #
+    #     # Execute!
+    #     env.run()
+    #     print ("\n")
+    #     print('Total simulation time : %d' %  env.now   + ' milliseconds')
+    #     print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+    #
+    #     print ('len(bootstrap_node_list_recieved_no_dups)', len(bootstrap_node_list_recieved_no_dups))
+    #
+    #     text_file.write('\n\nbootstrap_node_list_recieved ' + str(len(bootstrap_node_list_recieved)))
+    #     text_file.write('\nbootstrap_node_list_recieved_no_dups ' + str(len(bootstrap_node_list_recieved_no_dups)))
+    #     text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
+    #     text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+    #     return env.now
