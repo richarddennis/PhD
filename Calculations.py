@@ -29,13 +29,14 @@ min_node_to_complete_boot_strap = 1000 # Lowest number of nodes needed before th
 bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 bootstrap_node_list_recieved_no_dups = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 
+total_node_list = [] #List of every node that has been recieved on the network
+
+live_node_list = [] #Array list of all live nodes
+dead_node_list = []  #Array list of all dead nodes
+
 min_nodes_recieved_before_dns_boot_quit = 500 # Lowest number of NON duplicate nodes to be recieved untill the DNS bootstrap proccess can finish
 
-# #Number of nodes recieved from a getAddr request (Not a constant - using live data (85% of nodes returned between 100 - 120 nodes))
-# def number_of_nodes_recieved():
-
 flag = False
-
 
 #Move into calculations.py when ready
 #Number of nodes recieved (Bootstrap)
@@ -70,6 +71,38 @@ def number_of_duplicates_in_list(text_file):
         print "recieved required nodes"
         print "\n\n\n"
         flag = True
+
+
+def node_offline(text_file):
+    #Remove the first node in the list of recieved nodes,
+    bootstrap_node_list_recieved_no_dups
+
+
+
+"""
+Generate a random array with x values (This is to simulate the DNS setup procedure - allows expirments such as what if only 10 nodes was recieved during DNS etc)
+Need to ensure no duplicates in the list
+
+Only run at setup of the simulation (getAddr test)
+"""
+def generation_of_nodes(start_node_list_amount):
+    while len(bootstrap_node_list_recieved_no_dups) != start_node_list_amount:
+        bootstrap_node_list_recieved = rand.sample(range(1, network_ip_node_size), start_node_list_amount)
+
+        #Remove duplicates
+        for i in bootstrap_node_list_recieved:
+            if i not in bootstrap_node_list_recieved_no_dups:
+                bootstrap_node_list_recieved_no_dups.append(i)
+
+    #Make sure the correct number of nodes are generated
+    assert start_node_list_amount == len(bootstrap_node_list_recieved_no_dups)
+
+def NodeUpPobability():
+    #print ('In DnsUpProbability')
+    up = (0 if rand.random() > node_live_probability else 1)
+    # print up
+    return up
+
 
 
 def DnsUpProbability():

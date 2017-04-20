@@ -33,7 +33,22 @@ How is our model different from Bitcoin
 Smaller messages = lower time ? - test this assumption
 
 What is the point of this bit ? - do we do anything different
+    Might come in handy to show how mobile nodes would effect this due to network churn?
 
+
+TO code
+#Do this code in calculations ?
+Connect to nodes -
+    if node is alive:
+        add timing (random but weighted like crawled network)
+        move to live node list
+        Generate a new bunch of new nodes (Nuumber of nodes - variable)
+        See how many of these nodes have been seen before (LOG THIS)
+        Stop querying when live node list == network size
+            Anything else ? - How to deal with malicious nodes etc?
+    If node is dead / not repsonding:
+        Add timeout to simulation timeout
+        move node to
 """
 
 import simpy
@@ -69,13 +84,15 @@ average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a no
 live_node_list = [] #Array list of all live nodes
 dead_node_list = []  #Array list of all dead nodes
 
-
 """
 Start at new simulation time or carry on ? - could do either set up would be the same
 
 """
 text_file = open("Bootstrap_getAddr_test_of_online.txt", "a+")
 
+def offline_node_logic():
+    #Deal with a server being offline - take a random id (doesn't matter which atm ?) - remove recieved list and store it into the dead node list
+    node_offline(text_file)
 
 #Var
 def text_file_writing_variables(text_file, env):
@@ -88,15 +105,48 @@ def text_file_writing_variables(text_file, env):
     text_file.write("\nmax_node_respsonse_time_getAddr " + str(max_node_respsonse_time_getAddr))
     text_file.write("\nclient_connections " + str( client_connections))
     text_file.write("\naverage_getAdrr_no_node_response " + str(average_getAdrr_no_node_response))
+    text_file.write("\nNumber of nodes to start with (Node list from DNS setup) " + str(start_node_list_amount_recieved))
 
 
-class Bootstrap_DNS(object):
+class Bootstrap_getAddr(object):
     """Number of parallel connections , client_connections - LIMITED !
     """
     def __init__(self, env, client_connections):
         self.env = env
         self.machine = simpy.Resource(env, client_connections)
         # self.rand_delay = rand_delay
+
+    #TODO - Add more logic here - move from list into live node list etc, do more than just get the timeout (OR Do we do that in a seperate function ?)
+    def get_addr(self,DNS):
+        """ Repsonse time is claculated from the get_Addr_response_time method"""
+        response = get_Addr_response_time()
+        "Adds the time recieved from the method to the simulation time"
+        yield self.env.timeout(response)
+
+    #TODO - Add more logic here - move from list into dead node list etc
+    def dns_node_offline(self, DNS):
+        "Timeout if the node is offine"
+        text_file.write("\nDNS node offline")
+        yield self.env.timeout(DNS_server_timeout)
+
+
+def connection_getaddr_node_request(env, name, cw):
+    """
+    First test if the ndoe is online or offline - could use different probability to DNS nodes (As per crawler results)
+
+    """
+
+    NodeUp = NodeUpPobability()# 1 is up, 0 is down
+    print('%s is started at %.2f.' % (name, env.now))
+    text_file.write("\n%s is started at %.2f." % (name, env.now))
+    #TODO - How to deal with an offline nodes - where to move them / store them
+    if NodeUp == 0: #Node offline
+        with cw.machine.request() as request:
+            text_file.write("\nNode down %s" % (name))
+            yield request
+            offline_node_logic()
+            yield env.process(cw.query_connection_timeout)
+
 
 
 
@@ -107,21 +157,39 @@ def setup(env, client_connections):
     effect the timing etc) """
 
     # Create the DNS bootsrap
-    bootsrap_dns = Bootstrap_DNS(env, client_connections)
+    bootstrap_getAddr = Bootstrap_getAddr(env, client_connections)
 
-"""
-Create x (client_connections),
-create new connections every x millisecond (Can create as many as possible as its just getting them ready (doesn't effect simulation time))
-When/how to stop ? - do it untill every node is queired ?
-"""
+    """
+    Create x (client_connections),
+    create new connections every x millisecond (Can create as many as possible as its just getting them ready (doesn't effect simulation time))
+    When/how to stop ? - do it untill every node is queired ?
+    """
 
+    # Create X inital connections (Assuming all connections will be used to start with - doesn't effect simulation time etc if not used)
+    # Each connection has an unique id - once used its never used again
+    for i in range(client_connections):
+        text_file.write("\n\nCreating the initial connections ready to be used")
+        env.process(connection_getaddr_node_request(env, '%d' % i, bootstrap_getAddr))
 
+    #Assuming the node list is not empty when the simulation is started (Should never be as this step would be pointless if it was)
+    if bootstrap_node_list_recieved_no_dups != []:
+        print "Creating new connections"
+        env.process(connection_getaddr_node_request(env, '%d' % i, bootstrap_getAddr)) #What if 8 finished at the same time, this would add a delay, maybe reduce the timout by 8?
+        yield env.timeout(min_node_respsonse_time_getAddr)
+        i += 1
+        print "Creating / readying a new connection", i
+        env.process(connection_getaddr_node_request(env, '%d' % i, bootstrap_getAddr))
+    else:
+        print "No nodes left to query - no more connections are being created"
 
-def Bootstrap_node_online_test_simulation():
+def Bootstrap_node_online_test_simulation(start_node_list_amount):
+    global start_node_list_amount_recieved
     # Setup and start the simulation
     now = time.strftime("%c")
 
-
+    #Generate a bunch of nodes (Value is how many nodes (None dups) to be created)
+    generation_of_nodes(start_node_list_amount)
+    start_node_list_amount_recieved = start_node_list_amount
     print('Starting the simulator to test if nodes are online')
     print ("\n")
 

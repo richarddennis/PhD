@@ -1,0 +1,196 @@
+
+
+
+##############################################################
+
+Simulation started at Thu Apr 20 20:24:03 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+client_connections 8
+average_getAdrr_no_node_response 100
+Number of nodes to start with (Node list from DNS setup) 10
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+
+Total simulation time : 0 milliseconds
+
+
+Total simulation time : 0 seconds
+
+
+##############################################################
+
+Simulation started at Thu Apr 20 20:24:05 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+client_connections 8
+average_getAdrr_no_node_response 100
+Number of nodes to start with (Node list from DNS setup) 10
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+
+Total simulation time : 0 milliseconds
+
+
+Total simulation time : 0 seconds
+
+
+##############################################################
+
+Simulation started at Thu Apr 20 20:24:34 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+client_connections 8
+average_getAdrr_no_node_response 100
+Number of nodes to start with (Node list from DNS setup) 10
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+
+##############################################################
+
+Simulation started at Thu Apr 20 20:49:35 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+client_connections 8
+average_getAdrr_no_node_response 100
+Number of nodes to start with (Node list from DNS setup) 10
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+
+##############################################################
+
+Simulation started at Thu Apr 20 20:52:09 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+client_connections 8
+average_getAdrr_no_node_response 100
+Number of nodes to start with (Node list from DNS setup) 10
+
+Creating the initial connections ready to be used
+0 is started at 0.00.
+
+
+##############################################################
+
+Simulation started at Thu Apr 20 21:33:51 2017
+Simulation start time 0
+Variables used in this expirement
+
+query_connection_timeout 30000
+min_node_respsonse_time_getAddr 500
+max_node_respsonse_time_getAddr 29999
+client_connections 8
+average_getAdrr_no_node_response 100
+Number of nodes to start with (Node list from DNS setup) 10
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+
+Creating the initial connections ready to be used
+0 is started at 0.00.
+1 is started at 0.00.
+2 is started at 0.00.
+3 is started at 0.00.
+4 is started at 0.00.
+5 is started at 0.00.
+6 is started at 0.00.
+7 is started at 0.00.
+7 is started at 0.00.
+8 is started at 500.00.
+
+
+Total simulation time : 500 milliseconds
+
+
+Total simulation time : 0 seconds

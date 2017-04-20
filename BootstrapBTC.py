@@ -70,29 +70,6 @@ bootstrap_node_list_recieved_no_dups = [] #List of all nodes addresses recieved 
 node_list_recieved_getAddr = [] # List of nodes recieved from a getAddr message (Not during the DNS stage), should always be empty before its called (Logic of getAddr_from_standard_nodes())
 blocks_recieved = [] # List of all the blocks recieved (Duplicates, malicious all included here)
 
-#Move into calculations.py when ready
-#Number of nodes recieved (Bootstrap)
-def bootstrap_node_getAddr():
-    #### TODO ####
-    #Random generation of nodes (number represents a single node), from 1 to x for an average amount of nodes
-    for i in range (average_getAdrr_no_node_response):
-        bootstrap_node_list_recieved.append(rand.randrange(1,network_ip_node_size,1))
-
-
-
-def number_of_duplicates_in_list():
-    # print 'len bootstrap_node_list_recieved BEFORE removing duplicates', len(bootstrap_node_list_recieved)
-    print 'bootstrap_node_list_recieved BEFORE removing duplicates', bootstrap_node_list_recieved
-    number_recieved = len(bootstrap_node_list_recieved)
-    i = dict.fromkeys(bootstrap_node_list_recieved).keys()
-    #Removes all the values from i to the bootstrap_node_list_recieved_no_dups variable
-    x = 0
-    while x < len(i):
-        bootstrap_node_list_recieved_no_dups.append(i.pop(0))
-        x = x + 1
-    print 'len bootstrap_node_list_recieved AFTER removing duplicates', len(bootstrap_node_list_recieved_no_dups)
-    # print 'bootstrap_node_list_recieved AFTER removing duplicates', bootstrap_node_list_recieved_no_dups
-    print (number_recieved - len(bootstrap_node_list_recieved_no_dups)), 'duplicate nodes recieved during bootstrapping (Can be multiples of the same node)' # TODO Log this data?
 
 
 #### TODO logic for getAddr from other nodes
