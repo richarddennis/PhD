@@ -77,7 +77,7 @@ def number_of_duplicates_in_list(text_file):
 def node_offline(text_file):
     #Remove the first node in the list of recieved nodes,
     assert len(bootstrap_node_list_recieved_no_dups) != 0
-    dead_node = bootstrap_node_list_recieved_no_dups.pop(0)
+    dead_node = bootstrap_node_list_recieved_no_dups.remove(0)
     # print dead_node
     dead_node_list.append(dead_node)
 
@@ -85,14 +85,40 @@ def node_offline(text_file):
 
 def node_online(text_file):
     assert len(bootstrap_node_list_recieved_no_dups) != 0
-    live_node_list.append(bootstrap_node_list_recieved_no_dups.pop(0))
-
+    live_node_list.append(bootstrap_node_list_recieved_no_dups.remove(0))
+    generation_of_getaddr_reply_nodes(text_file)
     #TODO - ADD CODE HERE TO GENERATE NEW NODES (KEEP A COUNT OF HOW MANY DUPLICATES / SEEN NODES ETC - LOG ALL THIS )
 
-def generation_of_getaddr_reply_nodes():
-        storage = []
-        storage2 = []
-        storage3 = []
+def generation_of_getaddr_reply_nodes(text_file):
+    #Temp storage variables
+    global bootstrap_node_list_recieved
+
+    storage = []
+    storage2 = []
+    storage3 = []
+
+    #Generate a bunch of random (BUT VALID / SEEN) node addresses (assuming each indivual number is a unique node)
+    for i in range (average_getAdrr_no_node_response):
+        bootstrap_node_list_recieved.append(rand.randrange(1,network_ip_node_size,1))
+
+    #Remove duplicates
+    for i in bootstrap_node_list_recieved:
+        if i not in bootstrap_node_list_recieved_no_dups:
+            bootstrap_node_list_recieved_no_dups.append(i)
+
+    #TODO - LOG THE NUMBER OF DUPLICATES
+
+    #Goes through the whole recieved list of nodes, and compares these to any nodes that have already been queried and if they are found to be live removes them from the list
+    for i in bootstrap_node_list_recieved_no_dups:
+        if i in live_node_list:
+            bootstrap_node_list_recieved_no_dups.remove(i)
+
+    # #Check for out of range pop errors TODO
+    for i in bootstrap_node_list_recieved_no_dups:
+        if i in dead_node_list:
+            bootstrap_node_list_recieved_no_dups.remove(i)
+
+
 
 """
 Generate a random array with x values (This is to simulate the DNS setup procedure - allows expirments such as what if only 10 nodes was recieved during DNS etc)

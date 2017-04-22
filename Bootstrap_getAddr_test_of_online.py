@@ -102,8 +102,8 @@ def offline_node_logic():
     #Deal with a server being offline - take a random id (doesn't matter which atm ?) - remove recieved list and store it into the dead node list
     node_offline(text_file)
 
+
 def online_node_logic():
-    #Deal with a server being offline - take a random id (doesn't matter which atm ?) - remove recieved list and store it into the dead node list
     node_online(text_file)
 
 #Var
