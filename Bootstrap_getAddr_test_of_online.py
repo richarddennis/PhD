@@ -84,6 +84,8 @@ average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a no
 live_node_list = [] #Array list of all live nodes
 dead_node_list = []  #Array list of all dead nodes
 
+node_id_number = 0
+
 """
 Start at new simulation time or carry on ? - could do either set up would be the same
 
@@ -155,7 +157,7 @@ def setup(env, client_connections):
     """Create the intial connections, then keep creating a connection every x
     millisecond (Connection not live but spooled ready to be used *Does not
     effect the timing etc) """
-
+    global node_id_number
     # Create the DNS bootsrap
     bootstrap_getAddr = Bootstrap_getAddr(env, client_connections)
 
@@ -167,18 +169,24 @@ def setup(env, client_connections):
 
     # Create X inital connections (Assuming all connections will be used to start with - doesn't effect simulation time etc if not used)
     # Each connection has an unique id - once used its never used again
-    for i in range(client_connections):
+    for node_id_number in range(client_connections):
         text_file.write("\n\nCreating the initial connections ready to be used")
-        env.process(connection_getaddr_node_request(env, '%d' % i, bootstrap_getAddr))
+        print "Creating / readying a initial connection", node_id_number
+        text_file.write("\nCreating / readying a initial connection" + str(node_id_number))
+        env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr))
+        node_id_number = node_id_number + 1
 
-    #Assuming the node list is not empty when the simulation is started (Should never be as this step would be pointless if it was)
+
+
+
+    # # #Assuming the node list is not empty when the simulation is started (Should never be as this step would be pointless if it was)
+    # TODO CHANGE IF TO WHILE !
     if bootstrap_node_list_recieved_no_dups != []:
-        print "Creating new connections"
-        env.process(connection_getaddr_node_request(env, '%d' % i, bootstrap_getAddr)) #What if 8 finished at the same time, this would add a delay, maybe reduce the timout by 8?
+        print "Creating / readying connection ", node_id_number
+        text_file.write("\nCreating / readying connection "+ str(node_id_number))
+        env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr)) #What if 8 finished at the same time, this would add a delay, maybe reduce the timout by 8?
         yield env.timeout(min_node_respsonse_time_getAddr)
-        i += 1
-        print "Creating / readying a new connection", i
-        env.process(connection_getaddr_node_request(env, '%d' % i, bootstrap_getAddr))
+        node_id_number = node_id_number + 1
     else:
         print "No nodes left to query - no more connections are being created"
 
