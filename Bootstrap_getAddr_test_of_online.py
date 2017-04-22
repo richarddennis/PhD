@@ -67,7 +67,6 @@ from Calculations import *
 ### TODO - WHAT VARIABLES DO I NEED TO COLLECT?
 
 "1 SECOND IS 1000 MILLISECONDS"
-# RANDOM_SEED = 42
 milliseconds = 1000
 
 query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
@@ -92,9 +91,20 @@ Start at new simulation time or carry on ? - could do either set up would be the
 """
 text_file = open("Bootstrap_getAddr_test_of_online.txt", "a+")
 
+def get_Addr_response_time():
+    "non linear distribution where values close to min are more frequent"
+    response_time = int(min_node_respsonse_time_getAddr + (max_node_respsonse_time_getAddr - min_node_respsonse_time_getAddr) * pow(rand.random(), 2)) # Set min and max in variables
+    assert response_time >= min_node_respsonse_time_getAddr
+    return response_time
+
+
 def offline_node_logic():
     #Deal with a server being offline - take a random id (doesn't matter which atm ?) - remove recieved list and store it into the dead node list
     node_offline(text_file)
+
+def online_node_logic():
+    #Deal with a server being offline - take a random id (doesn't matter which atm ?) - remove recieved list and store it into the dead node list
+    node_online(text_file)
 
 #Var
 def text_file_writing_variables(text_file, env):
@@ -139,15 +149,36 @@ def connection_getaddr_node_request(env, name, cw):
     """
 
     NodeUp = NodeUpPobability()# 1 is up, 0 is down
+
     print('%s is started at %.2f.' % (name, env.now))
     text_file.write("\n%s is started at %.2f." % (name, env.now))
     #TODO - How to deal with an offline nodes - where to move them / store them
     if NodeUp == 0: #Node offline
         with cw.machine.request() as request:
+            print "node DOWN"
             text_file.write("\nNode down %s" % (name))
             yield request
+            before = env.now
+            # print "Node %s sent the request at %.2f" % (name, env.now)
             offline_node_logic()
-            yield env.process(cw.query_connection_timeout)
+            yield env.process(cw.dns_node_offline(name))
+            after = env.now
+            # print "Node %s recieved the request at %.2f" % (name, env.now)
+            assert (after - before) == query_connection_timeout
+            text_file.write("\n%s is DOWN and completes and terminates at %.2f." % (name, env.now))
+            print('%s is DOWN and completes and terminates at %.2f.' % (name, env.now))
+    else:
+        with cw.machine.request() as request:
+            print "Node UP"
+            yield request
+            text_file.write("\nNode up %s" % (name))
+            before = env.now
+            # print "Node %s sent the request at %.2f" % (name, env.now)
+            online_node_logic()
+            yield env.process(cw.get_addr(name))
+            after = env.now
+            # print "Node %s recieved the request at %.2f" % (name, env.now)
+
 
 
 
@@ -182,13 +213,14 @@ def setup(env, client_connections):
     # # #Assuming the node list is not empty when the simulation is started (Should never be as this step would be pointless if it was)
     # TODO CHANGE IF TO WHILE !
     if bootstrap_node_list_recieved_no_dups != []:
-        print "Creating / readying connection ", node_id_number
-        text_file.write("\nCreating / readying connection "+ str(node_id_number))
+        # print "Creating / readying connection ", node_id_number
+        # text_file.write("\nCreating / readying connection "+ str(node_id_number))
         env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr)) #What if 8 finished at the same time, this would add a delay, maybe reduce the timout by 8?
         yield env.timeout(min_node_respsonse_time_getAddr)
         node_id_number = node_id_number + 1
     else:
         print "No nodes left to query - no more connections are being created"
+        text_file.write('\nNo nodes left to query - no more connections are being createdat %.2f.' % (env.now))
 
 def Bootstrap_node_online_test_simulation(start_node_list_amount):
     global start_node_list_amount_recieved

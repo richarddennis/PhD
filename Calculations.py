@@ -73,11 +73,26 @@ def number_of_duplicates_in_list(text_file):
         flag = True
 
 
+
 def node_offline(text_file):
     #Remove the first node in the list of recieved nodes,
-    bootstrap_node_list_recieved_no_dups
+    assert len(bootstrap_node_list_recieved_no_dups) != 0
+    dead_node = bootstrap_node_list_recieved_no_dups.pop(0)
+    # print dead_node
+    dead_node_list.append(dead_node)
 
+    "What to log ?"
 
+def node_online(text_file):
+    assert len(bootstrap_node_list_recieved_no_dups) != 0
+    live_node_list.append(bootstrap_node_list_recieved_no_dups.pop(0))
+
+    #TODO - ADD CODE HERE TO GENERATE NEW NODES (KEEP A COUNT OF HOW MANY DUPLICATES / SEEN NODES ETC - LOG ALL THIS )
+
+def generation_of_getaddr_reply_nodes():
+        storage = []
+        storage2 = []
+        storage3 = []
 
 """
 Generate a random array with x values (This is to simulate the DNS setup procedure - allows expirments such as what if only 10 nodes was recieved during DNS etc)
@@ -99,21 +114,19 @@ def generation_of_nodes(start_node_list_amount):
 
 def NodeUpPobability():
     #print ('In DnsUpProbability')
-    up = (0 if rand.random() > node_live_probability else 1)
-    # print up
-    return up
+    r_number =rand.uniform(0, 1)
+    # print r_number
+    #Was playing up so re arranged the code - not the cleanest but works
+    if r_number >= node_live_probability:
+        up = 0
+    else:
+        up = 1
 
+    return up
 
 
 def DnsUpProbability():
     #print ('In DnsUpProbability')
-    up = (0 if rand.random() > Prob_DNS_UP else 1)
-    # print up
-    return up
-
-
-def node_live_probability():
-    #print ('In node_live_probability')
     up = (0 if rand.random() > Prob_DNS_UP else 1)
     # print up
     return up
