@@ -15,9 +15,10 @@ import random as rand
 import sys, traceback
 from math import *
 ####    Variables   ####
+milliseconds = 1000
 
 Prob_DNS_UP = 0.8  # Likelyhood the DNS server will be up
-node_live_probability = 0.5 #Likelyhood the node will be up
+node_live_probability = 0.7 #Likelyhood the node will be up
 
 bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
@@ -74,39 +75,52 @@ def number_of_duplicates_in_list(text_file):
         flag = True
 
 
+def node_offline(env, text_file):
+    global complete_flag
 
-def node_offline(text_file):
     #Remove the first node in the list of recieved nodes,
     # print "len(bootstrap_node_list_recieved_no_dups) offline", len(bootstrap_node_list_recieved_no_dups)
+    if len(bootstrap_node_list_recieved_no_dups) != 0:
+        dead_node = bootstrap_node_list_recieved_no_dups.pop(0)
+        # print dead_node
+        dead_node_list.append(dead_node)
+        #Once all the nodes have been discovered, log this into the file - While on the real network we would still collect data, there aint much point, and becuase of this we do not alter the times once the whole netwok has been found
+    elif complete_flag == False:
+        print "\n\nAll nodes on the network have been discovered - but not queried yet"
+        print "Took %s nodes queried to discover the whole network" %(name)
+        text_file.write("\n\nAll nodes on the network have been discovered - but not queried yet\n\n")
+        text_file.write("Took %s nodes queried to discover the whole network" %(name))
+        print "\n\n\n"
+        complete_flag = True
 
-    assert len(bootstrap_node_list_recieved_no_dups) != 0
-    dead_node = bootstrap_node_list_recieved_no_dups.pop(0)
-    # print dead_node
-    dead_node_list.append(dead_node)
+        print ("\n")
+        print('Total simulation time : %d' %  env.now   + ' milliseconds')
+        print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+        print('Total simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
 
-    "What to log ?"
+        text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
+        text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+        text_file.write('\n\n\nTotal simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
+        sys.exit()
+    "What to log ? - if anything ? do we care what nodes are down ?"
 
 """
-TODO - what does this need to achieve? - do not doing timing here
-
 This section deals with the handling of the getAddr logic
 Deals with if there are any more nodes to get - No point downloading more nodes if the whole node list is already found / stored to be queried
 if list is not found, donwload more nodes
 make sure the nodes where are generated are not added to the "be queried list" if they have already been queried
-
-need to check the lists are updating globally not just local ** Likely to be an issue atm
 """
-def node_online(text_file,name):
+def node_online(env, text_file,name):
     global complete_flag
     # print "len(bootstrap_node_list_recieved_no_dups)", len(bootstrap_node_list_recieved_no_dups)
 
     if len(bootstrap_node_list_recieved_no_dups) != 0:
         live_node_list.append(bootstrap_node_list_recieved_no_dups.pop(0))
-        #TODO - ADD CODE HERE TO GENERATE NEW NODES (KEEP A COUNT OF HOW MANY DUPLICATES / SEEN NODES ETC - LOG ALL THIS )
 
         #If all the nodes have eithere been queried or are in the list to be queried there is no point search for more
         if (len(bootstrap_node_list_recieved_no_dups)+ len(live_node_list) + len(dead_node_list)) <= network_ip_node_size:
             generation_of_getaddr_reply_nodes(text_file)
+        #Once all the nodes have been discovered, log this into the file - While on the real network we would still collect data, there aint much point, and becuase of this we do not alter the times once the whole netwok has been found
         elif complete_flag == False:
             print "\n\nAll nodes on the network have been discovered - but not queried yet"
             print "Took %s nodes queried to discover the whole network" %(name)
@@ -117,6 +131,24 @@ def node_online(text_file,name):
             # sys.exit()
     else:
         print "All nodes queried"
+        text_file.write("\n\nAll nodes queried\n\n")
+
+        print("\n\nTotal number of live nodes : " + str(len(live_node_list)))
+        print("\n\nTotal number of dead nodes : " + str(len(dead_node_list)))
+
+        text_file.write("\n\nAll nodes queried\n\n")
+        text_file.write("\n\nTotal number of live nodes : " + str(len(live_node_list)))
+        text_file.write("\n\nTotal number of dead nodes : " + str(len(dead_node_list)))
+
+        print ("\n")
+        print('Total simulation time : %d' %  env.now   + ' milliseconds')
+        print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+        print('Total simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
+
+        text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
+        text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+        text_file.write('\n\n\nTotal simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
+
         sys.exit()
 
 
@@ -143,12 +175,12 @@ def generation_of_getaddr_reply_nodes(text_file):
         if i in live_node_list:
             bootstrap_node_list_recieved_no_dups.remove(i)
             # print "duplicate live node -- removing"
-            ##TODO LOG WHEN A DUPLICATE NODE IS FOUND (WORK OUT HOW COMMON THIS IS ETC)
+            text_file.write("\nduplicate live node -- removing")
 
     for i in bootstrap_node_list_recieved_no_dups:
         if i in dead_node_list:
             bootstrap_node_list_recieved_no_dups.remove(i)
-            ##TODO LOG WHEN A DUPLICATE NODE IS FOUND (WORK OUT HOW COMMON THIS IS ETC
+            text_file.write("\nduplicate dead node -- removing")
             # print "duplicate dead node -- removing"
 
 

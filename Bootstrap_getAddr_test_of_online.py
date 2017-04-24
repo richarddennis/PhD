@@ -67,7 +67,6 @@ from Calculations import *
 ### TODO - WHAT VARIABLES DO I NEED TO COLLECT?
 
 "1 SECOND IS 1000 MILLISECONDS"
-milliseconds = 1000
 
 query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
 
@@ -98,13 +97,13 @@ def get_Addr_response_time():
     return response_time
 
 
-def offline_node_logic():
+def offline_node_logic(env):
     #Deal with a server being offline - take a random id (doesn't matter which atm ?) - remove recieved list and store it into the dead node list
-    node_offline(text_file)
+    node_offline(env, text_file)
 
 
-def online_node_logic(name):
-    node_online(text_file, name)
+def online_node_logic(env, name):
+    node_online(env, text_file, name)
 
 #Var
 def text_file_writing_variables(text_file, env):
@@ -118,6 +117,9 @@ def text_file_writing_variables(text_file, env):
     text_file.write("\nclient_connections " + str( client_connections))
     text_file.write("\naverage_getAdrr_no_node_response " + str(average_getAdrr_no_node_response))
     text_file.write("\nNumber of nodes to start with (Node list from DNS setup) " + str(start_node_list_amount_recieved))
+    text_file.write("\nProb_DNS_UP " +  str(Prob_DNS_UP))
+    text_file.write("\nNode_live_probability " + str(node_live_probability))
+    text_file.write("\nnetwork_ip_node_size " + str(network_ip_node_size))
 
 
 class Bootstrap_getAddr(object):
@@ -138,7 +140,7 @@ class Bootstrap_getAddr(object):
     #TODO - Add more logic here - move from list into dead node list etc
     def dns_node_offline(self, DNS):
         "Timeout if the node is offine"
-        text_file.write("\nDNS node offline")
+        # text_file.write("\nDNS node offline")
         yield self.env.timeout(DNS_server_timeout)
 
 
@@ -157,23 +159,25 @@ def connection_getaddr_node_request(env, name, cw):
     if NodeUp == 0: #Node offline
         with cw.machine.request() as request:
             # print "node DOWN"
-            text_file.write("\nNode down %s" % (name))
+            text_file.write("\nNode %s DOWN " % (name))
 
             yield request
             print('%s is started at %.2f.' % (name, env.now))
-            # text_file.write("\n%s is started at %.2f." % (name, env.now))
+            text_file.write("\n%s is started at %.2f." % (name, env.now))
             before = env.now
             # print "Node %s sent the request at %.2f" % (name, env.now)
-            offline_node_logic()
+            offline_node_logic(env)
             yield env.process(cw.dns_node_offline(name))
             after = env.now
             # print "Node %s recieved the request at %.2f" % (name, env.now)
             assert (after - before) == query_connection_timeout
             text_file.write("\n%s is DOWN and completes and terminates at %.2f." % (name, env.now))
             print('%s is DOWN and completes and terminates at %.2f.' % (name, env.now))
+
     else:
         with cw.machine.request() as request:
             # print "Node UP"
+            text_file.write("\nNode %s UP " % (name))
 
             yield request
             print('%s is started at %.2f.' % (name, env.now))
@@ -181,7 +185,7 @@ def connection_getaddr_node_request(env, name, cw):
             text_file.write("\nNode up %s" % (name))
             before = env.now
             # print "Node %s sent the request at %.2f" % (name, env.now)
-            online_node_logic(name)
+            online_node_logic(env,name)
             yield env.process(cw.get_addr(name))
             after = env.now
             text_file.write("\n%s is UP and completes and terminates at %.2f." % (name, env.now))

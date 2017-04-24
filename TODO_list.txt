@@ -4,4 +4,6 @@ Go through the code and figure out why its not working -
         Each live node should query and get back a list of nodes
         No duplicate nodes that have been seen should be included
         If node list / seen etc is the same size as the network size then stop querying for nodes but carry on with timings
-        
+
+How to download the blockchain ? - next stage
+          Do we start downloading the blockchain at the query node stage, or wait for x nodes, or from zero ?
