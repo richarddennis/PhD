@@ -214,7 +214,6 @@ def setup(env, client_connections):
 
 
     # # #Assuming the node list is not empty when the simulation is started (Should never be as this step would be pointless if it was)
-    # TODO CHANGE IF TO WHILE !
     while bootstrap_node_list_recieved_no_dups != []:
         # print "Creating / readying connection ", node_id_number
         # text_file.write("\nCreating / readying connection "+ str(node_id_number))

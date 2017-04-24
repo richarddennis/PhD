@@ -35,6 +35,9 @@ total_node_list = [] #List of every node that has been recieved on the network
 live_node_list = [] #Array list of all live nodes
 dead_node_list = []  #Array list of all dead nodes
 
+block_list_downloaded_valid = []
+block_list_downloaded_not_valid = []
+
 min_nodes_recieved_before_dns_boot_quit = 500 # Lowest number of NON duplicate nodes to be recieved untill the DNS bootstrap proccess can finish
 
 flag = False
