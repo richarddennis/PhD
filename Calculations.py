@@ -21,7 +21,7 @@ node_live_probability = 0.5 #Likelyhood the node will be up
 
 bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
-network_ip_node_size = 500 # Number of IP addresses / nodes that have been seen on the network in the past 2 weeks
+network_ip_node_size = 5000 # Number of IP addresses / nodes that have been seen on the network in the past 2 weeks
 
 min_node_to_complete_boot_strap = 1000 # Lowest number of nodes needed before the bootstrap proccess is considered completed
 
@@ -37,6 +37,7 @@ dead_node_list = []  #Array list of all dead nodes
 min_nodes_recieved_before_dns_boot_quit = 500 # Lowest number of NON duplicate nodes to be recieved untill the DNS bootstrap proccess can finish
 
 flag = False
+complete_flag = False
 
 #Move into calculations.py when ready
 #Number of nodes recieved (Bootstrap)
@@ -95,21 +96,33 @@ make sure the nodes where are generated are not added to the "be queried list" i
 
 need to check the lists are updating globally not just local ** Likely to be an issue atm
 """
-def node_online(text_file):
-
+def node_online(text_file,name):
+    global complete_flag
     # print "len(bootstrap_node_list_recieved_no_dups)", len(bootstrap_node_list_recieved_no_dups)
 
     if len(bootstrap_node_list_recieved_no_dups) != 0:
         live_node_list.append(bootstrap_node_list_recieved_no_dups.pop(0))
         #TODO - ADD CODE HERE TO GENERATE NEW NODES (KEEP A COUNT OF HOW MANY DUPLICATES / SEEN NODES ETC - LOG ALL THIS )
-        generation_of_getaddr_reply_nodes(text_file)
+
+        #If all the nodes have eithere been queried or are in the list to be queried there is no point search for more
+        if (len(bootstrap_node_list_recieved_no_dups)+ len(live_node_list) + len(dead_node_list)) <= network_ip_node_size:
+            generation_of_getaddr_reply_nodes(text_file)
+        elif complete_flag == False:
+            print "\n\nAll nodes on the network have been discovered - but not queried yet"
+            print "Took %s nodes queried to discover the whole network" %(name)
+            text_file.write("\n\nAll nodes on the network have been discovered - but not queried yet\n\n")
+            text_file.write("Took %s nodes queried to discover the whole network" %(name))
+            print "\n\n\n"
+            complete_flag = True
+            # sys.exit()
     else:
         print "All nodes queried"
+        sys.exit()
 
 
 def generation_of_getaddr_reply_nodes(text_file):
     global bootstrap_node_list_recieved
-
+    # print "Called generation_of_getaddr_reply_nodes(text_file)"
     #Generate a bunch of random (BUT VALID / SEEN) node addresses (assuming each indivual number is a unique node)
     for i in range (average_getAdrr_no_node_response):
         bootstrap_node_list_recieved.append(rand.randrange(1,network_ip_node_size,1))
@@ -123,19 +136,20 @@ def generation_of_getaddr_reply_nodes(text_file):
         if i not in bootstrap_node_list_recieved_no_dups:
             bootstrap_node_list_recieved_no_dups.append(i)
 
-
     bootstrap_node_list_recieved = []
 
     #Goes through the whole recieved list of nodes, and compares these to any nodes that have already been queried and if they are found to be live removes them from the list
     for i in bootstrap_node_list_recieved_no_dups:
         if i in live_node_list:
             bootstrap_node_list_recieved_no_dups.remove(i)
-            print "duplicate live node -- removing"
+            # print "duplicate live node -- removing"
+            ##TODO LOG WHEN A DUPLICATE NODE IS FOUND (WORK OUT HOW COMMON THIS IS ETC)
 
     for i in bootstrap_node_list_recieved_no_dups:
         if i in dead_node_list:
             bootstrap_node_list_recieved_no_dups.remove(i)
-            print "duplicate dead node -- removing"
+            ##TODO LOG WHEN A DUPLICATE NODE IS FOUND (WORK OUT HOW COMMON THIS IS ETC
+            # print "duplicate dead node -- removing"
 
 
 def node_crawler_finish(text_file):

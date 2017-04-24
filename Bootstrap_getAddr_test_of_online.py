@@ -103,8 +103,8 @@ def offline_node_logic():
     node_offline(text_file)
 
 
-def online_node_logic():
-    node_online(text_file)
+def online_node_logic(name):
+    node_online(text_file, name)
 
 #Var
 def text_file_writing_variables(text_file, env):
@@ -156,7 +156,7 @@ def connection_getaddr_node_request(env, name, cw):
     #TODO - How to deal with an offline nodes - where to move them / store them
     if NodeUp == 0: #Node offline
         with cw.machine.request() as request:
-            print "node DOWN"
+            # print "node DOWN"
             text_file.write("\nNode down %s" % (name))
 
             yield request
@@ -173,7 +173,7 @@ def connection_getaddr_node_request(env, name, cw):
             print('%s is DOWN and completes and terminates at %.2f.' % (name, env.now))
     else:
         with cw.machine.request() as request:
-            print "Node UP"
+            # print "Node UP"
 
             yield request
             print('%s is started at %.2f.' % (name, env.now))
@@ -181,7 +181,7 @@ def connection_getaddr_node_request(env, name, cw):
             text_file.write("\nNode up %s" % (name))
             before = env.now
             # print "Node %s sent the request at %.2f" % (name, env.now)
-            online_node_logic()
+            online_node_logic(name)
             yield env.process(cw.get_addr(name))
             after = env.now
             text_file.write("\n%s is UP and completes and terminates at %.2f." % (name, env.now))
@@ -219,7 +219,7 @@ def setup(env, client_connections):
 
     # # #Assuming the node list is not empty when the simulation is started (Should never be as this step would be pointless if it was)
     # TODO CHANGE IF TO WHILE !
-    if bootstrap_node_list_recieved_no_dups != []:
+    while bootstrap_node_list_recieved_no_dups != []:
         # print "Creating / readying connection ", node_id_number
         # text_file.write("\nCreating / readying connection "+ str(node_id_number))
         env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr)) #What if 8 finished at the same time, this would add a delay, maybe reduce the timout by 8?
