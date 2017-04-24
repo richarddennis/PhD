@@ -8,3 +8,52 @@ Creating / readying a initial connection0
 
 Creating the initial connections ready to be used
 Creating / readying a initial connection0
+
+
+##############################################################
+
+Simulation started at Tue Apr 25 00:55:07 2017
+Simulation start time 0
+Variables used in this expirement
+
+total_number_of_blocks 463351
+average_block_size (MB)0.948
+query_connection_timeout 30000
+number_of_blocks_per_query 2
+
+
+##############################################################
+
+Simulation started at Tue Apr 25 00:55:33 2017
+Simulation start time 0
+Variables used in this expirement
+
+total_number_of_blocks 463351
+average_block_size (MB)0.948
+query_connection_timeout 30000
+number_of_blocks_per_query 2
+
+
+##############################################################
+
+Simulation started at Tue Apr 25 00:56:38 2017
+Simulation start time 0
+Variables used in this expirement
+
+total_number_of_blocks 463351
+average_block_size (MB)0.948
+query_connection_timeout 30000
+number_of_blocks_per_query 2
+min_repsonse_time_per_block_request 500
+max_repsonse_time_per_block_request 29999
+client_connections 8
+percentage_low_resource_client 0.2
+percentage_high_resource_client 0.8
+probability_of_malicious_block 0.2
+probability_of_duplicate_block 0.2
+Prob_DNS_UP 0.8
+Node_live_probability 0.4
+network_ip_node_size 5000
+
+Creating the initial connections ready to be used
+Creating / readying a initial connection0

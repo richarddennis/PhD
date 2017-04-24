@@ -23,7 +23,7 @@ query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node i
 
 number_of_blocks_per_query = 2 #Get 2 blocks per request (CHANGE FOR EXPIREMENTS)
 
-mini_repsonse_time_per_block_request = 500  # Milliseconds - Fastest response time recorded on the live network
+min_repsonse_time_per_block_request = 500  # Milliseconds - Fastest response time recorded on the live network
 max_repsonse_time_per_block_request = (query_connection_timeout)- 1 #Max amount of time before timeout
 
 client_connections = 8 # Max number of connections to live clients
@@ -49,8 +49,8 @@ def text_file_writing_variables(text_file, env):
     text_file.write("\naverage_block_size (MB)" + str(average_block_size))
     text_file.write("\nquery_connection_timeout " + str(query_connection_timeout))
     text_file.write("\nnumber_of_blocks_per_query " + str(number_of_blocks_per_query))
-    text_file.write("\nmin_node_respsonse_time_getAddr " + str(min_node_respsonse_time_getAddr))
-    text_file.write("\nmax_node_respsonse_time_getAddr " + str(max_node_respsonse_time_getAddr))
+    text_file.write("\nmin_repsonse_time_per_block_request " + str(min_repsonse_time_per_block_request))
+    text_file.write("\nmax_repsonse_time_per_block_request " + str(max_repsonse_time_per_block_request))
     text_file.write("\nclient_connections " + str(client_connections))
     text_file.write("\npercentage_low_resource_client " + str(percentage_low_resource_client))
     text_file.write("\npercentage_high_resource_client " + str(percentage_high_resource_client))
@@ -94,7 +94,13 @@ def setup(env, client_connections):
         node_id_number = node_id_number + 1
 
     #Doesn't really matter what method is used to generate / ready new connections so long as there is always a supply and they are ready to go
-    #while len(block_list_downloaded_valid) != total_number_of_blocks:
+    while len(block_list_downloaded_valid) != total_number_of_blocks:
+        env.process(connection_download_block_request(env, '%d' % node_id_number, blockchain_blocks_download))
+        yield env.timeout(min_repsonse_time_per_block_request)
+    else:
+        print "All blocks have been downloaded - no need for any more connections to nodes"
+        text_file.write('\nAll blocks have been downloaded - no need for any more connections to nodes - finished at %.2f.' % (env.now))
+
 
 def blockchain_download_simulation():
     # Setup and start the simulation

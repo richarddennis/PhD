@@ -16,3 +16,5 @@ How to download the blockchain ? - next stage
           How to deal with fake blocks ?
           Duplicate block recieved
           How many blocks from a single node do you recieve
+
+          DO you only get block from a node once or can you repeat and use the same node more than once ? - how to sim? 

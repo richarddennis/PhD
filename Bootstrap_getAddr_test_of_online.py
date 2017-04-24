@@ -222,7 +222,7 @@ def setup(env, client_connections):
         node_id_number = node_id_number + 1
     else:
         print "No nodes left to query - no more connections are being created"
-        text_file.write('\nNo nodes left to query - no more connections are being createdat %.2f.' % (env.now))
+        text_file.write('\nNo nodes left to query - no more connections are being created at %.2f.' % (env.now))
 
 def Bootstrap_node_online_test_simulation(start_node_list_amount):
     global start_node_list_amount_recieved
