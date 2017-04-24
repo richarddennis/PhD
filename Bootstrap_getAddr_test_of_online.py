@@ -150,14 +150,18 @@ def connection_getaddr_node_request(env, name, cw):
 
     NodeUp = NodeUpPobability()# 1 is up, 0 is down
 
-    print('%s is started at %.2f.' % (name, env.now))
-    text_file.write("\n%s is started at %.2f." % (name, env.now))
+
+    # print('%s is started at %.2f.' % (name, env.now))
+    # text_file.write("\n%s is started at %.2f." % (name, env.now))
     #TODO - How to deal with an offline nodes - where to move them / store them
     if NodeUp == 0: #Node offline
         with cw.machine.request() as request:
             print "node DOWN"
             text_file.write("\nNode down %s" % (name))
+
             yield request
+            print('%s is started at %.2f.' % (name, env.now))
+            # text_file.write("\n%s is started at %.2f." % (name, env.now))
             before = env.now
             # print "Node %s sent the request at %.2f" % (name, env.now)
             offline_node_logic()
@@ -170,13 +174,18 @@ def connection_getaddr_node_request(env, name, cw):
     else:
         with cw.machine.request() as request:
             print "Node UP"
+
             yield request
+            print('%s is started at %.2f.' % (name, env.now))
+            text_file.write("\n%s is started at %.2f." % (name, env.now))
             text_file.write("\nNode up %s" % (name))
             before = env.now
             # print "Node %s sent the request at %.2f" % (name, env.now)
             online_node_logic()
             yield env.process(cw.get_addr(name))
             after = env.now
+            text_file.write("\n%s is UP and completes and terminates at %.2f." % (name, env.now))
+            print('%s is UP and completes and terminates at %.2f.' % (name, env.now))
             # print "Node %s recieved the request at %.2f" % (name, env.now)
 
 
@@ -206,8 +215,6 @@ def setup(env, client_connections):
         text_file.write("\nCreating / readying a initial connection" + str(node_id_number))
         env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr))
         node_id_number = node_id_number + 1
-
-
 
 
     # # #Assuming the node list is not empty when the simulation is started (Should never be as this step would be pointless if it was)

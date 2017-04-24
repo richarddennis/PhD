@@ -21,7 +21,7 @@ node_live_probability = 0.5 #Likelyhood the node will be up
 
 bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
-network_ip_node_size = 5000 # Number of IP addresses / nodes that have been seen on the network in the past 2 weeks
+network_ip_node_size = 500 # Number of IP addresses / nodes that have been seen on the network in the past 2 weeks
 
 min_node_to_complete_boot_strap = 1000 # Lowest number of nodes needed before the bootstrap proccess is considered completed
 
@@ -76,48 +76,71 @@ def number_of_duplicates_in_list(text_file):
 
 def node_offline(text_file):
     #Remove the first node in the list of recieved nodes,
+    # print "len(bootstrap_node_list_recieved_no_dups) offline", len(bootstrap_node_list_recieved_no_dups)
+
     assert len(bootstrap_node_list_recieved_no_dups) != 0
-    dead_node = bootstrap_node_list_recieved_no_dups.remove(0)
+    dead_node = bootstrap_node_list_recieved_no_dups.pop(0)
     # print dead_node
     dead_node_list.append(dead_node)
 
     "What to log ?"
 
+"""
+TODO - what does this need to achieve? - do not doing timing here
+
+This section deals with the handling of the getAddr logic
+Deals with if there are any more nodes to get - No point downloading more nodes if the whole node list is already found / stored to be queried
+if list is not found, donwload more nodes
+make sure the nodes where are generated are not added to the "be queried list" if they have already been queried
+
+need to check the lists are updating globally not just local ** Likely to be an issue atm
+"""
 def node_online(text_file):
-    assert len(bootstrap_node_list_recieved_no_dups) != 0
-    live_node_list.append(bootstrap_node_list_recieved_no_dups.remove(0))
-    generation_of_getaddr_reply_nodes(text_file)
-    #TODO - ADD CODE HERE TO GENERATE NEW NODES (KEEP A COUNT OF HOW MANY DUPLICATES / SEEN NODES ETC - LOG ALL THIS )
+
+    # print "len(bootstrap_node_list_recieved_no_dups)", len(bootstrap_node_list_recieved_no_dups)
+
+    if len(bootstrap_node_list_recieved_no_dups) != 0:
+        live_node_list.append(bootstrap_node_list_recieved_no_dups.pop(0))
+        #TODO - ADD CODE HERE TO GENERATE NEW NODES (KEEP A COUNT OF HOW MANY DUPLICATES / SEEN NODES ETC - LOG ALL THIS )
+        generation_of_getaddr_reply_nodes(text_file)
+    else:
+        print "All nodes queried"
+
 
 def generation_of_getaddr_reply_nodes(text_file):
-    #Temp storage variables
     global bootstrap_node_list_recieved
-
-    storage = []
-    storage2 = []
-    storage3 = []
 
     #Generate a bunch of random (BUT VALID / SEEN) node addresses (assuming each indivual number is a unique node)
     for i in range (average_getAdrr_no_node_response):
         bootstrap_node_list_recieved.append(rand.randrange(1,network_ip_node_size,1))
 
+    "--------------------------------------------------------"
+    #TODO - LOG THE NUMBER OF DUPLICATES / SEEN BEFORE NODES
+    "--------------------------------------------------------"
+    #
     #Remove duplicates
     for i in bootstrap_node_list_recieved:
         if i not in bootstrap_node_list_recieved_no_dups:
             bootstrap_node_list_recieved_no_dups.append(i)
 
-    #TODO - LOG THE NUMBER OF DUPLICATES
+
+    bootstrap_node_list_recieved = []
 
     #Goes through the whole recieved list of nodes, and compares these to any nodes that have already been queried and if they are found to be live removes them from the list
     for i in bootstrap_node_list_recieved_no_dups:
         if i in live_node_list:
             bootstrap_node_list_recieved_no_dups.remove(i)
+            print "duplicate live node -- removing"
 
-    # #Check for out of range pop errors TODO
     for i in bootstrap_node_list_recieved_no_dups:
         if i in dead_node_list:
             bootstrap_node_list_recieved_no_dups.remove(i)
+            print "duplicate dead node -- removing"
 
+
+def node_crawler_finish(text_file):
+    print node_crawler_finish
+    #TODO - Call this every time a query is done to make sure the network has been full queried
 
 
 """
