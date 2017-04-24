@@ -18,7 +18,7 @@ from math import *
 milliseconds = 1000
 
 Prob_DNS_UP = 0.8  # Likelyhood the DNS server will be up
-node_live_probability = 0.7 #Likelyhood the node will be up
+node_live_probability = 0.4 #Likelyhood the node will be up
 
 bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message

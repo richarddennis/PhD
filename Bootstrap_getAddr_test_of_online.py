@@ -78,10 +78,6 @@ client_connections = 8 # Max number of connections to live clients
 DNS_server_timeout = (30 * milliseconds ) # 30 seconds
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
 
-####    Storage Variables    ####
-live_node_list = [] #Array list of all live nodes
-dead_node_list = []  #Array list of all dead nodes
-
 node_id_number = 0
 
 """
@@ -191,10 +187,6 @@ def connection_getaddr_node_request(env, name, cw):
             text_file.write("\n%s is UP and completes and terminates at %.2f." % (name, env.now))
             print('%s is UP and completes and terminates at %.2f.' % (name, env.now))
             # print "Node %s recieved the request at %.2f" % (name, env.now)
-
-
-
-
 
 
 def setup(env, client_connections):

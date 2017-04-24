@@ -7,3 +7,12 @@ Go through the code and figure out why its not working -
 
 How to download the blockchain ? - next stage
           Do we start downloading the blockchain at the query node stage, or wait for x nodes, or from zero ?
+
+
+          what will we need to log / Variables
+          How block size effects ! <---- VERY IMPORTANT
+          Latency <--- How to demo this
+          Low / High resource users / nodes <-- how to comapre / demo this
+          How to deal with fake blocks ?
+          Duplicate block recieved
+          How many blocks from a single node do you recieve
