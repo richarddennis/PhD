@@ -71,20 +71,9 @@ from Calculations import *
 "1 SECOND IS 1000 MILLISECONDS"
 
 
-query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
-
-number_of_blocks_per_query = 2 #Get 2 blocks per request (CHANGE FOR EXPIREMENTS)
-
-min_repsonse_time_per_block_request = 500  # Milliseconds - Fastest response time recorded on the live network
-max_repsonse_time_per_block_request = (query_connection_timeout)- 1 #Max amount of time before timeout
-
-client_connections = 8 # Max number of connections to live clients
-
-
-
 text_file = open("blockchain_download_simulation.txt", "a+")
 
-node_id_number = 0
+connection_id_number = 0
 
 #Var
 def text_file_writing_variables(text_file, env):
@@ -128,18 +117,20 @@ class Blockchain_blocks_download(object):
         #TODO Log this
         if node == 1:
             print "high resource node"
-            timing = node_timing(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
+            node_timing = node_timing_fast(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
+            timing = node_timing[0]
+            # timing = node_timing(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
             "Adds the time recieved from the method to the simulation time"
             text_file.write("\n%s block was recieved from a HIGH resource node with timing  %.2f." % (name, timing))
             # print "high resource node timing - ", timing
             yield self.env.timeout(timing)
         else:
             print "low resource node"
-            timing = node_timing(average_block_response_computational_time_low_resource, min_block_response_computational_time, max_block_response_computational_time)
+            # timing = node_timing(average_block_response_computational_time_low_resource, min_block_response_computational_time, max_block_response_computational_time)
             "Adds the time recieved from the method to the simulation time"
-            text_file.write("\n%s block was recieved from a LOW resource node with timing  %.2f." % (name, timing))
+            # text_file.write("\n%s block was recieved from a LOW resource node with timing  %.2f." % (name, timing))
             # print "low resource node timing - ", timing
-            yield self.env.timeout(timing)
+            yield self.env.timeout(average_block_response_computational_time_low_resource)
 
 
 
@@ -190,25 +181,27 @@ def setup(env, client_connections):
     millisecond (Connection not live but spooled ready to be used *Does not
     effect the timing etc) """
 
-    global node_id_number
+    global connection_id_number
     # Create the DNS bootsrap
     blockchain_blocks_download = Blockchain_blocks_download(env, client_connections)
 
     # Create X inital connections (Assuming all connections will be used to start with - doesn't effect simulation time etc if not used)
     # Each connection has an unique id - once used its never used again
-    for node_id_number in range(client_connections):
+    for connection_id_number in range(client_connections):
         text_file.write("\n\nCreating the initial connections ready to be used")
-        print "Creating / readying a initial connection", node_id_number
-        text_file.write("\nCreating / readying a initial connection" + str(node_id_number))
-        env.process(connection_download_block_request(env, '%d' % node_id_number, blockchain_blocks_download))
-        node_id_number = node_id_number + 1
+        print "Creating / readying a initial connection", connection_id_number
+        text_file.write("\nCreating / readying a initial connection" + str(connection_id_number))
+        env.process(connection_download_block_request(env, '%d' % connection_id_number, blockchain_blocks_download))
+        connection_id_number = connection_id_number + 1
 
 
         ########## CHANGE TO WHILE
     #Doesn't really matter what method is used to generate / ready new connections so long as there is always a supply and they are ready to go
-    if len(block_list_downloaded_valid) != total_number_of_blocks:
-        env.process(connection_download_block_request(env, '%d' % node_id_number, blockchain_blocks_download))
+    while len(block_list_downloaded_valid) != total_number_of_blocks:
+        env.process(connection_download_block_request(env, '%d' % connection_id_number, blockchain_blocks_download))
         yield env.timeout(min_repsonse_time_per_block_request)
+        connection_id_number = connection_id_number + 1
+
     else:
         print "All blocks have been downloaded - no need for any more connections to nodes"
         text_file.write('\nAll blocks have been downloaded - no need for any more connections to nodes - finished at %.2f.' % (env.now))

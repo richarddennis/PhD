@@ -70,6 +70,16 @@ complete_flag = False
 
 recieved_blocks_per_query = 2 # Number of blocks recieved per request to the node
 
+query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
+
+number_of_blocks_per_query = 2 #Get 2 blocks per request (CHANGE FOR EXPIREMENTS)
+
+min_repsonse_time_per_block_request = 500  # Milliseconds - Fastest response time recorded on the live network
+max_repsonse_time_per_block_request = (query_connection_timeout)- 1 #Max amount of time before timeout
+
+client_connections = 8 # Max number of connections to live clients
+
+
 #Move into calculations.py when ready
 #Number of nodes recieved (Bootstrap)
 def bootstrap_node_getAddr(text_file):
@@ -262,6 +272,18 @@ def Probability_of_low_resource_nodes():
     #0 is low resource, 1 is high
     return node
 
+
+def node_timing_fast(average_block_response_computational_time, min_block_response_computational_time, max_block_response_computational_time):
+    print "node_timing_fast"
+    while True:
+        l = [random.randint(min_block_response_computational_time, max_block_response_computational_time) for i in range(20)]
+        avg = reduce(lambda x, y: x + y, l) / len(l)
+
+        if avg == average_block_response_computational_time:
+            return l
+
+
+# REALLY SLOW BUT WORKS WELL - TODO FIND A FASTER SOLUTION
 def node_timing(average_block_response_computational_time, min_block_response_computational_time, max_block_response_computational_time):
     sample_count = 10
     num_of_trials = 1
