@@ -34,3 +34,17 @@ What expirements can we do ?
                 Are malicious / duplicate blocks kinda the same thing ? - same method for both ?
             Blocksize (How to measure (take results from network start to now and use this to predict delay etc?))
             Repeating node connections ?  - how it effects results if you connect to x node rather than the whole network etc, which is quicker?
+
+# Difference between a new node joining and an old node etc <--- important to code
+
+#Client now has to use CPU /HDD power to check the blocks are valid --- GOOD TEST FOR LOW RESOURCE USERS (What delay here ?)
+
+
+#############
+BITCOIN REQUIRES YOU TO DOWNLOAD THE WHOLE BLOCKCHAIN **BEFORE** PARTICIPATING IN THE NETWORK ! (Do not include *light* clients in this)
+
+
+## Attack to show - currently every user is not a client too - if a node has a limited number of connections, could be prevented from being online - how much resources needed to do this attack ? etc (single pc with 10,000 connections for example could take out 1/4 of the network )
+
+
+## Compare methods for downloading the blockchain - I.E. Random download of data like currentl or in order etc

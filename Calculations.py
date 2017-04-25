@@ -12,10 +12,24 @@ import math
 import random
 import random as rand
 
+import random as rd
+import statistics as st
+
 import sys, traceback
 from math import *
 ####    Variables   ####
 milliseconds = 1000
+
+total_number_of_blocks = 463351 # As of 24 April 2017
+average_block_size = 0.948 # MB  - Again as of the 24 April 2017
+average_block_response_computational_time = 8 * milliseconds
+average_block_response_computational_time_high_resource = 8 * milliseconds
+average_block_response_computational_time_low_resource = 12* milliseconds
+
+
+min_block_response_computational_time = 5 * milliseconds
+max_block_response_computational_time = 14 * milliseconds
+
 
 Prob_DNS_UP = 0.8  # Likelyhood the DNS server will be up
 node_live_probability = 0.4 #Likelyhood the node will be up
@@ -40,8 +54,21 @@ block_list_downloaded_not_valid = []
 
 min_nodes_recieved_before_dns_boot_quit = 500 # Lowest number of NON duplicate nodes to be recieved untill the DNS bootstrap proccess can finish
 
+probability_of_malicious_block = 5 # Probability of recieving a malicious block - HOW TO IMPLEMENT?
+probability_of_duplicate_block = 20 # Probability of recieving a duplicate block - I.e. 20%
+
+number_of_malicious_blocks = 0
+number_of_duplicate_blocks = 0
+
+percentage_low_resource_client = 0.2
+percentage_high_resource_client = 0.8
+
+average_time_to_download_a_block = 6 * milliseconds #seconds (this includes CPU / RAM time) - QUAD CORE CPU + SSD
+
 flag = False
 complete_flag = False
+
+recieved_blocks_per_query = 2 # Number of blocks recieved per request to the node
 
 #Move into calculations.py when ready
 #Number of nodes recieved (Bootstrap)
@@ -228,3 +255,65 @@ def DnsUpProbability():
     up = (0 if rand.random() > Prob_DNS_UP else 1)
     # print up
     return up
+
+
+def Probability_of_low_resource_nodes():
+    node = (0 if rand.random() < percentage_low_resource_client else 1)
+    #0 is low resource, 1 is high
+    return node
+
+def node_timing(average_block_response_computational_time, min_block_response_computational_time, max_block_response_computational_time):
+    sample_count = 10
+    num_of_trials = 1
+
+    # print average_block_response_computational_time
+    # print min_block_response_computational_time
+    # print max_block_response_computational_time
+
+    target_sum = sample_count * average_block_response_computational_time
+    samples_list = []
+    curr_stdev_max = 0
+    for trials in range(num_of_trials):
+        samples = [0] * sample_count
+        while sum(samples) != target_sum:
+            samples = [rd.randint(min_block_response_computational_time, max_block_response_computational_time) for trial in range(sample_count)]
+        # print ("Mean: ", st.mean(samples), "Std Dev: ", st.stdev(samples), )
+        # print (samples, "\n")
+        if st.stdev(samples) > curr_stdev_max:
+            curr_stdev_max = st.stdev(samples)
+            samples_best = samples[:]
+        return samples_best[0]
+
+
+#TODO - logic for the block download
+def block_download(env, text_file, name):
+
+    global number_of_malicious_blocks
+    global number_of_duplicate_blocks
+
+    #Do we care about node resources here ?
+    if len(block_list_downloaded_valid) >= total_number_of_blocks:
+        print "Blockchain fully downloaded"
+        sys.exit()
+    else:
+        print "blocks remaining to download: ", (total_number_of_blocks - len(block_list_downloaded_valid))
+
+        #Generate a random number between 0 and 100
+        random_no = rand.sample(range(1, 100), 2)
+
+        if random_no[0] <= probability_of_duplicate_block:
+            number_of_duplicate_blocks = number_of_duplicate_blocks + 1
+            text_file.write('\nDuplicate block recieved, total number of duplicate blocks now ' + str(number_of_duplicate_blocks))
+            print "Duplicate block"
+
+        elif random_no[1] <= probability_of_malicious_block:
+                print  "Malicious block"
+                number_of_malicious_blocks = number_of_malicious_blocks + 1
+                text_file.write('\nMalicious block recieved, total number of malicious blocks now ' + str(number_of_malicious_blocks))
+        else:
+            print "Valid block to download"
+            block_id = rand.sample(range(1, total_number_of_blocks), 1)
+            while block_id in block_list_downloaded_valid:
+                block_id = rand.sample(range(1, total_number_of_blocks), 1)
+            else:
+                block_list_downloaded_valid.append(block_id)

@@ -133,10 +133,8 @@ class Bootstrap_getAddr(object):
         "Adds the time recieved from the method to the simulation time"
         yield self.env.timeout(response)
 
-    #TODO - Add more logic here - move from list into dead node list etc
     def dns_node_offline(self, DNS):
         "Timeout if the node is offine"
-        # text_file.write("\nDNS node offline")
         yield self.env.timeout(DNS_server_timeout)
 
 
@@ -148,10 +146,6 @@ def connection_getaddr_node_request(env, name, cw):
 
     NodeUp = NodeUpPobability()# 1 is up, 0 is down
 
-
-    # print('%s is started at %.2f.' % (name, env.now))
-    # text_file.write("\n%s is started at %.2f." % (name, env.now))
-    #TODO - How to deal with an offline nodes - where to move them / store them
     if NodeUp == 0: #Node offline
         with cw.machine.request() as request:
             # print "node DOWN"
@@ -242,6 +236,7 @@ def Bootstrap_node_online_test_simulation(start_node_list_amount):
     text_file_writing_variables(text_file, env)
     # Execute!
     env.run()
+    
     print ("\n")
     print('Total simulation time : %d' %  env.now   + ' milliseconds')
     print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
