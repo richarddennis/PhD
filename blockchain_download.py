@@ -120,25 +120,25 @@ class Blockchain_blocks_download(object):
         self.env = env
         self.machine = simpy.Resource(env, client_connections)
 
-    def get_block(self,DNS):
+    def get_block(self,name):
         """ Repsonse time is claculated from the get_Addr_response_time method"""
-        print "get_block"
+        # print "get_block"
         node = Probability_of_low_resource_nodes()
 
         #TODO Log this
         if node == 1:
             print "high resource node"
             timing = node_timing(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
-            # timing = node_timing(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
-            # print "timing", timing
             "Adds the time recieved from the method to the simulation time"
-            print "high resource node timing - ", timing
+            text_file.write("\n%s block was recieved from a HIGH resource node with timing  %.2f." % (name, timing))
+            # print "high resource node timing - ", timing
             yield self.env.timeout(timing)
         else:
             print "low resource node"
             timing = node_timing(average_block_response_computational_time_low_resource, min_block_response_computational_time, max_block_response_computational_time)
             "Adds the time recieved from the method to the simulation time"
-            print "low resource node timing - ", timing
+            text_file.write("\n%s block was recieved from a LOW resource node with timing  %.2f." % (name, timing))
+            # print "low resource node timing - ", timing
             yield self.env.timeout(timing)
 
 
