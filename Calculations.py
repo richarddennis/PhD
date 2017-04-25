@@ -55,7 +55,7 @@ block_list_downloaded_not_valid = []
 min_nodes_recieved_before_dns_boot_quit = 500 # Lowest number of NON duplicate nodes to be recieved untill the DNS bootstrap proccess can finish
 
 probability_of_malicious_block = 5 # Probability of recieving a malicious block - HOW TO IMPLEMENT?
-probability_of_duplicate_block = 20 # Probability of recieving a duplicate block - I.e. 20%
+probability_of_duplicate_block = 5 # Probability of recieving a duplicate block - I.e. 20%
 
 number_of_malicious_blocks = 0
 number_of_duplicate_blocks = 0

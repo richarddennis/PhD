@@ -117,13 +117,15 @@ class Blockchain_blocks_download(object):
         #TODO Log this
         if node == 1:
             print "high resource node"
-            node_timing = node_timing_fast(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
-            timing = node_timing[0]
-            # timing = node_timing(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
-            "Adds the time recieved from the method to the simulation time"
-            text_file.write("\n%s block was recieved from a HIGH resource node with timing  %.2f." % (name, timing))
+            # node_timing = node_timing_fast(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
+            # timing = node_timing[0]
+            # # timing = node_timing(average_block_response_computational_time_high_resource, min_block_response_computational_time, max_block_response_computational_time)
+            # "Adds the time recieved from the method to the simulation time"
+            # text_file.write("\n%s block was recieved from a HIGH resource node with timing  %.2f." % (name, timing))
             # print "high resource node timing - ", timing
-            yield self.env.timeout(timing)
+            # yield self.env.timeout(timing)
+            yield self.env.timeout(average_block_response_computational_time_high_resource)
+
         else:
             print "low resource node"
             # timing = node_timing(average_block_response_computational_time_low_resource, min_block_response_computational_time, max_block_response_computational_time)
@@ -166,11 +168,11 @@ def connection_download_block_request(env, name, cw):
             text_file.write("\n%s requested blocks at %.2f." % (name, env.now))
             before = env.now
 
-            i = 0
-            if i > recieved_blocks_per_query:
-                block_download_logic(env,name) # If each node downloads
-                i = i + 1
-
+            # i = 0
+            # if i > recieved_blocks_per_query:
+            #     block_download_logic(env,name) # If each node downloads
+            #     i = i + 1
+            block_download_logic(env, name)
             yield env.process(cw.get_block(name))
             after = env.now
             text_file.write("\n%s completed block request (may or maynot be succesfful) and terminates at %.2f." % (name, env.now))
