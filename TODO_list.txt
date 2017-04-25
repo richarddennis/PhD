@@ -17,4 +17,20 @@ How to download the blockchain ? - next stage
           Duplicate block recieved
           How many blocks from a single node do you recieve
 
-          DO you only get block from a node once or can you repeat and use the same node more than once ? - how to sim? 
+          DO you only get block from a node once or can you repeat and use the same node more than once ? - how to sim?
+
+
+Blockchain -
+  Connect to x nodes (Code if they are online / offline - depends on how they are done depends on percentage of up nodes - I.E if using the up node list from the boostrap process we can assume a higher percentage of up nodes than starting from scratch)
+  Depend on the resources of the node download a block (Low reource users would have a higher delay proccessing the request, I.E slower search / internet - How much slower TBD)
+  How to check the block is valid ? - Radonmly generate a number for x to z and if not in here it is not valid? - Easy to model (Do not worry about encryption here yet)
+
+Conect to node - download x blocks - if valid save them else discard them - repeat untill block number = blockchain size
+
+What expirements can we do ?
+            How the number of blocks per node sent back impacts ? (this wouldnt be linear as a lot of the timing is network based)
+            Percentage of malicious blocks recieved, how this impacts on time
+            Percentage of duplicate blocks recieved
+                Are malicious / duplicate blocks kinda the same thing ? - same method for both ?
+            Blocksize (How to measure (take results from network start to now and use this to predict delay etc?))
+            Repeating node connections ?  - how it effects results if you connect to x node rather than the whole network etc, which is quicker?
