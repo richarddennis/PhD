@@ -61,6 +61,8 @@ import os
 
 import sys, traceback
 from math import *
+import csv
+
 
 from Calculations import *
 
@@ -68,17 +70,6 @@ from Calculations import *
 
 "1 SECOND IS 1000 MILLISECONDS"
 
-query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
-
-min_node_respsonse_time_getAddr = 500 #500 milliseconds, quickest repsonse time seen during collection of data
-max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
-
-client_connections = 8 # Max number of connections to live clients
-
-DNS_server_timeout = (30 * milliseconds ) # 30 seconds
-average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
-
-node_id_number = 0
 
 """
 Start at new simulation time or carry on ? - could do either set up would be the same
@@ -149,11 +140,11 @@ def connection_getaddr_node_request(env, name, cw):
     if NodeUp == 0: #Node offline
         with cw.machine.request() as request:
             # print "node DOWN"
-            text_file.write("\nNode %s DOWN " % (name))
+            # text_file.write("\nNode %s DOWN " % (name))
 
             yield request
-            print('%s is started at %.2f.' % (name, env.now))
-            text_file.write("\n%s is started at %.2f." % (name, env.now))
+            # print('%s is started at %.2f.' % (name, env.now))
+            # text_file.write("\n%s is started at %.2f." % (name, env.now))
             before = env.now
             # print "Node %s sent the request at %.2f" % (name, env.now)
             offline_node_logic(env)
@@ -161,25 +152,25 @@ def connection_getaddr_node_request(env, name, cw):
             after = env.now
             # print "Node %s recieved the request at %.2f" % (name, env.now)
             assert (after - before) == query_connection_timeout
-            text_file.write("\n%s is DOWN and completes and terminates at %.2f." % (name, env.now))
-            print('%s is DOWN and completes and terminates at %.2f.' % (name, env.now))
+            # text_file.write("\n%s is DOWN and completes and terminates at %.2f." % (name, env.now))
+            # print('%s is DOWN and completes and terminates at %.2f.' % (name, env.now))
 
     else:
         with cw.machine.request() as request:
             # print "Node UP"
-            text_file.write("\nNode %s UP " % (name))
+            # text_file.write("\nNode %s UP " % (name))
 
             yield request
-            print('%s is started at %.2f.' % (name, env.now))
-            text_file.write("\n%s is started at %.2f." % (name, env.now))
-            text_file.write("\nNode up %s" % (name))
+            # print('%s is started at %.2f.' % (name, env.now))
+            # text_file.write("\n%s is started at %.2f." % (name, env.now))
+            # text_file.write("\nNode up %s" % (name))
             before = env.now
             # print "Node %s sent the request at %.2f" % (name, env.now)
             online_node_logic(env,name)
             yield env.process(cw.get_addr(name))
             after = env.now
-            text_file.write("\n%s is UP and completes and terminates at %.2f." % (name, env.now))
-            print('%s is UP and completes and terminates at %.2f.' % (name, env.now))
+            # text_file.write("\n%s is UP and completes and terminates at %.2f." % (name, env.now))
+            # print('%s is UP and completes and terminates at %.2f.' % (name, env.now))
             # print "Node %s recieved the request at %.2f" % (name, env.now)
 
 
@@ -200,9 +191,9 @@ def setup(env, client_connections):
     # Create X inital connections (Assuming all connections will be used to start with - doesn't effect simulation time etc if not used)
     # Each connection has an unique id - once used its never used again
     for node_id_number in range(client_connections):
-        text_file.write("\n\nCreating the initial connections ready to be used")
-        print "Creating / readying a initial connection", node_id_number
-        text_file.write("\nCreating / readying a initial connection" + str(node_id_number))
+        # text_file.write("\n\nCreating the initial connections ready to be used")
+        # print "Creating / readying a initial connection", node_id_number
+        # text_file.write("\nCreating / readying a initial connection" + str(node_id_number))
         env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr))
         node_id_number = node_id_number + 1
 
@@ -214,9 +205,9 @@ def setup(env, client_connections):
         env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr)) #What if 8 finished at the same time, this would add a delay, maybe reduce the timout by 8?
         yield env.timeout(min_node_respsonse_time_getAddr)
         node_id_number = node_id_number + 1
-    else:
-        print "No nodes left to query - no more connections are being created"
-        text_file.write('\nNo nodes left to query - no more connections are being created at %.2f.' % (env.now))
+    # else:
+    #     print "No nodes left to query - no more connections are being created"
+        # text_file.write('\nNo nodes left to query - no more connections are being created at %.2f.' % (env.now))
 
 def Bootstrap_node_online_test_simulation(start_node_list_amount):
     global start_node_list_amount_recieved
@@ -236,10 +227,11 @@ def Bootstrap_node_online_test_simulation(start_node_list_amount):
     text_file_writing_variables(text_file, env)
     # Execute!
     env.run()
-    
+
     print ("\n")
     print('Total simulation time : %d' %  env.now   + ' milliseconds')
     print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+
 
     text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
     text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')

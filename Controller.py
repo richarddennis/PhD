@@ -19,7 +19,18 @@ from blockchain_download import *
 # Pre populate the nodes list - Can either use data from the DNS bootstrap or new -
 # this will allow us to test how the DNS proccess effects the crawling of the network etc
 # """
-# start_node_list_amount = 10
+start_node_list_amount = 10
+Node_online_simulation = Bootstrap_node_online_test_simulation(start_node_list_amount)
+
+def run_call():
+    Bootstrap_node_online_test_simulation(start_node_list_amount)
+# Node_online_simulation = Bootstrap_node_online_test_simulation(start_node_list_amount)
+# Node_online_simulation = Bootstrap_node_online_test_simulation(start_node_list_amount)
+# Node_online_simulation = Bootstrap_node_online_test_simulation(start_node_list_amount)
+# Node_online_simulation = Bootstrap_node_online_test_simulation(start_node_list_amount)
+# Node_online_simulation = Bootstrap_node_online_test_simulation(start_node_list_amount)
 # Node_online_simulation = Bootstrap_node_online_test_simulation(start_node_list_amount)
 
-blockchain_download_simulation_run = blockchain_download_simulation()
+
+#
+# blockchain_download_simulation_run = blockchain_download_simulation()

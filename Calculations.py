@@ -17,10 +17,13 @@ import statistics as st
 
 import sys, traceback
 from math import *
+import csv
+import itertools
+
 ####    Variables   ####
 milliseconds = 1000
 
-total_number_of_blocks = 463351 # As of 24 April 2017
+total_number_of_blocks = 450000 # As of 24 April 2017
 average_block_size = 0.948 # MB  - Again as of the 24 April 2017
 average_block_response_computational_time = 8 * milliseconds
 average_block_response_computational_time_high_resource = 8 * milliseconds
@@ -67,6 +70,7 @@ average_time_to_download_a_block = 6 * milliseconds #seconds (this includes CPU 
 
 flag = False
 complete_flag = False
+time_take_all_nodes_descovered = 0
 
 recieved_blocks_per_query = 2 # Number of blocks recieved per request to the node
 
@@ -76,8 +80,21 @@ number_of_blocks_per_query = 2 #Get 2 blocks per request (CHANGE FOR EXPIREMENTS
 
 min_repsonse_time_per_block_request = 500  # Milliseconds - Fastest response time recorded on the live network
 max_repsonse_time_per_block_request = (query_connection_timeout)- 1 #Max amount of time before timeout
+duplicate_nodes_seen = 0
 
 client_connections = 8 # Max number of connections to live clients
+
+query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
+
+min_node_respsonse_time_getAddr = 500 #500 milliseconds, quickest repsonse time seen during collection of data
+max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
+
+client_connections = 8 # Max number of connections to live clients
+
+DNS_server_timeout = (30 * milliseconds ) # 30 seconds
+average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
+
+node_id_number = 0
 
 
 #Move into calculations.py when ready
@@ -117,6 +134,7 @@ def number_of_duplicates_in_list(text_file):
 
 def node_offline(env, text_file):
     global complete_flag
+    global time_take_all_nodes_descovered
 
     #Remove the first node in the list of recieved nodes,
     # print "len(bootstrap_node_list_recieved_no_dups) offline", len(bootstrap_node_list_recieved_no_dups)
@@ -128,9 +146,12 @@ def node_offline(env, text_file):
     elif complete_flag == False:
         print "\n\nAll nodes on the network have been discovered - but not queried yet"
         print "Took %s nodes queried to discover the whole network" %(name)
-        text_file.write("\n\nAll nodes on the network have been discovered - but not queried yet\n\n")
-        text_file.write("Took %s nodes queried to discover the whole network" %(name))
-        print "\n\n\n"
+        text_file.write("\nAll nodes on the network have been discovered - but not queried yet\n\n")
+        text_file.write("\nTook %s nodes queried to discover the whole network" %(name))
+        print "env.now", env.now
+        time_take_all_nodes_descovered = env.now
+
+        # print "\n\n\n"
         complete_flag = True
 
         print ("\n")
@@ -138,10 +159,12 @@ def node_offline(env, text_file):
         print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
         print('Total simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
 
-        text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
-        text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
-        text_file.write('\n\n\nTotal simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
-        sys.exit()
+        text_file.write('\nTotal simulation time : %d' %  env.now   + ' milliseconds')
+        text_file.write('\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+        text_file.write('\nTotal simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
+        text_file.write('\nTotal number of duplicate nodes recived : %d' % duplicate_nodes_seen)
+
+        sys.exit(0)
     "What to log ? - if anything ? do we care what nodes are down ?"
 
 """
@@ -152,6 +175,8 @@ make sure the nodes where are generated are not added to the "be queried list" i
 """
 def node_online(env, text_file,name):
     global complete_flag
+    global time_take_all_nodes_descovered
+
     # print "len(bootstrap_node_list_recieved_no_dups)", len(bootstrap_node_list_recieved_no_dups)
 
     if len(bootstrap_node_list_recieved_no_dups) != 0:
@@ -168,32 +193,42 @@ def node_online(env, text_file,name):
             text_file.write("Took %s nodes queried to discover the whole network" %(name))
             print "\n\n\n"
             complete_flag = True
+            time_take_all_nodes_descovered = env.now
             # sys.exit()
     else:
         print "All nodes queried"
-        text_file.write("\n\nAll nodes queried\n\n")
+        text_file.write("\nAll nodes queried\n\n")
 
-        print("\n\nTotal number of live nodes : " + str(len(live_node_list)))
-        print("\n\nTotal number of dead nodes : " + str(len(dead_node_list)))
+        print("\nTotal number of live nodes : " + str(len(live_node_list)))
+        print("\nTotal number of dead nodes : " + str(len(dead_node_list)))
 
-        text_file.write("\n\nAll nodes queried\n\n")
-        text_file.write("\n\nTotal number of live nodes : " + str(len(live_node_list)))
-        text_file.write("\n\nTotal number of dead nodes : " + str(len(dead_node_list)))
+        text_file.write("\nAll nodes queried\n\n")
+        text_file.write("\nTotal number of live nodes : " + str(len(live_node_list)))
+        text_file.write("\nTotal number of dead nodes : " + str(len(dead_node_list)))
 
         print ("\n")
         print('Total simulation time : %d' %  env.now   + ' milliseconds')
         print('Total simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
         print('Total simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
 
-        text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
-        text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
-        text_file.write('\n\n\nTotal simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
+        text_file.write('\nTotal simulation time : %d' %  env.now   + ' milliseconds')
+        text_file.write('\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+        text_file.write('\nTotal simulation time : %d' %  ((env.now/milliseconds)/60)   + ' minutes')
+        text_file.write('\nTotal number of duplicate nodes recived : %d' % duplicate_nodes_seen)
 
-        sys.exit()
+        ##Number of connections             Number of DNS servers               Avg. size Node list recieved           Time taken to find all nodes             Time take to test all nodes if online               Number of nodes online             Number of nodes offline
+
+
+        with open("expirement_node_descovery.csv","a") as csvfile:
+            writer=csv.writer(csvfile, delimiter=',')
+            writer.writerow([a for a in (client_connections, '', average_getAdrr_no_node_response, time_take_all_nodes_descovered, env.now, str(len(live_node_list)), str(len(dead_node_list)))])
+
+        sys.exit(0)
 
 
 def generation_of_getaddr_reply_nodes(text_file):
     global bootstrap_node_list_recieved
+    global duplicate_nodes_seen
     # print "Called generation_of_getaddr_reply_nodes(text_file)"
     #Generate a bunch of random (BUT VALID / SEEN) node addresses (assuming each indivual number is a unique node)
     for i in range (average_getAdrr_no_node_response):
@@ -214,13 +249,15 @@ def generation_of_getaddr_reply_nodes(text_file):
     for i in bootstrap_node_list_recieved_no_dups:
         if i in live_node_list:
             bootstrap_node_list_recieved_no_dups.remove(i)
+            duplicate_nodes_seen = duplicate_nodes_seen + 1
             # print "duplicate live node -- removing"
-            text_file.write("\nduplicate live node -- removing")
+            # text_file.write("\nduplicate live node -- removing")
 
     for i in bootstrap_node_list_recieved_no_dups:
         if i in dead_node_list:
             bootstrap_node_list_recieved_no_dups.remove(i)
-            text_file.write("\nduplicate dead node -- removing")
+            duplicate_nodes_seen = duplicate_nodes_seen + 1
+            # text_file.write("\nduplicate dead node -- removing")
             # print "duplicate dead node -- removing"
 
 
@@ -334,7 +371,7 @@ def block_download(env, text_file, name):
                 text_file.write('\nMalicious block recieved, total number of malicious blocks now ' + str(number_of_malicious_blocks))
         else:
             print "Valid block to download"
-            block_id = rand.sample(range(1, total_number_of_blocks), 1)
+            block_id = rand.sample(range(1, total_number_of_blocks+1), 1)
             while block_id in block_list_downloaded_valid:
                 block_id = rand.sample(range(1, total_number_of_blocks), 1)
             else:

@@ -1,0 +1,42 @@
+Need to do expirements to show graphs and stuff
+
+################################################################################
+                        What expirements ? !
+################################################################################
+
+Start from scratch - no users on the network what do we want to test?
+
+How long it takes to find every node on the network ?
+Real bitcoin network
+Simulated bitcoin network
+Our model
+
+Go from new node to dns to search nodes ?
+Go from old node to dns to search nodes ?
+
+Our model - ever user is a node (Bitcoin this doesn't have to be the case) (Network size will be larger becuase of this)
+          - Not limited to 8 simulationous connections
+
+    Variables? -  Network size
+                  Number of connections
+                  High / low resource nodes ? (Need to code this)
+                  Number of malicious nodes (percentage)
+                  Number of nodes recieved per request
+                  Percentage of duplicate nodes per request
+
+Repeat 1,000 times ? - log everything !
+
+
+Expirement 1
+
+Varrying network sizes - how long to find all nodes and check they are alive * (Could split this into 2 sections, one to descover them, one to descover and test all nodes)
+Network size will be changed, go from 10 - 10 million
+
+Bitcoin model - 8 connections, 3 DNS servers, Average node list recieved (100), percentage of duplicate nodes recieved (10?)
+Our model - 100 connections 20 DNS servers, average node list recieved (20), percentage of duplicate nodes recieved (10?)
+
+
+What will we log ? (Columns needed?)
+
+Number of connections             Number of DNS servers               Avg. size Node list recieved           Time taken to find all nodes             Time take to test all nodes if online               Number of nodes online             Number of nodes offline
+Do all at the end of simulation ? - do not spool up new column names, just append ?

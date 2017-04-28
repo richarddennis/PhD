@@ -135,11 +135,9 @@ class Blockchain_blocks_download(object):
             yield self.env.timeout(average_block_response_computational_time_low_resource)
 
 
-
-
     def dns_node_offline(self, DNS):
         "Timeout if the node is offine"
-        yield self.env.timeout(DNS_server_timeout)
+        yield self.env.timeout(query_connection_timeout)
 
 def connection_download_block_request(env, name, cw):
     #NodeUp = NodeUpPobability()# 1 is up, 0 is down
