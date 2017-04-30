@@ -1,10 +1,8 @@
 Average of all expirements run complied into a single document,,,,,,
 ,,,,,,
+Network size = 5000 nodes (Online  + offline),,,,,,
 Number of connections,Number of DNS servers,Avg. size Node list recieved ,Time taken to find all nodes,Time take to test all nodes if online,Number of nodes online  ,Number of nodes offline  
 ,,,,,,
 8,,100,2149368.89090909,13809302.6909091,2004.3090909091,2997.3181818182
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
 80,,100,204035.576576577,1371031.91891892,1998.2702702703,3003.4144144144
+500,,100,28037.1014492754,208672.869565217,1992.2536231884,3009.347826087
