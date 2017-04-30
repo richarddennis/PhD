@@ -1,0 +1,13 @@
+Expirement 1
+
+Changing the number of simulationous connections to see if we see a speed up
+Aim - Our model (More a P2P bootstrap) is better han Bitcoins
+
+for i in {1..100}; do nohup python Controller.py & done
+
+
+100 times run each expirement - no seed value atm
+
+First simualtion (8) Connections -
+    Time taken to find all nodes             Time take to test all nodes if online               Number of nodes online             Number of nodes offline
+       2149368.89090909	                                   13809302.6909091	                           2004.3090909091	                    2997.3181818182

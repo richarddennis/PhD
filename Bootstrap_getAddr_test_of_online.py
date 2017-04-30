@@ -203,7 +203,7 @@ def setup(env, client_connections):
         # print "Creating / readying connection ", node_id_number
         # text_file.write("\nCreating / readying connection "+ str(node_id_number))
         env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr)) #What if 8 finished at the same time, this would add a delay, maybe reduce the timout by 8?
-        yield env.timeout(min_node_respsonse_time_getAddr)
+        yield env.timeout((min_node_respsonse_time_getAddr/500))
         node_id_number = node_id_number + 1
     # else:
     #     print "No nodes left to query - no more connections are being created"
@@ -235,4 +235,9 @@ def Bootstrap_node_online_test_simulation(start_node_list_amount):
 
     text_file.write('\n\n\nTotal simulation time : %d' %  env.now   + ' milliseconds')
     text_file.write('\n\n\nTotal simulation time : %d' %  (env.now/milliseconds)   + ' seconds')
+
+    with open(csv_file_to_Save,"a") as csvfile:
+        writer=csv.writer(csvfile, delimiter=',')
+        writer.writerow([a for a in (client_connections, '', average_getAdrr_no_node_response, time_take_all_nodes_descovered, env.now, str(len(live_node_list)), str(len(dead_node_list)))])
+
     return env.now

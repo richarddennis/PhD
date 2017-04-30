@@ -82,21 +82,19 @@ min_repsonse_time_per_block_request = 500  # Milliseconds - Fastest response tim
 max_repsonse_time_per_block_request = (query_connection_timeout)- 1 #Max amount of time before timeout
 duplicate_nodes_seen = 0
 
-client_connections = 8 # Max number of connections to live clients
-
 query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node is alive (milliseconds)
 
 min_node_respsonse_time_getAddr = 500 #500 milliseconds, quickest repsonse time seen during collection of data
 max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
 
-client_connections = 8 # Max number of connections to live clients
+client_connections = 500 # Max number of connections to live clients
 
 DNS_server_timeout = (30 * milliseconds ) # 30 seconds
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
 
 node_id_number = 0
 
-
+csv_file_to_Save = "expirement_node_descovery.csv"
 #Move into calculations.py when ready
 #Number of nodes recieved (Bootstrap)
 def bootstrap_node_getAddr(text_file):
@@ -149,7 +147,9 @@ def node_offline(env, text_file):
         text_file.write("\nAll nodes on the network have been discovered - but not queried yet\n\n")
         text_file.write("\nTook %s nodes queried to discover the whole network" %(name))
         print "env.now", env.now
+        text_file.write("\nNodes queried to discover the whole network in %d" %(env.now))
         time_take_all_nodes_descovered = env.now
+        print time_take_all_nodes_descovered
 
         # print "\n\n\n"
         complete_flag = True
@@ -191,9 +191,13 @@ def node_online(env, text_file,name):
             print "Took %s nodes queried to discover the whole network" %(name)
             text_file.write("\n\nAll nodes on the network have been discovered - but not queried yet\n\n")
             text_file.write("Took %s nodes queried to discover the whole network" %(name))
+            text_file.write("\nNodes queried to discover the whole network in %d" %(env.now))
+            time_take_all_nodes_descovered = env.now
+            print time_take_all_nodes_descovered
+
             print "\n\n\n"
             complete_flag = True
-            time_take_all_nodes_descovered = env.now
+
             # sys.exit()
     else:
         print "All nodes queried"
@@ -219,7 +223,7 @@ def node_online(env, text_file,name):
         ##Number of connections             Number of DNS servers               Avg. size Node list recieved           Time taken to find all nodes             Time take to test all nodes if online               Number of nodes online             Number of nodes offline
 
 
-        with open("expirement_node_descovery.csv","a") as csvfile:
+        with open(csv_file_to_Save,"a") as csvfile:
             writer=csv.writer(csvfile, delimiter=',')
             writer.writerow([a for a in (client_connections, '', average_getAdrr_no_node_response, time_take_all_nodes_descovered, env.now, str(len(live_node_list)), str(len(dead_node_list)))])
 
