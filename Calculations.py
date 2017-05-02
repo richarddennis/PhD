@@ -39,7 +39,7 @@ node_live_probability = 0.4 #Likelyhood the node will be up
 
 bootstrap_node_list_recieved = [] #List of all nodes addresses recieved during the bootstrap peroid - Is a list so we can compare duplicatition probability etc
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message
-network_ip_node_size = 5000 # Number of IP addresses / nodes that have been seen on the network in the past 2 weeks
+network_ip_node_size = 50000 # Number of IP addresses / nodes that have been seen on the network in the past 2 weeks
 
 min_node_to_complete_boot_strap = 1000 # Lowest number of nodes needed before the bootstrap proccess is considered completed
 
@@ -87,7 +87,7 @@ query_connection_timeout = (30 * milliseconds ) # Timeout when checking a node i
 min_node_respsonse_time_getAddr = 500 #500 milliseconds, quickest repsonse time seen during collection of data
 max_node_respsonse_time_getAddr = (query_connection_timeout)- 1 #Max amount of time before timeout
 
-client_connections = 500 # Max number of connections to live clients
+client_connections = 80# Max number of connections to live clients
 
 DNS_server_timeout = (30 * milliseconds ) # 30 seconds
 average_getAdrr_no_node_response = 100 #Number or nodes typically sent when a node requests a getAddr message

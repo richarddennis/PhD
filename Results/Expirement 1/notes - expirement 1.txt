@@ -1,0 +1,3 @@
+If connections are not made fast enough I.E. when required, the delay can have a serious impact in the
+speed of the simulation - TODO - Test out how the delay between generation of connections effects
+simulation time

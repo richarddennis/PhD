@@ -203,7 +203,7 @@ def setup(env, client_connections):
         # print "Creating / readying connection ", node_id_number
         # text_file.write("\nCreating / readying connection "+ str(node_id_number))
         env.process(connection_getaddr_node_request(env, '%d' % node_id_number, bootstrap_getAddr)) #What if 8 finished at the same time, this would add a delay, maybe reduce the timout by 8?
-        yield env.timeout((min_node_respsonse_time_getAddr/500))
+        yield env.timeout((min_node_respsonse_time_getAddr/8))
         node_id_number = node_id_number + 1
     # else:
     #     print "No nodes left to query - no more connections are being created"
