@@ -45,8 +45,12 @@ Taking various network sizes to determine how long it takes to find all nodes on
 
                       Repeat above graphs to see how long it takes to find all the nodes on the network (How many nodes queried to get a list containing every node)
 
-              ** Calculate resources saved in our model **  
+              ** Calculate resources saved in our model **
 
-
+Repeat experiments 100 times ?
+##Number of connections   Avg. size Node list recieved    Number of nodes queried to find all nodes    Time taken to find all nodes             Time take to test all nodes if online               Number of nodes online             Number of nodes offline
+TODO - Results to collect - Standard model (Bitcoin but for various network sizes)
+        Default values - different network size (Log how long to query all live nodes / find the whole node list)
+                          Network sizes - 100, 1000, 5000, 10,000, 100,000, 1,000,000, 10,000,000
 
 Expirement 2 (Time taken to download the blockchain)
