@@ -1,13 +1,52 @@
-Expirement 1
+Aim to show our model bootstraps quicker than Bitcoin
 
-Changing the number of simulationous connections to see if we see a speed up
-Aim - Our model (More a P2P bootstrap) is better han Bitcoins
+Expirement 1 (Time taken to find all nodes )
 
-for i in {1..100}; do nohup python Controller.py & done
+Taking various network sizes to determine how long it takes to find all nodes on the network and then to query every node to see if alive or dead
+
+            Variables:
+                      Network size (Total nodes)
+                      Number of simulationous connections
+                      Number of nodes offline (demo a ddos?)
+                      Latency / delay / time take for a repsonse to happen (Increase min repsonse time for example)
+                      Timeout
+
+                      node_live_probability  #Likelyhood the node will be up
+                      query_connection_timeout  # Timeout when checking a node is alive (milliseconds)
+                      min_node_respsonse_time_getAddr # quickest repsonse time seen during collection of data
+                      max_node_respsonse_time_getAddr  #Max amount of time before timeout
+                      client_connections # Max number of connections to live clients
+                      network_ip_node_size # Number of IP addresses / nodes that have been seen on the network in the past 2 weeks
+                      average_getAdrr_no_node_response #Number or nodes typically sent when a node requests a getAddr message
+
+          Changing variables such as the number of nodes recieved from a getAddr message for each network size
+          Change the percentage of online / offline nodes
+          Change network latency times
+          Calculate the amount of resources saved in our model (time, bandwidth, CPU etc)
+          Number of nodes needed to query to find all nodes (Varables such as number of nodes recieved, network size etc for this)
+          How many nodes needed to be contacted to find every node on the network (Do for different node sizes, etc)
+
+          Demo a ddos attack - an attacker who takes down 99% of the network, how does that impact bootstrap time, resources wasted ? (What wasted resources? -)
+
+        HOW TO SHOW THE RESULTS !!!??? - WHAT KIND OF GRAPHS etc
 
 
-100 times run each expirement - no seed value atm
+        GRAPH 1 - COMPARISION OF GET ADDR RESPONSES FOR DIFFERENT CONNECTION AMOUNTS ON THE SAME NETWORK SIZE
+                  X AXIS - NUMBER OF CONNECTIONS, Y AXIS TIME (PROB SWAP THESE) = THEN 2 LINE GRAPHS (DIFFERENT COLOURS) SHOWING THE DIFFERENCES IN TIME
+                  Repeat for all network sizes
 
-First simualtion (8) Connections -
-    Time taken to find all nodes             Time take to test all nodes if online               Number of nodes online             Number of nodes offline
-       2149368.89090909	                                   13809302.6909091	                           2004.3090909091	                    2997.3181818182
+
+        SUB EXPIREMENTS (WHAT TO ACTUALLY MEASURE)
+                  Measure how network sizes (default settings) effect bootstrap time - Very important (FUTURE network sizes !)
+                      Graph - For different network sizes how long did it take to query all live nodes (Default values)
+                      Graph - For different network sizes how long did it take to query all live nodes (Different percentage of nodes online / offline) (DDOS attack demo)
+                      Graph - For different network sizes how long did it take to query all live nodes (Different number of simulationous connections)
+                      Graph - For different network sizes how long did it take to query all live nodes (Different connection reponse times)
+
+                      Repeat above graphs to see how long it takes to find all the nodes on the network (How many nodes queried to get a list containing every node)
+
+              ** Calculate resources saved in our model **  
+
+
+
+Expirement 2 (Time taken to download the blockchain)
