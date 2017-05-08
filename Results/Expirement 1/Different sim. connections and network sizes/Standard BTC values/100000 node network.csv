@@ -1,2 +1,3 @@
 Number of connections ,Avg. size Node list recieved  ,Number of nodes queried to find all nodes ,Time taken to find all nodes ,  Time take to test all nodes if online ,Number of nodes online,Number of nodes offline
 8,100,20651,57050148,276995854,39949,60053
+8,100,21693,60183126,276434478,39954,60048

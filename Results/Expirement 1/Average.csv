@@ -1,0 +1,45 @@
+Average data for different network sizes with different number of simulationous nodes,,,,,,,,
+,,,,,,,,
+Purple is standard bitcoin,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+Network size 100,,,,,,,,
+Number of connections ,Avg. size Node list recieved  ,Number of nodes queried to find all nodes ,Time taken to find all nodes ,  Time take to test all nodes if online ,Number of nodes online,Number of nodes offline,,Percentage of nodes queried compared to whole network
+3,100,14.48,100983.05,754749,40.91,60.66,,#VALUE!
+5,100,14.93,56771.45,448875.32,40.37,61.35,,0.1493
+8,100,15.04,31755.35,275368.6,40.56,61.21,,0.1504
+50,100,14.14,0,30052.27,42.05,59.52,,0.1414
+100,100,15.09,0,889.92,41.43,60.23,,0.1509
+,,,,,,,,
+,,,,,,,,
+Network size 500,,,,,,,,
+Number of connections ,Avg. size Node list recieved  ,Number of nodes queried to find all nodes ,Time taken to find all nodes ,  Time take to test all nodes if online ,Number of nodes online,Number of nodes offline,,Percentage of nodes queried compared to whole network
+3,100,64.04,466390.09,3700256.67,200.77,300.96,,0.1281
+5,100,63.39,270946.19,2218544.15,201.8,300.24,,0.1268
+8,100,63.84,166138.68,1379650.26,200.55,301.08,,0.1277
+50,100,62.88,12018.37,209101.29,202.28,299.75,,0.1258
+100,100,64.12,0,96460.77,199.37,302.43,,0.1282
+,,,,,,,,
+Network size 1000,,,,,,,,
+Number of connections ,Avg. size Node list recieved  ,Number of nodes queried to find all nodes ,Time taken to find all nodes ,  Time take to test all nodes if online ,Number of nodes online,Number of nodes offline,,Percentage of nodes queried compared to whole network
+3,100,131.4,960693.11,7404191.15,399.21,602.56,,0.1314
+5,100,135.41,595488.97,4447316.69,398.32,603.46,,0.1354
+8,100,133.06,357154.59,2766252.2,399.95,601.91,,0.1331
+50,100,132.23,44397.17,430427.81,400.14,601.65,,0.1322
+100,100,134.04,16192.88,208364.95,402.1,599.65,,0.134
+,,,,,,,,
+Network size 5000,,,,,,,,
+Number of connections ,Avg. size Node list recieved  ,Number of nodes queried to find all nodes ,Time taken to find all nodes ,  Time take to test all nodes if online ,Number of nodes online,Number of nodes offline,,Percentage of nodes queried compared to whole network
+3,100,795.09,5886655.47,36966423.66,1990,3011.77,,0.159
+5,100,777.71,3429111.97,22134038.45,2000.33,3001.29,,0.1555
+8,100,774.92,2131091.61,13827397.74,2000.92,3000.65,,0.155
+50,100,780.4,332043.11,2197987.82,2006.72,2994.83,,0.1561
+100,100,779.15,158595.13,1094032.29,1999.22,3002.37,,0.1558
+,,,,,,,,
+Network size 10000,,,,,,,,
+Number of connections ,Avg. size Node list recieved  ,Number of nodes queried to find all nodes ,Time taken to find all nodes ,  Time take to test all nodes if online ,Number of nodes online,Number of nodes offline,,Percentage of nodes queried compared to whole network
+3,100,1685.64,12407663.88,73734643.32,4008.48,5993.04,,0.1686
+5,100,1697.59,7513970.04,44273953.8,3998.74,6002.75,,0.1698
+8,100,1705.07,4712494.46,27646200.2,4008.42,5993.08,,0.1705
+50,100,1690.57,734750.33,4415551.89,3997.43,6004.01,,0.1691
+100,100,1686.97,359600.57,2198953.83,4006.91,5994.6,,0.1687

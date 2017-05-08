@@ -74,3 +74,4 @@ Number of connections ,Avg. size Node list recieved  ,Number of nodes queried to
 8,1,0,0,30000,4,10
 ,,,,,,
 IN SUMMERY – WITH 1 NODE RECIEVED PER CONNECTION THE NODE NEVER FINDS THE ENTIRE NETWORK !,,,,,,
+8,1,0,0,30353.5753424658,3.9589041096,9.9589041096
